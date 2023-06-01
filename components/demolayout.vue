@@ -189,37 +189,39 @@
     <!--======  TESTIMONIAL PART END ======-->
 
     <!--======  SCROLL-TO-TOP PART START ======-->
-    <div class="scroll-to-top">
-      <span id="return-to-top"><i class="fa fa-arrow-up"></i></span>
+    <div class="scroll-to-top" @click="toTop">
+      <span id="return-to-top "><i class="fa fa-arrow-up"></i></span>
     </div>
     <!--======  SCROLL-TO-TOP PART END ======-->
   </div>
 </template>
 
-<style>
-@import "~/assets/css/all.css";
-</style>
-<style>
-@import "~/assets/css/bootstrap.min.css";
-</style>
-<style>
-@import "~/assets/css/default.css";
-</style>
-<style>
-@import "~/assets/css/fontawesome-all.min.css";
-</style>
-<style>
-@import "~/assets/css/magnific-popup.css";
-</style>
-<style>
-@import "~/assets/css/responsive.css";
-</style>
-<style>
-@import "~/assets/css/slick-menu.css";
-</style>
-<style>
-@import "~/assets/css/slick.css";
-</style>
-<style>
-@import "~/assets/css/style.css";
-</style>
+<script>
+export default {
+  data() {
+    return {
+      scTimer: 0,
+      scY: 0,
+    };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll: function () {
+      if (this.scTimer) return;
+      this.scTimer = setTimeout(() => {
+        this.scY = window.scrollY;
+        clearTimeout(this.scTimer);
+        this.scTimer = 0;
+      }, 100);
+    },
+    toTop: function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    },
+  },
+};
+</script>

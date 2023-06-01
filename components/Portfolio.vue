@@ -104,30 +104,3 @@
 </template>
 
 
-<style scoped>
-@import "~/assets/css/all.css";
-</style>
-<style scoped>
-@import "~/assets/css/bootstrap.min.css";
-</style>
-<style scoped>
-@import "~/assets/css/default.css";
-</style>
-<style scoped>
-@import "~/assets/css/fontawesome-all.min.css";
-</style>
-<style scoped>
-@import "~/assets/css/magnific-popup.css";
-</style>
-<style scoped>
-@import "~/assets/css/responsive.css";
-</style>
-<style scoped>
-@import "~/assets/css/slick-menu.css";
-</style>
-<style scoped>
-@import "~/assets/css/slick.css";
-</style>
-<style scoped>
-@import "~/assets/css/style.css";
-</style>
