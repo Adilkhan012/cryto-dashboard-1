@@ -3,5 +3,6 @@ export default defineNuxtConfig({
   alias: {
     assets: "</rootDir>/assets",
   },
-  css: ["@fortawesome/fontawesome-svg-core/styles.css"],
+  
 });
+2
