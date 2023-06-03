@@ -1,16 +1,41 @@
 <template>
-    <!--======  TEAM PART START ======-->
-    <section class="team-area pt-140 pb-140" id="team">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 offset-lg-3 text-center pb-80">
-            <div class="section-title team-title">
-              <p class="section-para"><span></span>our team member</p>
-              <h1>Meet Our Most Creative Minds That’s Are Professional</h1>
-            </div>
+  <!--======  TEAM PART START ======-->
+  <section class="team-area pt-140 pb-140" id="team">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3 text-center pb-80">
+          <div class="section-title team-title">
+            <p class="section-para"><span></span>our team member</p>
+            <h1>Meet Our Most Creative Minds That’s Are Professional</h1>
           </div>
         </div>
-        <div class="row team-carousel-active">
+      </div>
+      <div ref="Intersection">
+        <div class="cards-container">
+          <card-component
+            v-for="i in 100"
+            :key="i"
+            @click="ShowCard"
+            ref="Card"
+          ></card-component>
+        </div>
+        <div class="showcard" ref="showcard" @mousemove="CloseAnimation">
+          <div
+            id="cursorClose"
+            ref="close"
+            style="z-index: 0"
+            @click="HideCard"
+          >
+            <span id="close">x</span>
+          </div>
+          <img
+            src="@/assets/images/fwa-cards-30.png"
+            style="z-index: 5"
+            alt=""
+          />
+        </div>
+      </div>
+      <!-- <div class="row team-carousel-active">
           <div class="col-lg-4">
             <div class="single-team-area">
               <div class="single-team-img text-center">
@@ -91,10 +116,95 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-    <!--======  TEAM PART END ======-->
+        </div> -->
+    </div>
+  </section>
+  <!--======  TEAM PART END ======-->
 </template>
+<script>
+import CardComponent from "../components/CardComponent.vue";
+import { gsap } from "gsap";
+export default {
+  components: { CardComponent },
+  name: "AnimationProjectIndex",
 
+  data() {
+    return {};
+  },
 
+  mounted() {},
+
+  methods: {
+    ShowCard() {
+      this.$refs.showcard.style.display = "flex";
+    },
+    HideCard() {
+      this.$refs.showcard.style.display = "none";
+      gsap.to(this.$refs.close, {
+        duration: 0,
+        x: 0,
+        y: 0,
+      });
+    },
+    CloseAnimation(e) {
+      const box = this.$refs.showcard.getBoundingClientRect();
+      const offsetX = Math.abs(-e.clientX - box.left + 30 - box.width / 600);
+      const offsetY = Math.abs(-e.clientY - box.top + 30 - box.height / 600);
+      gsap.to(this.$refs.close, {
+        duration: 0,
+        x: offsetX,
+        y: offsetY,
+      });
+    },
+  },
+};
+</script>
+
+<style scoped>
+.showcard {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0%;
+  left: 0%;
+  z-index: 1;
+  background: transparent;
+  justify-content: center;
+  align-items: center;
+}
+.showcard > div {
+  z-index: 2;
+}
+
+#cursorClose {
+  width: 50px;
+  height: 50px;
+  background: white;
+  color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  border: 1px solid black;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  z-index: 4;
+}
+.cards-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(10, 1fr);
+  background: white;
+  transform: perspective(500px) rotate(30deg) skew(-30deg);
+}
+</style>
