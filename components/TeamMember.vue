@@ -1,8 +1,8 @@
 <template>
   <!--======  TEAM PART START ======-->
   <section class="team-area pt-140 pb-140" id="team">
-    <div class="container">
-      <div class="row">
+    <div class="container" style="margin: 0; padding: 0">
+      <div class="row" style="justify-content: end">
         <div class="col-lg-6 offset-lg-3 text-center pb-80">
           <div class="section-title team-title">
             <p class="section-para"><span></span>our team member</p>
@@ -10,7 +10,7 @@
           </div>
         </div>
       </div>
-      <div ref="Intersection">
+      <div ref="Intersection" class="Intersection">
         <div class="cards-container">
           <card-component
             v-for="i in 100"
@@ -161,6 +161,22 @@ export default {
 </script>
 
 <style scoped>
+.Intersection {
+  width: 100vw;
+  position: relative;
+  left: 0;
+  box-sizing: border-box;
+  overflow: scroll;
+}
+.Intersection::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.Intersection {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 .showcard {
   display: none;
   position: fixed;
@@ -198,9 +214,9 @@ export default {
   z-index: 4;
 }
 .cards-container {
-  width: 100vw;
-  height: 100vh;
-  overflow: scroll;
+  min-width: 100vw;
+  min-height: 100vh;
+  /* overflow: scroll; */
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(10, 1fr);
