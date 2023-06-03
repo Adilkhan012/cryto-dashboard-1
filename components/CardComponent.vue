@@ -2,13 +2,13 @@
   <div class="card" ref="cardContainer">
     <div class="card-inner" ref="innercard">
       <div class="card-front">
-        <img width="100%" height="100%" src="@/assets/images/cardback.jpg" />
+        <img width="100%" height="100%" src="../assets/images/cardback.jpg" />
       </div>
       <div class="card-back">
         <img
           width="100%"
           height="100%"
-          src="@/assets/images/fwa-cards-30.png"
+          src="../assets/images/fwa-cards-30.png"
           alt=""
           ref="card"
           @mousemove="Move"
