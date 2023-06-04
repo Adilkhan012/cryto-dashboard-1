@@ -74,8 +74,8 @@
                   <li>
                     <a href="#Blog">Blog</a>
                     <ul class="submenu">
-                      <Li><a href="blog.html">Latest Blog</a></Li>
-                      <Li><a href="blog-details.html">Blog Details</a></Li>
+                      <li><a href="blog.html">Latest Blog</a></li>
+                      <li><a href="blog-details.html">Blog Details</a></li>
                     </ul>
                   </li>
                   <li><a href="#Contact">Contact</a></li>
@@ -89,4 +89,3 @@
   </header>
   <!--======  HEADER PART END ======-->
 </template>
-
