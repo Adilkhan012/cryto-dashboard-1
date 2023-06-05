@@ -75,9 +75,7 @@
 </template>
 
 <script>
-import imageAni from "./imageAni.vue";
 export default {
-  components: { imageAni },
   name: "AnimationProjectIndex",
 
   data() {
