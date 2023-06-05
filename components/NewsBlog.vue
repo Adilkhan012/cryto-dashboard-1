@@ -1,7 +1,7 @@
 <template>
   <!--======  BLOG PART START ======-->
   <section class="blog-area pb-140" id="Blog">
-    <div class="container">
+    <!-- <div class="container">
       <div class="row">
         <div class="col-lg-4 pb-80">
           <div class="section-title blog-title">
@@ -68,9 +68,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </section>
   <!--======  BLOG PART END ======-->
 </template>
-
-

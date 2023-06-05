@@ -137,7 +137,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-5">
-            <img src="@/assets/images/testimonial/1.png" alt="" />
+            <img src="@/assets/images/Dr/slider/4.jpg" alt="" />
           </div>
           <div class="col-lg-7 textimonial-carousel-active">
             <div class="single-testimonial-content">
@@ -152,7 +152,7 @@
               </p>
               <div class="autohor-details">
                 <img
-                  src="@/assets/images/testimonial/author.png"
+                  src="@/assets/images/testimonial/1.jpg"
                   alt=""
                   class="author-img"
                 />
@@ -173,7 +173,7 @@
               </p>
               <div class="autohor-details">
                 <img
-                  src="@/assets/images/testimonial/author.png"
+                  src="@/assets/images/testimonial/1.jpg"
                   alt=""
                   class="author-img"
                 />

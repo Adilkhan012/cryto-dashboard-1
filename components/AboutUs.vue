@@ -1,56 +1,51 @@
 <template>
   <!--======  ABOUT-US PART START ======-->
-  <section class="about-us-area" id="About">
+  <section class="about_us">
     <div class="container">
       <div class="row">
-        <div class="about-us-img">
-          <img
-            src="../assets/images/about-us/1.png"
-            alt=""
-            class="about-img-1"
-          />
-          <img
-            src="../assets/images/about-us/2.png"
-            alt=""
-            class="about-img-2"
-          />
-        </div>
-        <div class="col-lg-5 offset-lg-7">
-          <div class="about-us-content">
-            <div class="section-title about-us-title">
-              <p class="section-para"><span></span>About Us</p>
-              <h1>Most Creative Agency For Your Project</h1>
+        <div class="col-md-6 m-md-auto">
+          <div class="about-img">
+            <div class="img-1">
+              <img src="@/assets/images/about_img.png" alt="" class="about" />
             </div>
-            <div class="about-us-text">
-              <span>A</span>
-              <p>
-                Avoids pleasure itself, because it is pleasure, but because
-                those who do not know how to pursuetw pleasure ration counter
-                consequences that ares extremely painful. Nor again is tanyone
-                who loves or pursues or desires to obtain pain
-              </p>
+            <div class="img-2">
+              <img src="@/assets/images/about_img_1.png" class="about" />
             </div>
-            <ul class="about-menu">
-              <li>
-                <a href="#"><i class="fas fa-check"></i>Web Design</a>
-              </li>
-              <li>
-                <a href="#"><i class="fas fa-check"></i>Web Development</a>
-              </li>
-              <li>
-                <a href="#"><i class="fas fa-check"></i>Graphics Arts</a>
-              </li>
-              <li>
-                <a href="#"><i class="fas fa-check"></i>Product Marketing</a>
-              </li>
-              <li>
-                <a href="#"><i class="fas fa-check"></i>User Research</a>
-              </li>
-            </ul>
-            <a href="#" class="btn about-btn"
-              >Contact Us <i class="fa fa-arrow-right"></i
-            ></a>
+            <div class="img-3">
+              <img src="@/assets/images/about_img_2.png" alt="" class="about" />
+            </div>
+            <div class="shape movingX">
+              <img src="@/assets/images/shape/about-shape.png" alt="" />
+            </div>
           </div>
+        </div>
+        <div class="col-md-6">
+          <div class="about-content">
+            <h5 class="sub-title">About Us</h5>
+            <h1>Dr.Vinessh Vijayan</h1>
+            <p>
+              Vineesh Vijayan is an ambitious & optimistic person whose vast and
+              extensive experience in Training & Consultancy of Web3.0
+              specifically in Blockchain Technology, Cryptocurrency and
+              Affiliate Marketing Industry, have influenced and changed lives of
+              many people across the globe. His skills added with forbearance
+              marks him out in any field he lands his feet into.
+            </p>
+            <p>
+              He is an Entrepreneur, Internationally acclaimed Business
+              Consultant, Speaker, Coach and a Co-Author who has been
+              appreciated Globally for his Contribution in Spreading the
+              Knowledge of Blockchain to Masses.
+            </p>
+            <p>
+              He Inspires and Encourages people around the world to Discover
+              their True Potential & Help to to Work for their Dreams rather
+              than just compromising with the Necessities of life. His thought
+              provoking speech has an overwhelming response throughout the globe
+              .
+            </p>
+          </div>
+          <a href="" class="read-more">Read More</a>
         </div>
       </div>
     </div>
@@ -58,3 +53,186 @@
   <!--======  ABOUT-US PART END ======-->
 </template>
 
+<style scoped>
+.about_us {
+  margin: 60px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.about_us .about-img {
+  position: relative;
+}
+
+.about_us .about-img .about {
+  border-radius: 10px;
+}
+
+.about_us .about-img .img-1 {
+  text-align: right;
+}
+
+.about_us .about-img .img-2 {
+  position: absolute;
+  top: 12%;
+  left: -10%;
+}
+
+.about_us .about-img .img-2 .about {
+  border: 7px solid #fff;
+}
+
+.about_us .about-img .img-3 {
+  text-align: right;
+  margin-top: 25px;
+}
+
+.about_us .about-img .shape {
+  position: absolute;
+  bottom: -7%;
+  left: -25%;
+}
+
+.about_us .about-content span {
+  margin-bottom: 10px;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.about_us .about-content h1 {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 13px;
+}
+
+.about_us .about-content p {
+  color: #74787c;
+  font-size: 16px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+.read-more {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 16px 30px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 30px;
+  border: transparent;
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  background: #3520df;
+}
+
+.read-more:hover {
+  color: #fff;
+}
+
+.sub-title {
+  position: relative;
+  z-index: 2;
+  padding-left: 20px;
+  font-size: 17px;
+  color: #3520df;
+}
+
+.sub-title:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  background: #3520df;
+  z-index: 9;
+  height: 7px;
+  width: 7px;
+  border-radius: 50px;
+  top: 30%;
+}
+
+.title h1 {
+  color: #fff;
+  font-size: 45px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.title h5 {
+  color: #3016ff;
+}
+
+.shadow-primary {
+  -webkit-box-shadow: 0 0.5rem 1rem rgb(110 0 255 / 15%) !important;
+  box-shadow: 0 0.5rem 1rem rgb(110 0 255 / 15%) !important;
+}
+
+.testimonial img {
+  height: 100px;
+  width: 100px !important;
+}
+
+.testimonial-sec {
+  padding: 10rem 0;
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(45deg, #000549, #0198d0);
+}
+
+.testimonial-sec p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #d6d8dd;
+  line-height: 1.7;
+}
+
+.testimonial .owl-nav i {
+  position: absolute;
+  top: 50%;
+  background: #ffff;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 50px;
+  font-size: 19px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 9999;
+}
+
+.testimonial .owl-nav i:hover {
+  color: #000;
+}
+
+.testimonial .owl-nav .owl-prev i {
+  left: 90px;
+}
+
+.testimonial .owl-nav .owl-next i {
+  right: 90px;
+}
+
+.font-w-5 {
+  font-weight: 500;
+}
+
+.shape-1.bottom {
+  top: inherit;
+  bottom: -1px;
+}
+
+.shape-1 {
+  position: absolute;
+  top: -1px;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+small.text-muted.font-w-5.font-italic {
+  color: #f2f2f2 !important;
+}
+</style>

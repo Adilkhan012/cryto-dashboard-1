@@ -1,6 +1,6 @@
 $(function () {
   "use strict";
-
+  alert("asdfjaskd");
   //===== Prealoder
   $(window).load(function () {
     $("#loading").fadeOut(500);
