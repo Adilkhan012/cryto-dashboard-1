@@ -105,7 +105,7 @@
 <style scoped>
 .blog-section {
   padding: 80px 0px;
-  background: url(../images/shape/bg-blog.webp) no-repeat;
+
   background-position: center center;
   background-size: cover;
 }
