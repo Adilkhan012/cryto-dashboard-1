@@ -1,7 +1,7 @@
 <template>
   <div>
     <NewHeader />
-    <banner />
+    <Banner />
     <AboutUs />
     <Service />
     <!-- <Testimonials /> -->
