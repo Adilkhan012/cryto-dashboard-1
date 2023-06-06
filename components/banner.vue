@@ -7,7 +7,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div>
-                <ImageAni></ImageAni>
+                <imageAni></imageAni>
               </div>
             </div>
           </div>
@@ -75,9 +75,10 @@
 </template>
 
 <script>
+import imageAni from "./imageAni.vue";
 export default {
   name: "AnimationProjectIndex",
-
+  components: { imageAni },
   data() {
     return {};
   },
