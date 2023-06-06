@@ -137,7 +137,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-5">
-            <img src="@/assets/images/Dr/slider/3.jpg" alt="" />
+            <img src="@/assets/images/Dr/slider/4.jpg" alt="" />
           </div>
           <div class="col-lg-7 textimonial-carousel-active">
             <div class="single-testimonial-content">
