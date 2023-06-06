@@ -7,7 +7,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div>
-                <imageAni></imageAni>
+                <ImageAni></ImageAni>
               </div>
             </div>
           </div>
