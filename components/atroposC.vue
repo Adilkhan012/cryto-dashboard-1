@@ -13,14 +13,8 @@
       <div class="atropos-scale">
         <div class="atropos-rotate">
           <div class="atropos-inner">
-            <div
-              class="img-box"
-              ref="card"
-              @mousemove="MoveBlob"
-              @mouseleave="ResetBlob"
-              @mouseenter="IsIn"
-            >
-              <div class="Blob" ref="blob"></div>
+            <div class="img-box" ref="card">
+              <!-- <div class="Blob" ref="blob"></div> -->
               <img
                 src="@/assets/images/service_1.jpg"
                 alt=""
@@ -81,169 +75,158 @@ export default {
   },
 
   methods: {
-    IsIn() {
-      this.in = true;
-      this.out = false;
-    },
-    MoveBlob(e) {
-      const blob = this.$refs.blob.getBoundingClientRect();
-      const box = this.$refs.card.getBoundingClientRect();
-      const offsetX = e.clientX - box.left;
-      const offsetY = e.clientY - box.top;
-      this.offsetX = offsetX;
-      this.offsetY = offsetY;
-      console.log("Y", offsetY);
-      console.log("X", offsetX);
-
-      if (this.in && !this.out) {
-        const fromTop = offsetY < box.height / 2;
-        const fromLeft = offsetX < box.width / 2;
-        const fromRight = offsetX > box.width / 2;
-        const fromBottom = offsetY > box.height / 2;
-
-        let x = 0;
-        let y = 0;
-
-        if (fromTop && fromLeft) {
-          x = offsetX - blob.width;
-          y = offsetY - blob.height;
-          if (offsetX > 150) {
-            this.out = true;
-            gsap.from(this.$refs.blob, {
-              x: "-150%",
-              y: "-150%",
-            });
-            // this.$refs.videoPlayer.play();
-          }
-          if (offsetY > 110) {
-            this.out = true;
-            gsap.from(this.$refs.blob, {
-              x: "-150%",
-              y: "-150%",
-            });
-            // this.$refs.videoPlayer.play();
-          }
-        } else if (fromTop && fromRight) {
-          x = offsetX;
-          y = offsetY - blob.height;
-
-          if (offsetX < 250) {
-            this.out = true;
-            gsap.from(this.$refs.blob, {
-              x: "150%",
-              y: "-150%",
-            });
-            // this.$refs.videoPlayer.play();
-          }
-          if (offsetY > 110) {
-            this.out = true;
-            gsap.from(this.$refs.blob, {
-              x: "150%",
-              y: "-150%",
-            });
-            // this.$refs.videoPlayer.play();
-          }
-        } else if (fromBottom && fromLeft) {
-          x = offsetX - blob.width;
-          y = offsetY;
-
-          if (offsetX > 150) {
-            this.out = true;
-            gsap.from(this.$refs.blob, {
-              x: "-150%",
-              y: "150%",
-            });
-            // this.$refs.videoPlayer.play();
-          }
-          if (offsetY < 190) {
-            this.out = true;
-            gsap.from(this.$refs.blob, {
-              x: "-150%",
-              y: "150%",
-            });
-            // this.$refs.videoPlayer.play();
-          }
-        } else if (fromBottom && fromRight) {
-          x = offsetX;
-          y = offsetY;
-
-          if (offsetX < 220) {
-            this.out = true;
-            gsap.from(this.$refs.blob, {
-              x: "150%",
-              y: "150%",
-            });
-            // this.$refs.videoPlayer.play();
-          }
-          if (offsetY < 220) {
-            this.out = true;
-            gsap.from(this.$refs.blob, {
-              x: "150%",
-              y: "150%",
-            });
-            // this.$refs.videoPlayer.play();
-          }
-        }
-
-        gsap.from(this.$refs.blob, {
-          duration: 1,
-          x: `${x}px`,
-          y: `${y}px`,
-        });
-      }
-    },
-
+    // IsIn() {
+    //   this.in = true;
+    //   this.out = false;
+    // },
     // MoveBlob(e) {
+    //   const blob = this.$refs.blob.getBoundingClientRect();
     //   const box = this.$refs.card.getBoundingClientRect();
-    //   const offsetX = e.clientX - box.left - box.width / 800;
-    //   const offsetY = e.clientY - box.top - box.height / 800;
-    //   if (offsetY < 120 && offsetX < 100 && !this.out && this.in) {
-    //     console.log(offsetY);
-    //     console.log(offsetX);
-
-    //     gsap.to(this.$refs.blob, {
-    //       duration: 0,
-    //       x: `${offsetX - 150}%`,
-    //       y: `${offsetY - 150}%`,
-    //     });
-    //   } else {
-    //     this.out = true;
-    //     gsap.to(this.$refs.blob, {
+    //   const offsetX = e.clientX - box.left;
+    //   const offsetY = e.clientY - box.top;
+    //   this.offsetX = offsetX;
+    //   this.offsetY = offsetY;
+    //   console.log("Y", offsetY);
+    //   console.log("X", offsetX);
+    //   if (this.in && !this.out) {
+    //     const fromTop = offsetY < box.height / 2;
+    //     const fromLeft = offsetX < box.width / 2;
+    //     const fromRight = offsetX > box.width / 2;
+    //     const fromBottom = offsetY > box.height / 2;
+    //     let x = 0;
+    //     let y = 0;
+    //     if (fromTop && fromLeft) {
+    //       x = offsetX - blob.width;
+    //       y = offsetY - blob.height;
+    //       if (offsetX > 150) {
+    //         this.out = true;
+    //         gsap.from(this.$refs.blob, {
+    //           x: "-150%",
+    //           y: "-150%",
+    //         });
+    //         // this.$refs.videoPlayer.play();
+    //       }
+    //       if (offsetY > 110) {
+    //         this.out = true;
+    //         gsap.from(this.$refs.blob, {
+    //           x: "-150%",
+    //           y: "-150%",
+    //         });
+    //         // this.$refs.videoPlayer.play();
+    //       }
+    //     } else if (fromTop && fromRight) {
+    //       x = offsetX;
+    //       y = offsetY - blob.height;
+    //       if (offsetX < 250) {
+    //         this.out = true;
+    //         gsap.from(this.$refs.blob, {
+    //           x: "150%",
+    //           y: "-150%",
+    //         });
+    //         // this.$refs.videoPlayer.play();
+    //       }
+    //       if (offsetY > 110) {
+    //         this.out = true;
+    //         gsap.from(this.$refs.blob, {
+    //           x: "150%",
+    //           y: "-150%",
+    //         });
+    //         // this.$refs.videoPlayer.play();
+    //       }
+    //     } else if (fromBottom && fromLeft) {
+    //       x = offsetX - blob.width;
+    //       y = offsetY;
+    //       if (offsetX > 150) {
+    //         this.out = true;
+    //         gsap.from(this.$refs.blob, {
+    //           x: "-150%",
+    //           y: "150%",
+    //         });
+    //         // this.$refs.videoPlayer.play();
+    //       }
+    //       if (offsetY < 190) {
+    //         this.out = true;
+    //         gsap.from(this.$refs.blob, {
+    //           x: "-150%",
+    //           y: "150%",
+    //         });
+    //         // this.$refs.videoPlayer.play();
+    //       }
+    //     } else if (fromBottom && fromRight) {
+    //       x = offsetX;
+    //       y = offsetY;
+    //       if (offsetX < 220) {
+    //         this.out = true;
+    //         gsap.from(this.$refs.blob, {
+    //           x: "150%",
+    //           y: "150%",
+    //         });
+    //         // this.$refs.videoPlayer.play();
+    //       }
+    //       if (offsetY < 220) {
+    //         this.out = true;
+    //         gsap.from(this.$refs.blob, {
+    //           x: "150%",
+    //           y: "150%",
+    //         });
+    //         // this.$refs.videoPlayer.play();
+    //       }
+    //     }
+    //     gsap.from(this.$refs.blob, {
     //       duration: 1,
-    //       x: `-100%`,
-    //       y: `-100%`,
+    //       x: `${x}px`,
+    //       y: `${y}px`,
     //     });
     //   }
     // },
-    ResetBlob() {
-      this.in = false;
-      this.out = true;
-      gsap.to(this.$refs.blob, {
-        duration: 0,
-        x: `-100%`,
-        y: `-100%`,
-      });
-      // this.$refs.videoPlayer.pause();
-      // this.$refs.videoPlayer.currentTime = 0;
-    },
-    MoveMenu(e) {
-      const box = this.$refs.sidebar.getBoundingClientRect();
-      const offsetX = Math.abs(-e.clientX - box.left + 30 - box.width / 600);
-      const offsetY = e.clientY - box.top - box.height;
-
-      gsap.to(this.$refs.sidebar, {
-        duration: 1,
-        x: 0,
-        y: `${offsetY + e.pageY}px`,
-      });
-      console.log(e);
-    },
-    Reset() {
-      gsap.to(this.$refs.sidebar, {
-        duration: 1,
-        x: 100,
-      });
-    },
+    // //   const box = this.$refs.card.getBoundingClientRect();
+    // //   const offsetX = e.clientX - box.left - box.width / 800;
+    // //   const offsetY = e.clientY - box.top - box.height / 800;
+    // //   if (offsetY < 120 && offsetX < 100 && !this.out && this.in) {
+    // //     console.log(offsetY);
+    // //     console.log(offsetX);
+    // //     gsap.to(this.$refs.blob, {
+    // //       duration: 0,
+    // //       x: `${offsetX - 150}%`,
+    // //       y: `${offsetY - 150}%`,
+    // //     });
+    // //   } else {
+    // //     this.out = true;
+    // //     gsap.to(this.$refs.blob, {
+    // //       duration: 1,
+    // //       x: `-100%`,
+    // //       y: `-100%`,
+    // //     });
+    // //   }
+    // // },
+    // ResetBlob() {
+    //   this.in = false;
+    //   this.out = true;
+    //   gsap.to(this.$refs.blob, {
+    //     duration: 0,
+    //     x: `-100%`,
+    //     y: `-100%`,
+    //   });
+    //   // this.$refs.videoPlayer.pause();
+    //   // this.$refs.videoPlayer.currentTime = 0;
+    // },
+    // MoveMenu(e) {
+    //   const box = this.$refs.sidebar.getBoundingClientRect();
+    //   const offsetX = Math.abs(-e.clientX - box.left + 30 - box.width / 600);
+    //   const offsetY = e.clientY - box.top - box.height;
+    //   gsap.to(this.$refs.sidebar, {
+    //     duration: 1,
+    //     x: 0,
+    //     y: `${offsetY + e.pageY}px`,
+    //   });
+    //   console.log(e);
+    // },
+    // Reset() {
+    //   gsap.to(this.$refs.sidebar, {
+    //     duration: 1,
+    //     x: 100,
+    //   });
+    // },
   },
 };
 </script>
