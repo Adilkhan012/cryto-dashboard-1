@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     "@/assets/css/slick-menu.css",
     "@/assets/css/slick.css",
     "@/assets/css/style.css",
+    "vuetify/_styles.scss",
   ],
   app: {
     head: {
@@ -79,6 +80,9 @@ export default defineNuxtConfig({
   components: true,
   alias: {
     assets: "</rootDir>/assets",
+  },
+  build: {
+    transpile: ["vuetify"],
   },
 });
 2;
