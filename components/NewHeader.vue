@@ -70,7 +70,7 @@
           <div class="col-lg-2">
             <div class="logo">
               <a href="index.html">
-                <img v-if="Logo == ''" src="@/assets/images/logo.png" alt="" />
+                <img v-if="Logo == ''" src="@/assets/logo.png" alt="" />
                 <img v-else :src="Logo" alt="" />
               </a>
             </div>

@@ -124,6 +124,130 @@
         </div>
       </div>
     </section>
+    <section
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      "
+    >
+      <h3 style="font-weight: 500">WHY VINEESH VIJAYAN?</h3>
+      <div style="display: flex; gap: 3rem">
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+          "
+        >
+          <div
+            class="boxes-icon circle"
+            style="border-color: #2e8ece; width: 90px; height: 90px"
+          >
+            <span class="inner-icon"
+              ><span class="icon"
+                ><i
+                  class="fa fa-globe"
+                  style="
+                    color: #2e8ece;
+                    font-size: 30px;
+                    line-height: 30px;
+                    vertical-align: middle;
+                  "
+                ></i></span
+            ></span>
+          </div>
+          <span style="font-weight: 500">Global Influencer</span>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+          "
+        >
+          <div
+            class="boxes-icon circle"
+            style="border-color: #2e8ece; width: 90px; height: 90px"
+          >
+            <span class="inner-icon"
+              ><span class="icon"
+                ><i
+                  class="fa fa-users"
+                  style="
+                    color: #2e8ece;
+                    font-size: 30px;
+                    line-height: 30px;
+                    vertical-align: middle;
+                  "
+                ></i></span
+            ></span>
+          </div>
+          <span style="font-weight: 500">Solid Team worker</span>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+          "
+        >
+          <div
+            class="boxes-icon circle"
+            style="border-color: #2e8ece; width: 90px; height: 90px"
+          >
+            <span class="inner-icon"
+              ><span class="icon"
+                ><i
+                  class="fa fa-lightbulb"
+                  style="
+                    color: #2e8ece;
+                    font-size: 30px;
+                    line-height: 30px;
+                    vertical-align: middle;
+                  "
+                ></i></span
+            ></span>
+          </div>
+          <span style="font-weight: 500">Strategic Thinker</span>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+          "
+        >
+          <div
+            class="boxes-icon circle"
+            style="border-color: #2e8ece; width: 90px; height: 90px"
+          >
+            <span class="inner-icon"
+              ><span class="icon"
+                ><i
+                  class="fa fa-handshake"
+                  style="
+                    color: #2e8ece;
+                    font-size: 30px;
+                    line-height: 30px;
+                    vertical-align: middle;
+                  "
+                ></i></span
+            ></span>
+          </div>
+          <span style="font-weight: 500">Highly Committed</span>
+        </div>
+      </div>
+    </section>
     <!--======  PROJECTS PART END ======-->
     <Portfolio />
     <!--======  TESTIMONIAL PART START ======-->
@@ -283,3 +407,14 @@ export default {
   },
 };
 </script>
+<style scoped>
+.circle {
+  width: 200px;
+  height: 200px;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+</style>
