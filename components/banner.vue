@@ -6,7 +6,14 @@
         <div class="">
           <div class="row">
             <div class="col-lg-12">
-              <div>
+              <div
+                :style="
+                  image != '' &&
+                  `background: url(${image});background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;`
+                "
+              >
                 <imageAni></imageAni>
               </div>
             </div>
@@ -19,21 +26,30 @@
     </section>
     <!--======  HERO PART END ======-->
     <!--======  SERVICE-CATEGORIES PART START ======-->
-    -->
+
     <!--======  SERVICE-CATEGORIES PART END ======-->
   </div>
 </template>
 
 <script>
 import imageAni from "./imageAni.vue";
+import axios from "axios";
 export default {
   name: "AnimationProjectIndex",
   components: { imageAni },
   data() {
-    return {};
+    return {
+      image: "",
+    };
   },
 
-  mounted() {},
+  mounted() {
+    axios.get("https://crypto-backend-seven.vercel.app/Images").then((res) => {
+      if (res.data != null) {
+        this.image = `https://crypto-backend-seven.vercel.app/${res.data.Banner}`;
+      }
+    });
+  },
 
   methods: {},
 };

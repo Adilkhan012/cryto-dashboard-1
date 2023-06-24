@@ -19,9 +19,13 @@
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@mdi/font": "^7.2.96",
+    "@pinia/nuxt": "^0.4.11",
     "atropos": "^1.0.2",
+    "axios": "^1.4.0",
     "gsap": "^3.11.5",
+    "pinia": "^2.1.4",
+    "sweetalert2": "^11.7.12",
     "vue-owl-carousel": "^2.0.3",
-    "vuetify": "^3.3.3"
+    "vuetify": "^3.3.5"
   }
 }

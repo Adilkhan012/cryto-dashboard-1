@@ -1,107 +1,107 @@
 <template>
   <!--======  PORTFOLIO PART START ======-->
-  <section class="blog-section">
+  <section class="blog-section" id="Portfolio">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6">
+      <div class="row" v-if="blogs.length > 0">
+        <div class="col-md-6" v-if="blogs[0] != undefined">
           <div class="title-blog">
             <h3 class="title">Our Blog</h3>
           </div>
 
           <div class="blog-card">
             <div class="thumb">
-              <a href="#">
+              <NuxtLink :to="`/Blogs/${blogs[0]._id}`">
                 <img
-                  src="@/assets/images/blog/1.png"
+                  :src="`https://crypto-backend-seven.vercel.app/${blogs[0].Banner}`"
                   class="img-fluid"
                   alt=""
                 />
-              </a>
+              </NuxtLink>
             </div>
             <div class="content">
-              <p>
-                By Admin / 12 January, 2021 / <span>Digital Marketing.</span>
-              </p>
               <h3 class="title">
-                <a href="#"
-                  >The Step-by-Step Guide to Improving Your Google Rankings.</a
-                >
+                <a href="#">{{ blogs[0].Title }}</a>
               </h3>
             </div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="blog-meta-cards">
-            <div class="blog-meta-card">
+            <div class="blog-meta-card" v-if="blogs[1] != undefined">
               <div class="thumb">
                 <img
-                  src="@/assets/images/blog/1.png"
+                  :src="`https://crypto-backend-seven.vercel.app/${blogs[1].Banner}`"
                   class="img-fluid"
                   alt=""
                 />
               </div>
               <div class="content">
-                <p>
-                  By Admin / 12 January, 2021 /
-                  <span>Digital Marketing.</span>
-                </p>
                 <h3 class="title">
-                  <a href="#">
-                    The Step-by-Step Guide to improving your google rankings.
-                  </a>
+                  <NuxtLink :to="`/Blogs/${blogs[1]._id}`">
+                    {{ blogs[1].Title }}
+                  </NuxtLink>
                 </h3>
               </div>
             </div>
 
-            <div class="blog-meta-card">
+            <div class="blog-meta-card" v-if="blogs[2] != undefined">
               <div class="thumb">
                 <img
-                  src="@/assets/images/blog/1.png"
+                  :src="`https://crypto-backend-seven.vercel.app/${blogs[2].Banner}`"
                   class="img-fluid"
                   alt=""
                 />
               </div>
               <div class="content">
-                <p>
-                  By Admin / 12 January, 2021 /
-                  <span>Digital Marketing.</span>
-                </p>
                 <h3 class="title">
-                  <a href="#">
-                    The Step-by-Step Guide to improving your google rankings.
-                  </a>
+                  <NuxtLink :to="`/Blogs/${blogs[2]._id}`">
+                    {{ blogs[2].Title }}
+                  </NuxtLink>
                 </h3>
               </div>
             </div>
 
-            <div class="blog-meta-card">
+            <div class="blog-meta-card" v-if="blogs[3] != undefined">
               <div class="thumb">
                 <img
-                  src="@/assets/images/blog/1.png"
+                  :src="`https://crypto-backend-seven.vercel.app/${blogs[3].Banner}`"
                   class="img-fluid"
                   alt=""
                 />
               </div>
               <div class="content">
-                <p>
-                  By Admin / 12 January, 2021 /
-                  <span>Digital Marketing.</span>
-                </p>
                 <h3 class="title">
-                  <a href="#">
-                    The Step-by-Step Guide to improving your google rankings.
-                  </a>
+                  <NuxtLink :to="`/Blogs/${blogs[3]._id}`">
+                    {{ blogs[3].Title }}
+                  </NuxtLink>
                 </h3>
               </div>
             </div>
           </div>
         </div>
+        <NuxtLink to="/Blogs" class="see-more">See More</NuxtLink>
       </div>
     </div>
   </section>
   <!--======  PORTFOLIO PART END ======-->
 </template>
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      blogs: [],
+    };
+  },
 
+  mounted() {
+    console.log("sadfhkja");
+    axios.get(`https://crypto-backend-seven.vercel.app/Blogs`).then((res) => {
+      this.blogs = res.data.data;
+    });
+  },
+};
+</script>
 <style scoped>
 .blog-section {
   padding: 80px 0px;
@@ -274,5 +274,20 @@
 .blog-card .content .title a {
   color: #000;
   text-decoration: none;
+}
+.see-more {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 16px 30px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 30px;
+  border: transparent;
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  background: #3520df;
+  margin: 3rem auto;
 }
 </style>

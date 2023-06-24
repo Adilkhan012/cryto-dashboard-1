@@ -1,33 +1,40 @@
 <template>
   <div class="col-md-4">
-    <atropos
-      :shadow-offset="50"
-      :rotate-y-max="20"
-      :rotate-x-max="20"
-      :rotate-x-invert="true"
-      :rotate-y-invert="true"
-      :shadow-scale="3"
-      :highlight="true"
-      class="atropos my-atropos cards"
-    >
-      <div class="atropos-scale">
-        <div class="atropos-rotate">
-          <div class="atropos-inner">
-            <div class="img-box" ref="card">
-              <!-- <div class="Blob" ref="blob"></div> -->
-              <img
-                src="@/assets/images/service_1.jpg"
-                alt=""
-                class="img-fluid"
-              />
-            </div>
-            <div class="title-box">
-              <h4>Consultancy Services</h4>
+    <NuxtLink :to="`/FeaturedPrograms/${image.Type}`">
+      <atropos
+        :shadow-offset="50"
+        :rotate-y-max="20"
+        :rotate-x-max="20"
+        :rotate-x-invert="true"
+        :rotate-y-invert="true"
+        :shadow-scale="3"
+        :highlight="true"
+        class="atropos my-atropos cards"
+      >
+        <div class="atropos-scale">
+          <div class="atropos-rotate">
+            <div class="atropos-inner">
+              <div class="img-box" ref="card">
+                <!-- <div class="Blob" ref="blob"></div> -->
+                <img :src="banner" alt="" width="300" height="250" />
+              </div>
+              <div class="title-box">
+                <h4 v-if="image.Type === 'Academic'">Academic Sessions</h4>
+                <h4 v-if="image.Type === 'Event'">Event,Media, PR services</h4>
+                <h4 v-if="image.Type === 'Consulting'">Consulting Services</h4>
+                <h4 v-if="image.Type === 'Development'">
+                  Development Services
+                </h4>
+                <h4 v-if="image.Type === 'Community'">
+                  Community Building & Mark Making
+                </h4>
+                <h4 v-if="image.Type === 'Training'">Training Programs</h4>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </atropos>
+      </atropos>
+    </NuxtLink>
   </div>
 </template>
 
@@ -38,6 +45,7 @@ export default {
   components: {
     Atropos,
   },
+  props: ["image"],
   data() {
     return {
       out: false,
@@ -46,10 +54,12 @@ export default {
       offsetY: 0,
       x: 0,
       y: 0,
+      banner: "",
     };
   },
 
   mounted() {
+    this.banner = `https://crypto-backend-seven.vercel.app/${this.image.BannerImage}`;
     // const options = {
     //   root: null,
     //   rootMargin: "0px",

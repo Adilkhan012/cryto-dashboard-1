@@ -1,7 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  modules: ["@pinia/nuxt"],
   css: [
+    "vuetify/lib/styles/main.sass",
     "@/assets/css/all.css",
+    "@/assets/plugins/summernote/summernote-bs4.min.css",
+    "@/assets/plugins/daterangepicker/daterangepicker.css",
+    "@/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
+    "@/assets/plugins/jqvmap/jqvmap.min.css",
+    "@/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css",
+    "@/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css",
+    "@/assets/plugins/fontawesome-free/css/all.min.css",
+    "@/assets/dist/css/adminlte.min.css",
     "@/assets/css/bootstrap.min.css",
     "@/assets/css/default.css",
     "@/assets/css/fontawesome-all.min.css",
@@ -11,8 +21,10 @@ export default defineNuxtConfig({
     "@/assets/css/slick-menu.css",
     "@/assets/css/slick.css",
     "@/assets/css/style.css",
-    "vuetify/_styles.scss",
   ],
+  build: {
+    transpile: ["vuetify"],
+  },
   app: {
     head: {
       meta: [
@@ -81,8 +93,9 @@ export default defineNuxtConfig({
   alias: {
     assets: "</rootDir>/assets",
   },
-  build: {
-    transpile: ["vuetify"],
+  runtimeConfig: {
+    public: {
+      BaseUrl: process.env.API_BASE_URL,
+    },
   },
 });
-2;

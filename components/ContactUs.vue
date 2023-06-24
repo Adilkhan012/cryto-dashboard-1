@@ -9,25 +9,25 @@
               <li>
                 <div class="tickets">
                   <div class="icon-box">
-                    <i class="fa-light fa-location-dot"></i>
+                    <i class="fab fa-sharp fa-light fa-location-dot"></i>
                   </div>
                   <div class="info">
                     <h3>Location</h3>
-                    <p>Address: G-17, SRS Tower, Sector 31, Faridabad-121003</p>
+                    <p>{{ JoinEventLocation }}</p>
                   </div>
                 </div>
               </li>
               <li>
                 <div class="tickets">
                   <div class="icon-box">
-                    <i class="fa-light fa-envelope"></i>
+                    <i class="fab fa-light fa-envelope"></i>
                   </div>
                   <div class="info">
                     <h3>Email Us</h3>
                     <p>
-                      <a href="mailto:info@drvineeshvijayan.com"
-                        >info@drvineeshvijayan.com</a
-                      >
+                      <a href="mailto:info@drvineeshvijayan.com">{{
+                        JoinEventEmail
+                      }}</a>
                     </p>
                   </div>
                 </div>
@@ -35,34 +35,36 @@
               <li>
                 <div class="tickets">
                   <div class="icon-box">
-                    <i class="fa-light fa-phone"></i>
+                    <i class="fab fa-light fa-phone"></i>
                   </div>
                   <div class="info">
                     <h3>Call Us:</h3>
-                    <p><a href="tel:9999999999">+91-9999999999</a></p>
+                    <p>
+                      <a :href="`tel:${JoinEventPhone}`">{{
+                        JoinEventPhone
+                      }}</a>
+                    </p>
                   </div>
                 </div>
-              </li>
-            </ul>
-            <ul class="social-media">
-              <li>
-                <a href=""><i class="fa-brands fa-facebook"></i></a>
-              </li>
-              <li>
-                <a href=""><i class="fa-brands fa-twitter"></i></a>
-              </li>
-              <li>
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
-              </li>
-              <li>
-                <a href=""><i class="fa-brands fa-linkedin"></i></a>
               </li>
             </ul>
           </div>
         </div>
         <div class="col-md-7">
           <div class="event-img">
-            <img src="@/assets/images/event.jpeg" alt="" class="img-fluid" />
+            <img
+              v-if="image != ''"
+              :src="image"
+              alt=""
+              width="1200"
+              height="470"
+            />
+            <img
+              v-else
+              src="@/assets/images/event.jpeg"
+              alt=""
+              class="img-fluid"
+            />
           </div>
         </div>
       </div>
@@ -71,16 +73,28 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  name: "DemoNewContactUs",
-
   data() {
-    return {};
+    return {
+      image: "",
+      JoinEventLocation: "",
+      JoinEventEmail: "",
+      JoinEventPhone: "",
+    };
   },
-
-  mounted() {},
-
-  methods: {},
+  mounted() {
+    axios.get("https://crypto-backend-seven.vercel.app/Images").then((res) => {
+      if (res.data != null) {
+        if (res.data.JoinEvent != undefined) {
+          this.image = `https://crypto-backend-seven.vercel.app/${res.data.JoinEvent}`;
+        }
+        this.JoinEventLocation = res.data.JoinEventLocation;
+        this.JoinEventEmail = res.data.JoinEventEmail;
+        this.JoinEventPhone = res.data.JoinEventPhone;
+      }
+    });
+  },
 };
 </script>
 
@@ -122,7 +136,9 @@ export default {
   color: #2a07f9;
   margin-right: 20px;
 }
-
+.info > h3 {
+  color: #fff;
+}
 .event .event-content .tickets .info {
   color: #fff;
 }

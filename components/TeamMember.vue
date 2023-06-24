@@ -1,6 +1,6 @@
 <template>
   <!--======  TEAM PART START ======-->
-  <section class="team-area pt-140 pb-140" id="team">
+  <section class="team-area pt-140 pb-140" id="Team">
     <div class="container" style="margin: 0; padding: 0">
       <div class="row" style="justify-content: end">
         <div class="col-lg-6 offset-lg-3 text-center pb-80">
@@ -13,9 +13,10 @@
       <div ref="Intersection" class="Intersection">
         <div class="cards-container">
           <card-component
-            v-for="i in 100"
+            v-for="i in images"
             :key="i"
-            @click="ShowCard"
+            @click="ShowCard(i)"
+            :image="i"
             ref="Card"
           ></card-component>
         </div>
@@ -32,6 +33,7 @@
             src="@/assets/images/fwa-cards-30.png"
             style="z-index: 5"
             alt=""
+            ref="showImage"
           />
         </div>
       </div>
@@ -124,19 +126,34 @@
 <script>
 import CardComponent from "../components/CardComponent.vue";
 import { gsap } from "gsap";
+import axios from "axios";
 export default {
   components: { CardComponent },
   name: "AnimationProjectIndex",
 
   data() {
-    return {};
+    return {
+      images: [],
+    };
   },
 
-  mounted() {},
+  mounted() {
+    axios.get("https://crypto-backend-seven.vercel.app/Images").then((res) => {
+      if (res.data != null) {
+        if (res.data.Cards != undefined) {
+          this.images = [];
+          res.data.Cards.forEach((x) => {
+            this.images.push(`https://crypto-backend-seven.vercel.app/${x}`);
+          });
+        }
+      }
+    });
+  },
 
   methods: {
-    ShowCard() {
+    ShowCard(i) {
       this.$refs.showcard.style.display = "flex";
+      this.$refs.showImage.src = i;
     },
     HideCard() {
       this.$refs.showcard.style.display = "none";
@@ -221,6 +238,7 @@ export default {
   gap: 2rem;
   grid-template-columns: repeat(10, 1fr);
   background: white;
+  margin-top: 11rem;
   transform: perspective(500px) rotate(30deg) skew(-30deg);
 }
 </style>

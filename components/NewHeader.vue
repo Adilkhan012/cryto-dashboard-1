@@ -6,40 +6,57 @@
         <div class="row">
           <div class="col-lg-9">
             <div class="row">
-              <div class="col-lg-3">
+              <!-- <div class="col-lg-3">
                 <div class="top-header-content">
-                  <span><i class="fas fa-phone"></i>+012 (345) 67899</span>
+                  <span
+                    ><i class="fas fa-phone"></i
+                    >{{
+                      HeaderPhone != "" ? HeaderPhone : "+012 (345) 67899"
+                    }}</span
+                  >
                 </div>
               </div>
               <div class="col-lg-4">
                 <div class="top-header-content">
                   <span
-                    ><i class="fas fa-map-marker-alt"></i>63 Plabon Road,
-                    USA</span
+                    ><i class="fas fa-map-marker-alt"></i>>{{
+                      HeaderLocation != ""
+                        ? HeaderLocation
+                        : "63 Plabon Road, USA"
+                    }}</span
                   >
                 </div>
               </div>
               <div class="col-lg-5">
                 <div class="top-header-content">
                   <span
-                    ><i class="far fa-clock"></i>Sun - Friday : 10 am - 08
-                    pm</span
+                    ><i class="far fa-clock"></i>>{{
+                      HeaderTiming != ""
+                        ? HeaderTiming
+                        : "Sun - Friday : 10 am - 08pm"
+                    }}</span
                   >
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
-          <div class="col-lg-3 text-right border">
-            <div class="top-header-social-links">
+          <div class="col-lg-3 text-right">
+            <div class="top-header-social-links" style="border: none">
               <ul>
-                <li>
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <li v-if="FacebookLink != '' && FacebookLink != undefined">
+                  <a :href="FacebookLink"><i class="fab fa-facebook-f"></i></a>
                 </li>
-                <li>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
+                <li v-if="TwitterLink != '' && TwitterLink != undefined">
+                  <a :href="TwitterLink"><i class="fab fa-twitter"></i></a>
                 </li>
-                <li>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
+                <li v-if="InstagramLink != '' && InstagramLink != undefined">
+                  <a :href="InstagramLink"><i class="fab fa-instagram"></i></a>
+                </li>
+                <li v-if="WhatsappLink != '' && WhatsappLink != undefined">
+                  <a :href="WhatsappLink"><i class="fab fa-whatsapp"></i></a>
+                </li>
+                <li v-if="TelegramLink != '' && TelegramLink != undefined">
+                  <a :href="TelegramLink"><i class="fab fa-telegram"></i></a>
                 </li>
               </ul>
             </div>
@@ -52,9 +69,10 @@
         <div class="row">
           <div class="col-lg-2">
             <div class="logo">
-              <a href="index.html"
-                ><img src="@/assets/images/logo.png" alt=""
-              /></a>
+              <a href="index.html">
+                <img v-if="Logo == ''" src="@/assets/images/logo.png" alt="" />
+                <img v-else :src="Logo" alt="" />
+              </a>
             </div>
           </div>
           <div class="col-lg-10 text-right">
@@ -65,20 +83,16 @@
             <div class="main-menu">
               <nav>
                 <ul id="mobile-menu">
-                  <li class="current"><a href="#home">Home</a></li>
-                  <li><a href="#About">About</a></li>
-                  <li><a href="#Services">Services</a></li>
-                  <li><a href="#portfolio">portfolio</a></li>
-                  <li><a href="#team">team</a></li>
-                  <li><a href="#price">price</a></li>
-                  <li>
-                    <a href="#Blog">Blog</a>
-                    <ul class="submenu">
-                      <li><a href="blog.html">Latest Blog</a></li>
-                      <li><a href="blog-details.html">Blog Details</a></li>
-                    </ul>
+                  <li class="current">
+                    <NuxtLink :to="`/#Home`">Home</NuxtLink>
                   </li>
-                  <li><a href="#Contact">Contact</a></li>
+                  <li><NuxtLink :to="`/#About`">About</NuxtLink></li>
+                  <li><NuxtLink :to="`/#Services`">Services</NuxtLink></li>
+                  <li><NuxtLink :to="`/#Team`">team</NuxtLink></li>
+                  <li>
+                    <NuxtLink :to="`/#Blog`">Blog</NuxtLink>
+                  </li>
+                  <li><NuxtLink :to="`/#Contact`">Contact</NuxtLink></li>
                 </ul>
               </nav>
             </div>
@@ -89,3 +103,32 @@
   </header>
   <!--======  HEADER PART END ======-->
 </template>
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      FacebookLink: "",
+      TwitterLink: "",
+      InstagramLink: "",
+      WhatsappLink: "",
+      TelegramLink: "",
+      Logo: "",
+    };
+  },
+  mounted() {
+    axios.get("https://crypto-backend-seven.vercel.app/Images").then((res) => {
+      if (res.data != null) {
+        if (res.data.Logo != undefined) {
+          this.Logo = `https://crypto-backend-seven.vercel.app/${res.data.Logo}`;
+        }
+        this.FacebookLink = res.data.FacebookLink;
+        this.TwitterLink = res.data.TwitterLink;
+        this.InstagramLink = res.data.InstagramLink;
+        this.WhatsappLink = res.data.WhatsappLink;
+        this.TelegramLink = res.data.TelegramLink;
+      }
+    });
+  },
+};
+</script>

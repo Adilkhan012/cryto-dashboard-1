@@ -1,28 +1,5 @@
 <template>
   <div>
-    <!--======  PRELOADER PART START ======-->
-    <!-- <div id="loading">
-      <div id="loading-center">
-        <div id="loading-center-absolute">
-          <div class="object" id="object_one"></div>
-          <div class="object" id="object_two"></div>
-          <div class="object" id="object_three"></div>
-          <div class="object" id="object_four"></div>
-        </div>
-      </div>
-    </div> -->
-    <!--======  PRELOADER PART END ======-->
-
-    <!--======  OFFCANVAS-SEARCH PART START ======-->
-    <!-- <div class="offcanvas-search-area">
-      <form action="#">
-        <input type="text" placeholder="search" />
-        <span class="close-bar"><i class="fas fa-times"></i></span>
-      </form>
-    </div> -->
-    <!--======  OFFCANVAS-SEARCH PART END ======-->
-
-    <!--======  CTA PART START ======-->
     <section class="cta-area cta-bg pt-140 pb-140">
       <div class="container">
         <div class="row">
@@ -50,11 +27,9 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="video-icon-area">
-              <a
-                href="https://www.youtube.com/watch?v=iogabydg2y0"
-                class="video-icon video-popup"
+              <NuxtLink to="/Videos" class="video-icon video-popup"
                 ><i class="fa fa-play"></i
-              ></a>
+              ></NuxtLink>
             </div>
           </div>
         </div>
@@ -76,7 +51,7 @@
 
     <!--======  PROJECTS PART START ======-->
     <section class="project-counter-area">
-      <div class="container">
+      <div class="container" style="max-width: 1300px">
         <div class="row pb-80">
           <div class="col-lg-6">
             <div class="section-title project-title">
@@ -90,14 +65,21 @@
             ></a>
           </div>
         </div>
-        <div class="row">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            gap: 2rem;
+          "
+        >
           <div class="col-lg-3 col-md-6">
             <div class="counter-icon">
-              <i class="fas fa-rocket"></i>
+              <i class="fas fa-globe"></i>
             </div>
             <div class="counter-text">
-              <h1 class="count">6320</h1>
-              <p>Project complate</p>
+              <h1 class="count data1">100000</h1>
+              +
+              <p>Influenced</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6">
@@ -105,8 +87,9 @@
               <i class="fas fa-life-ring"></i>
             </div>
             <div class="counter-text">
-              <h1 class="count">8563</h1>
-              <p>Satisfied Clients</p>
+              <h1 class="count data2">12</h1>
+              +
+              <p>Years Experience</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6">
@@ -114,8 +97,18 @@
               <i class="fas fa-trophy"></i>
             </div>
             <div class="counter-text">
-              <h1 class="count">963</h1>
-              <p>Pwins awards</p>
+              <h1 class="count data3">100</h1>
+              +
+              <p>Events</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="counter-icon">
+              <i class="fas fa-language"></i>
+            </div>
+            <div class="counter-text">
+              <h1 class="count data4">3</h1>
+              <p>Languages</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6">
@@ -123,22 +116,20 @@
               <i class="fas fa-universal-access"></i>
             </div>
             <div class="counter-text">
-              <h1 class="count">4975</h1>
-              <p>Expert Team Member</p>
+              <h1 class="count data5">40</h1>
+              +
+              <p>Countries</p>
             </div>
           </div>
         </div>
       </div>
     </section>
     <!--======  PROJECTS PART END ======-->
-
+    <Portfolio />
     <!--======  TESTIMONIAL PART START ======-->
     <section class="testimonial-area" id="testimonial">
       <div class="container">
         <div class="row">
-          <div class="col-lg-5">
-            <img src="@/assets/images/Dr/slider/4.jpg" alt="" />
-          </div>
           <div class="col-lg-7 textimonial-carousel-active">
             <div class="single-testimonial-content">
               <span class="testimonial-quote"
@@ -197,6 +188,7 @@
 </template>
 
 <script>
+import { gsap } from "gsap";
 export default {
   data() {
     return {
@@ -206,6 +198,72 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
+    const item1 = document.querySelector(".data1");
+    const item2 = document.querySelector(".data2");
+    const item3 = document.querySelector(".data3");
+    const item4 = document.querySelector(".data4");
+    const item5 = document.querySelector(".data5");
+
+    gsap.from(item1, {
+      textContent: 0,
+      duration: 4,
+      ease: "power1.in",
+      snap: { textContent: 1 },
+      stagger: {
+        each: 1.0,
+        onUpdate: function () {
+          item1.innerHTML = numberWithCommas(Math.ceil(item1.textContent));
+        },
+      },
+    });
+    gsap.from(item2, {
+      textContent: 0,
+      duration: 4,
+      ease: "power1.in",
+      snap: { textContent: 1 },
+      stagger: {
+        each: 1.0,
+        onUpdate: function () {
+          item2.innerHTML = numberWithCommas(Math.ceil(item2.textContent));
+        },
+      },
+    });
+    gsap.from(item3, {
+      textContent: 0,
+      duration: 4,
+      ease: "power1.in",
+      snap: { textContent: 1 },
+      stagger: {
+        each: 1.0,
+        onUpdate: function () {
+          item3.innerHTML = numberWithCommas(Math.ceil(item3.textContent));
+        },
+      },
+    });
+    gsap.from(item4, {
+      textContent: 0,
+      duration: 4,
+      ease: "power1.in",
+      snap: { textContent: 1 },
+      stagger: {
+        each: 1.0,
+        onUpdate: function () {
+          item4.innerHTML = numberWithCommas(Math.ceil(item4.textContent));
+        },
+      },
+    });
+    gsap.from(item5, {
+      textContent: 0,
+      duration: 4,
+      ease: "power1.in",
+      snap: { textContent: 1 },
+      stagger: {
+        each: 1.0,
+        onUpdate: function () {
+          item5.innerHTML = numberWithCommas(Math.ceil(item5.textContent));
+        },
+      },
+    });
   },
   methods: {
     handleScroll: function () {

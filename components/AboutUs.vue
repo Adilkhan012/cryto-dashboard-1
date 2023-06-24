@@ -1,18 +1,55 @@
 <template>
   <!--======  ABOUT-US PART START ======-->
-  <section class="about_us">
+  <section class="about_us" id="About">
     <div class="container">
       <div class="row">
         <div class="col-md-6 m-md-auto">
           <div class="about-img">
             <div class="img-1">
-              <img src="@/assets/images/about_img.png" alt="" class="about" />
+              <img
+                v-if="image2 == ''"
+                src="@/assets/images/about_img.png"
+                alt=""
+                class="about"
+                width="500"
+                height="360"
+              />
+              <img
+                v-else
+                :src="image2"
+                alt=""
+                class="about"
+                width="500"
+                height="360"
+              />
             </div>
             <div class="img-2">
-              <img src="@/assets/images/about_img_1.png" class="about" />
+              <img
+                v-if="image == ''"
+                src="@/assets/images/about_img_1.png"
+                class="about"
+                width="300"
+                height="430"
+              />
+              <img v-else :src="image" class="about" width="300" height="430" />
             </div>
             <div class="img-3">
-              <img src="@/assets/images/about_img_2.png" alt="" class="about" />
+              <img
+                v-if="image3 == ''"
+                src="@/assets/images/about_img_2.png"
+                alt=""
+                class="about"
+                width="280"
+                height="100"
+              />
+              <img
+                v-else
+                :src="image3"
+                alt=""
+                class="about"
+                width="280"
+                height="100"
+              />
             </div>
             <div class="shape movingX">
               <img src="@/assets/images/shape/about-shape.png" alt="" />
@@ -22,28 +59,33 @@
         <div class="col-md-6">
           <div class="about-content">
             <h5 class="sub-title">About Us</h5>
-            <h1>Dr.Vinessh Vijayan</h1>
-            <p>
-              Vineesh Vijayan is an ambitious & optimistic person whose vast and
-              extensive experience in Training & Consultancy of Web3.0
-              specifically in Blockchain Technology, Cryptocurrency and
-              Affiliate Marketing Industry, have influenced and changed lives of
-              many people across the globe. His skills added with forbearance
-              marks him out in any field he lands his feet into.
-            </p>
-            <p>
-              He is an Entrepreneur, Internationally acclaimed Business
-              Consultant, Speaker, Coach and a Co-Author who has been
-              appreciated Globally for his Contribution in Spreading the
-              Knowledge of Blockchain to Masses.
-            </p>
-            <p>
-              He Inspires and Encourages people around the world to Discover
-              their True Potential & Help to to Work for their Dreams rather
-              than just compromising with the Necessities of life. His thought
-              provoking speech has an overwhelming response throughout the globe
-              .
-            </p>
+            <h1>
+              {{ AboutUsTitle != "" ? AboutUsTitle : "Dr.Vinessh Vijayan" }}
+            </h1>
+            <div v-if="AboutUsDescription == ''">
+              <p>
+                Vineesh Vijayan is an ambitious & optimistic person whose vast
+                and extensive experience in Training & Consultancy of Web3.0
+                specifically in Blockchain Technology, Cryptocurrency and
+                Affiliate Marketing Industry, have influenced and changed lives
+                of many people across the globe. His skills added with
+                forbearance marks him out in any field he lands his feet into.
+              </p>
+              <p>
+                He is an Entrepreneur, Internationally acclaimed Business
+                Consultant, Speaker, Coach and a Co-Author who has been
+                appreciated Globally for his Contribution in Spreading the
+                Knowledge of Blockchain to Masses.
+              </p>
+              <p>
+                He Inspires and Encourages people around the world to Discover
+                their True Potential & Help to to Work for their Dreams rather
+                than just compromising with the Necessities of life. His thought
+                provoking speech has an overwhelming response throughout the
+                globe .
+              </p>
+            </div>
+            <p v-else>{{ AboutUsDescription }}</p>
           </div>
           <a href="" class="read-more">Read More</a>
         </div>
@@ -52,6 +94,38 @@
   </section>
   <!--======  ABOUT-US PART END ======-->
 </template>
+
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      image: "",
+      image2: "",
+      image3: "",
+      AboutUsDescription: "",
+      AboutUsTitle: "",
+    };
+  },
+  mounted() {
+    axios.get("https://crypto-backend-seven.vercel.app/Images").then((res) => {
+      if (res.data != null) {
+        if (res.data.AboutUs != undefined) {
+          this.image = `https://crypto-backend-seven.vercel.app/${res.data.AboutUs}`;
+        }
+        if (res.data.AboutUs2 != undefined) {
+          this.image2 = `https://crypto-backend-seven.vercel.app/${res.data.AboutUs2}`;
+        }
+        if (res.data.AboutUs3 != undefined) {
+          this.image3 = `https://crypto-backend-seven.vercel.app/${res.data.AboutUs3}`;
+        }
+        this.AboutUsTitle = res.data.AboutUsTitle;
+        this.AboutUsDescription = res.data.AboutUsDescription;
+      }
+    });
+  },
+};
+</script>
 
 <style scoped>
 .about_us {

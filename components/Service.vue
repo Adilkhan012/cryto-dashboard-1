@@ -5,17 +5,12 @@
       <div class="row text-center">
         <div class="title">
           <h5>Our Programs</h5>
-          <h1>Featured Programs</h1>
+          <h1>Featured Services</h1>
         </div>
       </div>
 
       <div class="row">
-        <atroposC />
-        <atroposC />
-        <atroposC />
-        <atroposC />
-        <atroposC />
-        <atroposC />
+        <atroposC v-for="i in images" :key="i" :image="i" />
       </div>
     </div>
   </section>
@@ -23,12 +18,26 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
-    return {};
+    return {
+      images: [],
+    };
   },
 
-  mounted() {},
+  mounted() {
+    axios
+      .get("https://crypto-backend-seven.vercel.app/FeaturedPrograms")
+      .then((res) => {
+        if (res.data != null) {
+          if (res.data != undefined) {
+            this.images = [];
+            this.images = res.data;
+          }
+        }
+      });
+  },
 
   methods: {},
 };
