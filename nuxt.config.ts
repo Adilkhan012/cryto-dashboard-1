@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     "@/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css",
     "@/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css",
     "@/assets/plugins/fontawesome-free/css/all.min.css",
-    "@/assets/dist/css/adminlte.min.css",
+    "@/assets/admin/css/adminlte.min.css",
     "@/assets/css/bootstrap.min.css",
     "@/assets/css/default.css",
     "@/assets/css/fontawesome-all.min.css",
