@@ -117,18 +117,20 @@ export default {
     };
   },
   mounted() {
-    axios.get("https://crypto-backend-seven.vercel.app/Images").then((res) => {
-      if (res.data != null) {
-        if (res.data.Logo != undefined) {
-          this.Logo = `https://crypto-backend-seven.vercel.app/${res.data.Logo}`;
+    axios
+      .get("https://crypto-backend-production.up.railway.app/Images")
+      .then((res) => {
+        if (res.data != null) {
+          if (res.data.Logo != undefined) {
+            this.Logo = `https://crypto-backend-production.up.railway.app/${res.data.Logo}`;
+          }
+          this.FacebookLink = res.data.FacebookLink;
+          this.TwitterLink = res.data.TwitterLink;
+          this.InstagramLink = res.data.InstagramLink;
+          this.WhatsappLink = res.data.WhatsappLink;
+          this.TelegramLink = res.data.TelegramLink;
         }
-        this.FacebookLink = res.data.FacebookLink;
-        this.TwitterLink = res.data.TwitterLink;
-        this.InstagramLink = res.data.InstagramLink;
-        this.WhatsappLink = res.data.WhatsappLink;
-        this.TelegramLink = res.data.TelegramLink;
-      }
-    });
+      });
   },
 };
 </script>

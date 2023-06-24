@@ -37,13 +37,15 @@ export default {
 
   mounted() {
     axios
-      .get("https://crypto-backend-seven.vercel.app/Images")
+      .get("https://crypto-backend-production.up.railway.app/Images")
       .then((res) => {
         if (res.data != null) {
           if (res.data.ImageSlider != undefined) {
             this.images = [];
             res.data.ImageSlider.forEach((x) => {
-              this.images.push(`https://crypto-backend-seven.vercel.app/${x}`);
+              this.images.push(
+                `https://crypto-backend-production.up.railway.app/${x}`
+              );
             });
           }
         }

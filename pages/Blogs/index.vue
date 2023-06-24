@@ -3,7 +3,7 @@
     <div v-for="blog in blogs.data" :key="blog._id">
       <NuxtLink :to="`/Blogs/${blog._id}`" class="blogs">
         <img
-          :src="`https://crypto-backend-seven.vercel.app/${blog.Banner}`"
+          :src="`https://crypto-backend-production.up.railway.app/${blog.Banner}`"
           alt=""
           style="width: 20%"
         />
@@ -30,7 +30,7 @@
 
 <script setup>
 const { data: blogs } = await useFetch(
-  "https://crypto-backend-seven.vercel.app/Blogs"
+  "https://crypto-backend-production.up.railway.app/Blogs"
 );
 </script>
 

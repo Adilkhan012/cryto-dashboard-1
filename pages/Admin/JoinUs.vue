@@ -96,11 +96,11 @@ export default {
       navigateTo("/Admin/Login");
     } else {
       axios
-        .get("https://crypto-backend-seven.vercel.app/Images")
+        .get("https://crypto-backend-production.up.railway.app/Images")
         .then((res) => {
           if (res.data != null) {
             if (res.data.JoinEvent != undefined) {
-              this.image = `https://crypto-backend-seven.vercel.app/${res.data.JoinEvent}`;
+              this.image = `https://crypto-backend-production.up.railway.app/${res.data.JoinEvent}`;
             }
             this.JoinEventLocation = res.data.JoinEventLocation;
             this.JoinEventEmail = res.data.JoinEventEmail;
@@ -129,14 +129,17 @@ export default {
       form.append("JoinEventEmail", this.JoinEventEmail);
       form.append("JoinEventPhone", this.JoinEventPhone);
       axios
-        .post("https://crypto-backend-seven.vercel.app/JoinEvent", form)
+        .post(
+          "https://crypto-backend-production.up.railway.app/JoinEvent",
+          form
+        )
         .then(async (res) => {
           axios
-            .get("https://crypto-backend-seven.vercel.app/Images")
+            .get("https://crypto-backend-production.up.railway.app/Images")
             .then((res) => {
               if (res.data != null) {
                 if (res.data.JoinEvent != undefined) {
-                  this.image = `https://crypto-backend-seven.vercel.app/${res.data.JoinEvent}`;
+                  this.image = `https://crypto-backend-production.up.railway.app/${res.data.JoinEvent}`;
                 }
                 this.JoinEventLocation = res.data.JoinEventLocation;
                 this.JoinEventEmail = res.data.JoinEventEmail;

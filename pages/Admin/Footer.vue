@@ -63,7 +63,7 @@ export default {
       navigateTo("/Admin/Login");
     } else {
       axios
-        .get("https://crypto-backend-seven.vercel.app/Images")
+        .get("https://crypto-backend-production.up.railway.app/Images")
         .then((res) => {
           if (res.data != null) {
             console.log(res.data);
@@ -83,10 +83,10 @@ export default {
       };
 
       axios
-        .post("https://crypto-backend-seven.vercel.app/Footer", obj)
+        .post("https://crypto-backend-production.up.railway.app/Footer", obj)
         .then((res) => {
           axios
-            .get("https://crypto-backend-seven.vercel.app/Images")
+            .get("https://crypto-backend-production.up.railway.app/Images")
             .then((res) => {
               if (res.data != null) {
                 this.FooterPhone = res.data.FooterPhone;

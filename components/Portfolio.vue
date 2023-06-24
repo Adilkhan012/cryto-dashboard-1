@@ -12,7 +12,7 @@
             <div class="thumb">
               <NuxtLink :to="`/Blogs/${blogs[0]._id}`">
                 <img
-                  :src="`https://crypto-backend-seven.vercel.app/${blogs[0].Banner}`"
+                  :src="`https://crypto-backend-production.up.railway.app/${blogs[0].Banner}`"
                   class="img-fluid"
                   alt=""
                 />
@@ -30,7 +30,7 @@
             <div class="blog-meta-card" v-if="blogs[1] != undefined">
               <div class="thumb">
                 <img
-                  :src="`https://crypto-backend-seven.vercel.app/${blogs[1].Banner}`"
+                  :src="`https://crypto-backend-production.up.railway.app/${blogs[1].Banner}`"
                   class="img-fluid"
                   alt=""
                 />
@@ -47,7 +47,7 @@
             <div class="blog-meta-card" v-if="blogs[2] != undefined">
               <div class="thumb">
                 <img
-                  :src="`https://crypto-backend-seven.vercel.app/${blogs[2].Banner}`"
+                  :src="`https://crypto-backend-production.up.railway.app/${blogs[2].Banner}`"
                   class="img-fluid"
                   alt=""
                 />
@@ -64,7 +64,7 @@
             <div class="blog-meta-card" v-if="blogs[3] != undefined">
               <div class="thumb">
                 <img
-                  :src="`https://crypto-backend-seven.vercel.app/${blogs[3].Banner}`"
+                  :src="`https://crypto-backend-production.up.railway.app/${blogs[3].Banner}`"
                   class="img-fluid"
                   alt=""
                 />
@@ -96,9 +96,11 @@ export default {
 
   mounted() {
     console.log("sadfhkja");
-    axios.get(`https://crypto-backend-seven.vercel.app/Blogs`).then((res) => {
-      this.blogs = res.data.data;
-    });
+    axios
+      .get(`https://crypto-backend-production.up.railway.app/Blogs`)
+      .then((res) => {
+        this.blogs = res.data.data;
+      });
   },
 };
 </script>

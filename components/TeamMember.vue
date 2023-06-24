@@ -138,16 +138,20 @@ export default {
   },
 
   mounted() {
-    axios.get("https://crypto-backend-seven.vercel.app/Images").then((res) => {
-      if (res.data != null) {
-        if (res.data.Cards != undefined) {
-          this.images = [];
-          res.data.Cards.forEach((x) => {
-            this.images.push(`https://crypto-backend-seven.vercel.app/${x}`);
-          });
+    axios
+      .get("https://crypto-backend-production.up.railway.app/Images")
+      .then((res) => {
+        if (res.data != null) {
+          if (res.data.Cards != undefined) {
+            this.images = [];
+            res.data.Cards.forEach((x) => {
+              this.images.push(
+                `https://crypto-backend-production.up.railway.app/${x}`
+              );
+            });
+          }
         }
-      }
-    });
+      });
   },
 
   methods: {

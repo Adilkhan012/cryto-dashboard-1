@@ -11,12 +11,12 @@
         "
       >
         <img
-          :src="`https://crypto-backend-seven.vercel.app/${program.Image11}`"
+          :src="`https://crypto-backend-production.up.railway.app/${program.Image11}`"
           alt=""
           style="width: 80%; border: 1px"
         />
         <img
-          :src="`https://crypto-backend-seven.vercel.app/${program.Image12}`"
+          :src="`https://crypto-backend-production.up.railway.app/${program.Image12}`"
           alt=""
           style="width: 80%"
         />
@@ -32,12 +32,12 @@
         "
       >
         <img
-          :src="`https://crypto-backend-seven.vercel.app/${program.Image21}`"
+          :src="`https://crypto-backend-production.up.railway.app/${program.Image21}`"
           alt=""
           style="width: 80%; border: 1px"
         />
         <img
-          :src="`https://crypto-backend-seven.vercel.app/${program.Image22}`"
+          :src="`https://crypto-backend-production.up.railway.app/${program.Image22}`"
           alt=""
           style="width: 80%"
         />
@@ -53,12 +53,12 @@
         "
       >
         <img
-          :src="`https://crypto-backend-seven.vercel.app/${program.Image31}`"
+          :src="`https://crypto-backend-production.up.railway.app/${program.Image31}`"
           alt=""
           style="width: 80%; border: 1px"
         />
         <img
-          :src="`https://crypto-backend-seven.vercel.app/${program.Image32}`"
+          :src="`https://crypto-backend-production.up.railway.app/${program.Image32}`"
           alt=""
           style="width: 80%"
         />
@@ -71,7 +71,7 @@
 <script setup>
 const { id } = useRoute().params;
 const { data: program } = await useFetch(
-  `https://crypto-backend-seven.vercel.app/FeaturedProgram?type=${id}`
+  `https://crypto-backend-production.up.railway.app/FeaturedProgram?type=${id}`
 );
 </script>
 

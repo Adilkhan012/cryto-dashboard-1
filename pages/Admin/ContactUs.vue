@@ -73,7 +73,7 @@ export default {
 
   mounted() {
     axios
-      .get(`https://crypto-backend-seven.vercel.app/Contacts`)
+      .get(`https://crypto-backend-production.up.railway.app/Contacts`)
       .then((res) => {
         this.contacts = res.data.data;
       });

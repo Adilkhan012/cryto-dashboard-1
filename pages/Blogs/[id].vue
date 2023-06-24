@@ -10,7 +10,7 @@
       "
     >
       <img
-        :src="`https://crypto-backend-seven.vercel.app/${blog.data.Banner}`"
+        :src="`https://crypto-backend-production.up.railway.app/${blog.data.Banner}`"
         alt=""
         style="width: 100%"
       />
@@ -23,7 +23,7 @@
 <script setup>
 const { id } = useRoute().params;
 const { data: blog } = await useFetch(
-  `https://crypto-backend-seven.vercel.app/Blog?id=${id}`
+  `https://crypto-backend-production.up.railway.app/Blog?id=${id}`
 );
 </script>
 

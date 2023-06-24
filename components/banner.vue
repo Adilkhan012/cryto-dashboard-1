@@ -44,11 +44,13 @@ export default {
   },
 
   mounted() {
-    axios.get("https://crypto-backend-seven.vercel.app/Images").then((res) => {
-      if (res.data != null) {
-        this.image = `https://crypto-backend-seven.vercel.app/${res.data.Banner}`;
-      }
-    });
+    axios
+      .get("https://crypto-backend-production.up.railway.app/Images")
+      .then((res) => {
+        if (res.data != null) {
+          this.image = `https://crypto-backend-production.up.railway.app/${res.data.Banner}`;
+        }
+      });
   },
 
   methods: {},

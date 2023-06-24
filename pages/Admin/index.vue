@@ -60,9 +60,9 @@ export default {
       navigateTo("/Admin/Login");
     } else {
       axios
-        .get("https://crypto-backend-seven.vercel.app/Images")
+        .get("https://crypto-backend-production.up.railway.app/Images")
         .then((res) => {
-          this.image = `https://crypto-backend-seven.vercel.app/${res.data.Banner}`;
+          this.image = `https://crypto-backend-production.up.railway.app/${res.data.Banner}`;
         });
     }
   },
@@ -75,12 +75,12 @@ export default {
       var form = new FormData();
       form.append("file", e.target.files[0]);
       axios
-        .post("https://crypto-backend-seven.vercel.app/Banner", form)
+        .post("https://crypto-backend-production.up.railway.app/Banner", form)
         .then((res) => {
           axios
-            .get("https://crypto-backend-seven.vercel.app/Images")
+            .get("https://crypto-backend-production.up.railway.app/Images")
             .then((res) => {
-              this.image = `https://crypto-backend-seven.vercel.app/${res.data.Banner}`;
+              this.image = `https://crypto-backend-production.up.railway.app/${res.data.Banner}`;
             });
         });
     },

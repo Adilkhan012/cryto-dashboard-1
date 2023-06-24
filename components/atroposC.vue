@@ -59,7 +59,7 @@ export default {
   },
 
   mounted() {
-    this.banner = `https://crypto-backend-seven.vercel.app/${this.image.BannerImage}`;
+    this.banner = `https://crypto-backend-production.up.railway.app/${this.image.BannerImage}`;
     // const options = {
     //   root: null,
     //   rootMargin: "0px",

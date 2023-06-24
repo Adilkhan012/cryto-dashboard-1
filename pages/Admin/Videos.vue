@@ -100,20 +100,24 @@ export default {
   },
 
   mounted() {
-    axios.get(`https://crypto-backend-seven.vercel.app/Videos`).then((res) => {
-      this.videos = res.data.data;
-    });
+    axios
+      .get(`https://crypto-backend-production.up.railway.app/Videos`)
+      .then((res) => {
+        this.videos = res.data.data;
+      });
   },
 
   methods: {
     RemoveItem(id) {
       console.log(id);
       axios
-        .delete(`https://crypto-backend-seven.vercel.app/Videos?id=${id}`)
+        .delete(
+          `https://crypto-backend-production.up.railway.app/Videos?id=${id}`
+        )
         .then(async (res) => {
           if (res.data.status) {
             axios
-              .get(`https://crypto-backend-seven.vercel.app/Videos`)
+              .get(`https://crypto-backend-production.up.railway.app/Videos`)
               .then((res) => {
                 this.videos = res.data.data;
               });
@@ -154,7 +158,7 @@ export default {
     EditDialog(id) {
       this.id = id;
       axios
-        .get(`https://crypto-backend-seven.vercel.app/Video?id=${id}`)
+        .get(`https://crypto-backend-production.up.railway.app/Video?id=${id}`)
         .then((res) => {
           this.EmbedLink = res.data.data.EmbedLink;
           this.Category = res.data.data.Category;
@@ -176,11 +180,11 @@ export default {
         Category: this.Category,
       };
       axios
-        .post(`https://crypto-backend-seven.vercel.app/Videos`, obj)
+        .post(`https://crypto-backend-production.up.railway.app/Videos`, obj)
         .then(async (res) => {
           if (res.data.status) {
             axios
-              .get(`https://crypto-backend-seven.vercel.app/Videos`)
+              .get(`https://crypto-backend-production.up.railway.app/Videos`)
               .then((res) => {
                 this.videos = res.data.data;
               });
@@ -236,11 +240,11 @@ export default {
         Category: this.Category,
       };
       axios
-        .put(`https://crypto-backend-seven.vercel.app/Videos`, obj)
+        .put(`https://crypto-backend-production.up.railway.app/Videos`, obj)
         .then(async (res) => {
           if (res.data.status) {
             axios
-              .get(`https://crypto-backend-seven.vercel.app/Videos`)
+              .get(`https://crypto-backend-production.up.railway.app/Videos`)
               .then((res) => {
                 this.videos = res.data.data;
               });

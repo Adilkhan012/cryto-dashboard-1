@@ -138,17 +138,17 @@ export default {
       navigateTo("/Admin/Login");
     } else {
       axios
-        .get("https://crypto-backend-seven.vercel.app/Images")
+        .get("https://crypto-backend-production.up.railway.app/Images")
         .then((res) => {
           if (res.data != null) {
             if (res.data.AboutUs != undefined) {
-              this.image = `https://crypto-backend-seven.vercel.app/${res.data.AboutUs}`;
+              this.image = `https://crypto-backend-production.up.railway.app/${res.data.AboutUs}`;
             }
             if (res.data.AboutUs2 != undefined) {
-              this.image2 = `https://crypto-backend-seven.vercel.app/${res.data.AboutUs2}`;
+              this.image2 = `https://crypto-backend-production.up.railway.app/${res.data.AboutUs2}`;
             }
             if (res.data.AboutUs3 != undefined) {
-              this.image3 = `https://crypto-backend-seven.vercel.app/${res.data.AboutUs3}`;
+              this.image3 = `https://crypto-backend-production.up.railway.app/${res.data.AboutUs3}`;
             }
             this.AboutUsTitle = res.data.AboutUsTitle;
             this.AboutUsDescription = res.data.AboutUsDescription;
@@ -200,14 +200,14 @@ export default {
       form.append("AboutUsTitle", this.AboutUsTitle);
       form.append("AboutUsDescription", this.AboutUsDescription);
       axios
-        .post("https://crypto-backend-seven.vercel.app/AboutUs", form)
+        .post("https://crypto-backend-production.up.railway.app/AboutUs", form)
         .then(async (res) => {
           axios
-            .get("https://crypto-backend-seven.vercel.app/Images")
+            .get("https://crypto-backend-production.up.railway.app/Images")
             .then((res) => {
               if (res.data != null) {
                 if (res.data.AboutUs != undefined) {
-                  this.image = `https://crypto-backend-seven.vercel.app/${res.data.AboutUs}`;
+                  this.image = `https://crypto-backend-production.up.railway.app/${res.data.AboutUs}`;
                   this.AboutUsTitle = res.data.AboutUsTitle;
                   this.AboutUsDescription = res.data.AboutUsDescription;
                 }

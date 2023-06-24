@@ -28,7 +28,7 @@ export default {
 
   mounted() {
     axios
-      .get("https://crypto-backend-seven.vercel.app/FeaturedPrograms")
+      .get("https://crypto-backend-production.up.railway.app/FeaturedPrograms")
       .then((res) => {
         if (res.data != null) {
           if (res.data != undefined) {

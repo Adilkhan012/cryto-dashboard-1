@@ -108,21 +108,23 @@ export default {
     };
   },
   mounted() {
-    axios.get("https://crypto-backend-seven.vercel.app/Images").then((res) => {
-      if (res.data != null) {
-        if (res.data.AboutUs != undefined) {
-          this.image = `https://crypto-backend-seven.vercel.app/${res.data.AboutUs}`;
+    axios
+      .get("https://crypto-backend-production.up.railway.app/Images")
+      .then((res) => {
+        if (res.data != null) {
+          if (res.data.AboutUs != undefined) {
+            this.image = `https://crypto-backend-production.up.railway.app/${res.data.AboutUs}`;
+          }
+          if (res.data.AboutUs2 != undefined) {
+            this.image2 = `https://crypto-backend-production.up.railway.app/${res.data.AboutUs2}`;
+          }
+          if (res.data.AboutUs3 != undefined) {
+            this.image3 = `https://crypto-backend-production.up.railway.app/${res.data.AboutUs3}`;
+          }
+          this.AboutUsTitle = res.data.AboutUsTitle;
+          this.AboutUsDescription = res.data.AboutUsDescription;
         }
-        if (res.data.AboutUs2 != undefined) {
-          this.image2 = `https://crypto-backend-seven.vercel.app/${res.data.AboutUs2}`;
-        }
-        if (res.data.AboutUs3 != undefined) {
-          this.image3 = `https://crypto-backend-seven.vercel.app/${res.data.AboutUs3}`;
-        }
-        this.AboutUsTitle = res.data.AboutUsTitle;
-        this.AboutUsDescription = res.data.AboutUsDescription;
-      }
-    });
+      });
   },
 };
 </script>

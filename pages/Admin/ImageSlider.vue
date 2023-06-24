@@ -75,14 +75,14 @@ export default {
       navigateTo("/Admin/Login");
     } else {
       axios
-        .get("https://crypto-backend-seven.vercel.app/Images")
+        .get("https://crypto-backend-production.up.railway.app/Images")
         .then((res) => {
           if (res.data != null) {
             if (res.data.ImageSlider != undefined) {
               this.images = [];
               res.data.ImageSlider.forEach((x) => {
                 this.images.push(
-                  `https://crypto-backend-seven.vercel.app/${x}`
+                  `https://crypto-backend-production.up.railway.app/${x}`
                 );
               });
             }
@@ -98,17 +98,20 @@ export default {
       };
       console.log(obj);
       axios
-        .post("https://crypto-backend-seven.vercel.app/RemoveImage", obj)
+        .post(
+          "https://crypto-backend-production.up.railway.app/RemoveImage",
+          obj
+        )
         .then((res) => {
           axios
-            .get("https://crypto-backend-seven.vercel.app/Images")
+            .get("https://crypto-backend-production.up.railway.app/Images")
             .then((res) => {
               if (res.data != null) {
                 if (res.data.ImageSlider != undefined) {
                   this.images = [];
                   res.data.ImageSlider.forEach((x) => {
                     this.images.push(
-                      `https://crypto-backend-seven.vercel.app/${x}`
+                      `https://crypto-backend-production.up.railway.app/${x}`
                     );
                   });
                 }
@@ -124,17 +127,20 @@ export default {
       var form = new FormData();
       form.append("file", e.target.files[0]);
       axios
-        .post("https://crypto-backend-seven.vercel.app/ImageSlider", form)
+        .post(
+          "https://crypto-backend-production.up.railway.app/ImageSlider",
+          form
+        )
         .then((res) => {
           axios
-            .get("https://crypto-backend-seven.vercel.app/Images")
+            .get("https://crypto-backend-production.up.railway.app/Images")
             .then((res) => {
               if (res.data != null) {
                 if (res.data.ImageSlider != undefined) {
                   this.images = [];
                   res.data.ImageSlider.forEach((x) => {
                     this.images.push(
-                      `https://crypto-backend-seven.vercel.app/${x}`
+                      `https://crypto-backend-production.up.railway.app/${x}`
                     );
                   });
                 }

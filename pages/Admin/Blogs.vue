@@ -91,7 +91,7 @@
           <tr v-for="video in videos" :key="video._id">
             <td style="width: 30%">
               <img
-                :src="`https://crypto-backend-seven.vercel.app/${video.Banner}`"
+                :src="`https://crypto-backend-production.up.railway.app/${video.Banner}`"
                 alt=""
                 width="100"
               />
@@ -134,9 +134,11 @@ export default {
   },
 
   mounted() {
-    axios.get(`https://crypto-backend-seven.vercel.app/Blogs`).then((res) => {
-      this.videos = res.data.data;
-    });
+    axios
+      .get(`https://crypto-backend-production.up.railway.app/Blogs`)
+      .then((res) => {
+        this.videos = res.data.data;
+      });
   },
 
   methods: {
@@ -155,11 +157,13 @@ export default {
     RemoveItem(id) {
       console.log(id);
       axios
-        .delete(`https://crypto-backend-seven.vercel.app/Blogs?id=${id}`)
+        .delete(
+          `https://crypto-backend-production.up.railway.app/Blogs?id=${id}`
+        )
         .then(async (res) => {
           if (res.data.status) {
             axios
-              .get(`https://crypto-backend-seven.vercel.app/Blogs`)
+              .get(`https://crypto-backend-production.up.railway.app/Blogs`)
               .then((res) => {
                 this.videos = res.data.data;
               });
@@ -200,11 +204,11 @@ export default {
     EditDialog(id) {
       this.id = id;
       axios
-        .get(`https://crypto-backend-seven.vercel.app/Blog?id=${id}`)
+        .get(`https://crypto-backend-production.up.railway.app/Blog?id=${id}`)
         .then((res) => {
           this.Title = res.data.data.Title;
           this.Description = res.data.data.Description;
-          this.Banner = `https://crypto-backend-seven.vercel.app/${res.data.data.Banner}`;
+          this.Banner = `https://crypto-backend-production.up.railway.app/${res.data.data.Banner}`;
           this.isEditing = true;
           this.popup = true;
         });
@@ -242,11 +246,11 @@ export default {
       form.append("Description", this.Description);
       form.append("file", this.BannerFile);
       axios
-        .post(`https://crypto-backend-seven.vercel.app/Blogs`, form)
+        .post(`https://crypto-backend-production.up.railway.app/Blogs`, form)
         .then(async (res) => {
           if (res.data.status) {
             axios
-              .get(`https://crypto-backend-seven.vercel.app/Blogs`)
+              .get(`https://crypto-backend-production.up.railway.app/Blogs`)
               .then((res) => {
                 this.videos = res.data.data;
               });
@@ -315,11 +319,11 @@ export default {
       form.append("Description", this.Description);
       form.append("file", this.BannerFile);
       axios
-        .put(`https://crypto-backend-seven.vercel.app/Blogs`, form)
+        .put(`https://crypto-backend-production.up.railway.app/Blogs`, form)
         .then(async (res) => {
           if (res.data.status) {
             axios
-              .get(`https://crypto-backend-seven.vercel.app/Blogs`)
+              .get(`https://crypto-backend-production.up.railway.app/Blogs`)
               .then((res) => {
                 this.videos = res.data.data;
               });

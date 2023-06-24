@@ -262,31 +262,31 @@ export default {
     } else {
       axios
         .get(
-          `https://crypto-backend-seven.vercel.app/FeaturedProgram?type=${this.Type}`
+          `https://crypto-backend-production.up.railway.app/FeaturedProgram?type=${this.Type}`
         )
         .then((res) => {
           if (res.data != null) {
             console.log(res.data);
             if (res.data.BannerImage != undefined) {
-              this.form.BannerImage = `https://crypto-backend-seven.vercel.app/${res.data.BannerImage}`;
+              this.form.BannerImage = `https://crypto-backend-production.up.railway.app/${res.data.BannerImage}`;
             }
             if (res.data.Image11 != undefined) {
-              this.form.Image11 = `https://crypto-backend-seven.vercel.app/${res.data.Image11}`;
+              this.form.Image11 = `https://crypto-backend-production.up.railway.app/${res.data.Image11}`;
             }
             if (res.data.Image12 != undefined) {
-              this.form.Image12 = `https://crypto-backend-seven.vercel.app/${res.data.Image12}`;
+              this.form.Image12 = `https://crypto-backend-production.up.railway.app/${res.data.Image12}`;
             }
             if (res.data.Image21 != undefined) {
-              this.form.Image21 = `https://crypto-backend-seven.vercel.app/${res.data.Image21}`;
+              this.form.Image21 = `https://crypto-backend-production.up.railway.app/${res.data.Image21}`;
             }
             if (res.data.Image22 != undefined) {
-              this.form.Image22 = `https://crypto-backend-seven.vercel.app/${res.data.Image22}`;
+              this.form.Image22 = `https://crypto-backend-production.up.railway.app/${res.data.Image22}`;
             }
             if (res.data.Image31 != undefined) {
-              this.form.Image31 = `https://crypto-backend-seven.vercel.app/${res.data.Image31}`;
+              this.form.Image31 = `https://crypto-backend-production.up.railway.app/${res.data.Image31}`;
             }
             if (res.data.Image32 != undefined) {
-              this.form.Image32 = `https://crypto-backend-seven.vercel.app/${res.data.Image32}`;
+              this.form.Image32 = `https://crypto-backend-production.up.railway.app/${res.data.Image32}`;
             }
             this.form.Title1 = res.data.Title1;
             this.form.Description1 = res.data.Description2;
@@ -383,35 +383,38 @@ export default {
       form.append("Description1", this.form.Description1);
       form.append("Title1", this.form.Title1);
       axios
-        .post("https://crypto-backend-seven.vercel.app/FeaturedPrograms", form)
+        .post(
+          "https://crypto-backend-production.up.railway.app/FeaturedPrograms",
+          form
+        )
         .then(async (res) => {
           axios
             .get(
-              `https://crypto-backend-seven.vercel.app/FeaturedProgram?type=${this.Type}`
+              `https://crypto-backend-production.up.railway.app/FeaturedProgram?type=${this.Type}`
             )
             .then((res) => {
               if (res.data != null) {
                 console.log(res.data);
                 if (res.data.BannerImage != undefined) {
-                  this.form.BannerImage = `https://crypto-backend-seven.vercel.app/${res.data.BannerImage}`;
+                  this.form.BannerImage = `https://crypto-backend-production.up.railway.app/${res.data.BannerImage}`;
                 }
                 if (res.data.Image11 != undefined) {
-                  this.form.Image11 = `https://crypto-backend-seven.vercel.app/${res.data.Image11}`;
+                  this.form.Image11 = `https://crypto-backend-production.up.railway.app/${res.data.Image11}`;
                 }
                 if (res.data.Image12 != undefined) {
-                  this.form.Image12 = `https://crypto-backend-seven.vercel.app/${res.data.Image12}`;
+                  this.form.Image12 = `https://crypto-backend-production.up.railway.app/${res.data.Image12}`;
                 }
                 if (res.data.Image21 != undefined) {
-                  this.form.Image21 = `https://crypto-backend-seven.vercel.app/${res.data.Image21}`;
+                  this.form.Image21 = `https://crypto-backend-production.up.railway.app/${res.data.Image21}`;
                 }
                 if (res.data.Image22 != undefined) {
-                  this.form.Image22 = `https://crypto-backend-seven.vercel.app/${res.data.Image22}`;
+                  this.form.Image22 = `https://crypto-backend-production.up.railway.app/${res.data.Image22}`;
                 }
                 if (res.data.Image31 != undefined) {
-                  this.form.Image31 = `https://crypto-backend-seven.vercel.app/${res.data.Image31}`;
+                  this.form.Image31 = `https://crypto-backend-production.up.railway.app/${res.data.Image31}`;
                 }
                 if (res.data.Image32 != undefined) {
-                  this.form.Image32 = `https://crypto-backend-seven.vercel.app/${res.data.Image32}`;
+                  this.form.Image32 = `https://crypto-backend-production.up.railway.app/${res.data.Image32}`;
                 }
                 this.form.Title1 = res.data.Title1;
                 this.form.Description1 = res.data.Description2;

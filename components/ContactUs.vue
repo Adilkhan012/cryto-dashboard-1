@@ -84,16 +84,18 @@ export default {
     };
   },
   mounted() {
-    axios.get("https://crypto-backend-seven.vercel.app/Images").then((res) => {
-      if (res.data != null) {
-        if (res.data.JoinEvent != undefined) {
-          this.image = `https://crypto-backend-seven.vercel.app/${res.data.JoinEvent}`;
+    axios
+      .get("https://crypto-backend-production.up.railway.app/Images")
+      .then((res) => {
+        if (res.data != null) {
+          if (res.data.JoinEvent != undefined) {
+            this.image = `https://crypto-backend-production.up.railway.app/${res.data.JoinEvent}`;
+          }
+          this.JoinEventLocation = res.data.JoinEventLocation;
+          this.JoinEventEmail = res.data.JoinEventEmail;
+          this.JoinEventPhone = res.data.JoinEventPhone;
         }
-        this.JoinEventLocation = res.data.JoinEventLocation;
-        this.JoinEventEmail = res.data.JoinEventEmail;
-        this.JoinEventPhone = res.data.JoinEventPhone;
-      }
-    });
+      });
   },
 };
 </script>

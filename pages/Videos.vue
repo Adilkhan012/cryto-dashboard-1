@@ -114,7 +114,7 @@
 
 <script setup>
 const { data: videos } = await useFetch(
-  `https://crypto-backend-seven.vercel.app/Videos`
+  `https://crypto-backend-production.up.railway.app/Videos`
 );
 </script>
 

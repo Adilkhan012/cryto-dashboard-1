@@ -118,12 +118,12 @@ export default {
       navigateTo("/Admin/Login");
     } else {
       axios
-        .get("https://crypto-backend-seven.vercel.app/Images")
+        .get("https://crypto-backend-production.up.railway.app/Images")
         .then((res) => {
           if (res.data != null) {
             console.log(res.data);
             if (res.data.Logo != undefined) {
-              this.image = `https://crypto-backend-seven.vercel.app/${res.data.Logo}`;
+              this.image = `https://crypto-backend-production.up.railway.app/${res.data.Logo}`;
             }
             this.FacebookLink =
               res.data.FacebookLink != undefined ? res.data.FacebookLink : "";
@@ -161,15 +161,15 @@ export default {
       form.append("WhatsappLink", this.WhatsappLink);
       form.append("TelegramLink", this.TelegramLink);
       axios
-        .post("https://crypto-backend-seven.vercel.app/Header", form)
+        .post("https://crypto-backend-production.up.railway.app/Header", form)
         .then(async (res) => {
           axios
-            .get("https://crypto-backend-seven.vercel.app/Images")
+            .get("https://crypto-backend-production.up.railway.app/Images")
             .then((res) => {
               if (res.data != null) {
                 console.log(res.data);
                 if (res.data.Logo != undefined) {
-                  this.image = `https://crypto-backend-seven.vercel.app/${res.data.Logo}`;
+                  this.image = `https://crypto-backend-production.up.railway.app/${res.data.Logo}`;
                 }
                 this.FacebookLink =
                   res.data.FacebookLink != undefined

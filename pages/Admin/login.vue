@@ -70,7 +70,7 @@ export default {
         Password: this.Password,
       };
       axios
-        .post("https://crypto-backend-seven.vercel.app/login", obj)
+        .post("https://crypto-backend-production.up.railway.app/login", obj)
         .then((res) => {
           if (!res.data.status) {
             if (res.data.data == "Username") {
