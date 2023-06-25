@@ -39,10 +39,12 @@ export default {
       Password: "",
       UserError: "",
       PassError: "",
+      config: null,
     };
   },
 
   mounted() {
+    this.config = useRuntimeConfig();
     if (localStorage.getItem("UserSession") != null) {
       navigateTo("/Admin");
     }
@@ -69,20 +71,18 @@ export default {
         Username: this.Username,
         Password: this.Password,
       };
-      axios
-        .post("https://crypto-backend-production.up.railway.app/login", obj)
-        .then((res) => {
-          if (!res.data.status) {
-            if (res.data.data == "Username") {
-              this.UserError = res.data.message;
-            } else {
-              this.PassError = res.data.message;
-            }
+      axios.post(`${this.config.public.BaseUrl}/login`, obj).then((res) => {
+        if (!res.data.status) {
+          if (res.data.data == "Username") {
+            this.UserError = res.data.message;
           } else {
-            localStorage.setItem("UserSession", JSON.stringify(res.data.data));
-            navigateTo("/Admin");
+            this.PassError = res.data.message;
           }
-        });
+        } else {
+          localStorage.setItem("UserSession", JSON.stringify(res.data.data));
+          navigateTo("/Admin");
+        }
+      });
     },
   },
 };

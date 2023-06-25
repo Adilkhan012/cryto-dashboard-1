@@ -3,7 +3,7 @@
     <div v-for="blog in blogs.data" :key="blog._id">
       <NuxtLink :to="`/Blogs/${blog._id}`" class="blogs">
         <img
-          :src="`https://crypto-backend-production.up.railway.app/${blog.Banner}`"
+          :src="`${config.public.BaseUrl}/${blog.Banner}`"
           alt=""
           style="width: 20%"
         />
@@ -29,9 +29,8 @@
 </template>
 
 <script setup>
-const { data: blogs } = await useFetch(
-  "https://crypto-backend-production.up.railway.app/Blogs"
-);
+const config = useRuntimeConfig();
+const { data: blogs } = await useFetch(`${config.public.BaseUrl}/Blogs`);
 </script>
 
 <style lang="scss" scoped>

@@ -103,10 +103,12 @@ export default {
       WhatsappLink: "",
       TelegramLink: "",
       imageFile: null,
+      config: null,
     };
   },
 
   mounted() {
+    this.config = useRuntimeConfig();
     if (localStorage.getItem("UserSession") == null) {
       navigateTo("/Admin/Login");
     }
@@ -117,26 +119,24 @@ export default {
       localStorage.removeItem("UserSession");
       navigateTo("/Admin/Login");
     } else {
-      axios
-        .get("https://crypto-backend-production.up.railway.app/Images")
-        .then((res) => {
-          if (res.data != null) {
-            console.log(res.data);
-            if (res.data.Logo != undefined) {
-              this.image = `https://crypto-backend-production.up.railway.app/${res.data.Logo}`;
-            }
-            this.FacebookLink =
-              res.data.FacebookLink != undefined ? res.data.FacebookLink : "";
-            this.TwitterLink =
-              res.data.TwitterLink != undefined ? res.data.TwitterLink : "";
-            this.InstagramLink =
-              res.data.InstagramLink != undefined ? res.data.InstagramLink : "";
-            this.WhatsappLink =
-              res.data.WhatsappLink != undefined ? res.data.WhatsappLink : "";
-            this.TelegramLink =
-              res.data.TelegramLink != undefined ? res.data.TelegramLink : "";
+      axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+        if (res.data != null) {
+          console.log(res.data);
+          if (res.data.Logo != undefined) {
+            this.image = `${this.config.public.BaseUrl}/${res.data.Logo}`;
           }
-        });
+          this.FacebookLink =
+            res.data.FacebookLink != undefined ? res.data.FacebookLink : "";
+          this.TwitterLink =
+            res.data.TwitterLink != undefined ? res.data.TwitterLink : "";
+          this.InstagramLink =
+            res.data.InstagramLink != undefined ? res.data.InstagramLink : "";
+          this.WhatsappLink =
+            res.data.WhatsappLink != undefined ? res.data.WhatsappLink : "";
+          this.TelegramLink =
+            res.data.TelegramLink != undefined ? res.data.TelegramLink : "";
+        }
+      });
     }
   },
   methods: {
@@ -161,36 +161,28 @@ export default {
       form.append("WhatsappLink", this.WhatsappLink);
       form.append("TelegramLink", this.TelegramLink);
       axios
-        .post("https://crypto-backend-production.up.railway.app/Header", form)
+        .post(`${this.config.public.BaseUrl}/Header`, form)
         .then(async (res) => {
-          axios
-            .get("https://crypto-backend-production.up.railway.app/Images")
-            .then((res) => {
-              if (res.data != null) {
-                console.log(res.data);
-                if (res.data.Logo != undefined) {
-                  this.image = `https://crypto-backend-production.up.railway.app/${res.data.Logo}`;
-                }
-                this.FacebookLink =
-                  res.data.FacebookLink != undefined
-                    ? res.data.FacebookLink
-                    : "";
-                this.TwitterLink =
-                  res.data.TwitterLink != undefined ? res.data.TwitterLink : "";
-                this.InstagramLink =
-                  res.data.InstagramLink != undefined
-                    ? res.data.InstagramLink
-                    : "";
-                this.WhatsappLink =
-                  res.data.WhatsappLink != undefined
-                    ? res.data.WhatsappLink
-                    : "";
-                this.TelegramLink =
-                  res.data.TelegramLink != undefined
-                    ? res.data.TelegramLink
-                    : "";
+          axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+            if (res.data != null) {
+              console.log(res.data);
+              if (res.data.Logo != undefined) {
+                this.image = `${this.config.public.BaseUrl}/${res.data.Logo}`;
               }
-            });
+              this.FacebookLink =
+                res.data.FacebookLink != undefined ? res.data.FacebookLink : "";
+              this.TwitterLink =
+                res.data.TwitterLink != undefined ? res.data.TwitterLink : "";
+              this.InstagramLink =
+                res.data.InstagramLink != undefined
+                  ? res.data.InstagramLink
+                  : "";
+              this.WhatsappLink =
+                res.data.WhatsappLink != undefined ? res.data.WhatsappLink : "";
+              this.TelegramLink =
+                res.data.TelegramLink != undefined ? res.data.TelegramLink : "";
+            }
+          });
           const Toast = Swal.mixin({
             toast: true,
             position: "top-right",

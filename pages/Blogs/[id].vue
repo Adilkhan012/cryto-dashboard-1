@@ -10,7 +10,7 @@
       "
     >
       <img
-        :src="`https://crypto-backend-production.up.railway.app/${blog.data.Banner}`"
+        :src="`${config.public.BaseUrl}/${blog.data.Banner}`"
         alt=""
         style="width: 100%"
       />
@@ -21,10 +21,9 @@
 </template>
 
 <script setup>
+const config = useRuntimeConfig();
 const { id } = useRoute().params;
-const { data: blog } = await useFetch(
-  `https://crypto-backend-production.up.railway.app/Blog?id=${id}`
-);
+const { data: blog } = await useFetch(`${config.public.BaseUrl}/Blog?id=${id}`);
 </script>
 
 <style lang="scss" scoped></style>

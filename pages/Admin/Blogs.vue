@@ -91,7 +91,7 @@
           <tr v-for="video in videos" :key="video._id">
             <td style="width: 30%">
               <img
-                :src="`https://crypto-backend-production.up.railway.app/${video.Banner}`"
+                :src="`${this.config.public.BaseUrl}/${video.Banner}`"
                 alt=""
                 width="100"
               />
@@ -130,15 +130,15 @@ export default {
       isEditing: false,
       itemsPerPage: 5,
       videos: [],
+      config: null,
     };
   },
 
   mounted() {
-    axios
-      .get(`https://crypto-backend-production.up.railway.app/Blogs`)
-      .then((res) => {
-        this.videos = res.data.data;
-      });
+    this.config = useRuntimeConfig();
+    axios.get(`${this.config.public.BaseUrl}/Blogs`).then((res) => {
+      this.videos = res.data.data;
+    });
   },
 
   methods: {
@@ -157,16 +157,12 @@ export default {
     RemoveItem(id) {
       console.log(id);
       axios
-        .delete(
-          `https://crypto-backend-production.up.railway.app/Blogs?id=${id}`
-        )
+        .delete(`${this.config.public.BaseUrl}/Blogs?id=${id}`)
         .then(async (res) => {
           if (res.data.status) {
-            axios
-              .get(`https://crypto-backend-production.up.railway.app/Blogs`)
-              .then((res) => {
-                this.videos = res.data.data;
-              });
+            axios.get(`${this.config.public.BaseUrl}/Blogs`).then((res) => {
+              this.videos = res.data.data;
+            });
             const Toast = Swal.mixin({
               toast: true,
               position: "top-right",
@@ -203,15 +199,13 @@ export default {
     },
     EditDialog(id) {
       this.id = id;
-      axios
-        .get(`https://crypto-backend-production.up.railway.app/Blog?id=${id}`)
-        .then((res) => {
-          this.Title = res.data.data.Title;
-          this.Description = res.data.data.Description;
-          this.Banner = `https://crypto-backend-production.up.railway.app/${res.data.data.Banner}`;
-          this.isEditing = true;
-          this.popup = true;
-        });
+      axios.get(`${this.config.public.BaseUrl}/Blog?id=${id}`).then((res) => {
+        this.Title = res.data.data.Title;
+        this.Description = res.data.data.Description;
+        this.Banner = `${this.config.public.BaseUrl}/${res.data.data.Banner}`;
+        this.isEditing = true;
+        this.popup = true;
+      });
     },
     async SaveChanges() {
       if (this.Title === "") {
@@ -246,14 +240,12 @@ export default {
       form.append("Description", this.Description);
       form.append("file", this.BannerFile);
       axios
-        .post(`https://crypto-backend-production.up.railway.app/Blogs`, form)
+        .post(`${this.config.public.BaseUrl}/Blogs`, form)
         .then(async (res) => {
           if (res.data.status) {
-            axios
-              .get(`https://crypto-backend-production.up.railway.app/Blogs`)
-              .then((res) => {
-                this.videos = res.data.data;
-              });
+            axios.get(`${this.config.public.BaseUrl}/Blogs`).then((res) => {
+              this.videos = res.data.data;
+            });
             this.popup = false;
             this.Title = "";
             this.Description = "";
@@ -319,14 +311,12 @@ export default {
       form.append("Description", this.Description);
       form.append("file", this.BannerFile);
       axios
-        .put(`https://crypto-backend-production.up.railway.app/Blogs`, form)
+        .put(`${this.config.public.BaseUrl}/Blogs`, form)
         .then(async (res) => {
           if (res.data.status) {
-            axios
-              .get(`https://crypto-backend-production.up.railway.app/Blogs`)
-              .then((res) => {
-                this.videos = res.data.data;
-              });
+            axios.get(`${this.config.public.BaseUrl}/Blogs`).then((res) => {
+              this.videos = res.data.data;
+            });
             this.popup = false;
             this.Title = "";
             this.Description = "";

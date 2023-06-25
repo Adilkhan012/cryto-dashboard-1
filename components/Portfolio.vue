@@ -12,7 +12,7 @@
             <div class="thumb">
               <NuxtLink :to="`/Blogs/${blogs[0]._id}`">
                 <img
-                  :src="`https://crypto-backend-production.up.railway.app/${blogs[0].Banner}`"
+                  :src="`${config.public.BaseUrl}/${blogs[0].Banner}`"
                   class="img-fluid"
                   alt=""
                 />
@@ -30,7 +30,7 @@
             <div class="blog-meta-card" v-if="blogs[1] != undefined">
               <div class="thumb">
                 <img
-                  :src="`https://crypto-backend-production.up.railway.app/${blogs[1].Banner}`"
+                  :src="`${config.public.BaseUrl}/${blogs[1].Banner}`"
                   class="img-fluid"
                   alt=""
                 />
@@ -47,7 +47,7 @@
             <div class="blog-meta-card" v-if="blogs[2] != undefined">
               <div class="thumb">
                 <img
-                  :src="`https://crypto-backend-production.up.railway.app/${blogs[2].Banner}`"
+                  :src="`${config.public.BaseUrl}/${blogs[2].Banner}`"
                   class="img-fluid"
                   alt=""
                 />
@@ -64,7 +64,7 @@
             <div class="blog-meta-card" v-if="blogs[3] != undefined">
               <div class="thumb">
                 <img
-                  :src="`https://crypto-backend-production.up.railway.app/${blogs[3].Banner}`"
+                  :src="`${config.public.BaseUrl}/${blogs[3].Banner}`"
                   class="img-fluid"
                   alt=""
                 />
@@ -91,16 +91,15 @@ export default {
   data() {
     return {
       blogs: [],
+      config: null,
     };
   },
 
   mounted() {
-    console.log("sadfhkja");
-    axios
-      .get(`https://crypto-backend-production.up.railway.app/Blogs`)
-      .then((res) => {
-        this.blogs = res.data.data;
-      });
+    this.config = useRuntimeConfig();
+    axios.get(`${this.config.public.BaseUrl}/Blogs`).then((res) => {
+      this.blogs = res.data.data;
+    });
   },
 };
 </script>

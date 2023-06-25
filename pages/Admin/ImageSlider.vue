@@ -60,10 +60,12 @@ export default {
   data() {
     return {
       images: [],
+      config: null,
     };
   },
 
   mounted() {
+    this.config = useRuntimeConfig();
     if (localStorage.getItem("UserSession") == null) {
       navigateTo("/Admin/Login");
     }
@@ -74,20 +76,16 @@ export default {
       localStorage.removeItem("UserSession");
       navigateTo("/Admin/Login");
     } else {
-      axios
-        .get("https://crypto-backend-production.up.railway.app/Images")
-        .then((res) => {
-          if (res.data != null) {
-            if (res.data.ImageSlider != undefined) {
-              this.images = [];
-              res.data.ImageSlider.forEach((x) => {
-                this.images.push(
-                  `https://crypto-backend-production.up.railway.app/${x}`
-                );
-              });
-            }
+      axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+        if (res.data != null) {
+          if (res.data.ImageSlider != undefined) {
+            this.images = [];
+            res.data.ImageSlider.forEach((x) => {
+              this.images.push(`${this.config.public.BaseUrl}/${x}`);
+            });
           }
-        });
+        }
+      });
     }
   },
   methods: {
@@ -98,25 +96,18 @@ export default {
       };
       console.log(obj);
       axios
-        .post(
-          "https://crypto-backend-production.up.railway.app/RemoveImage",
-          obj
-        )
+        .post(`${this.config.public.BaseUrl}/RemoveImage`, obj)
         .then((res) => {
-          axios
-            .get("https://crypto-backend-production.up.railway.app/Images")
-            .then((res) => {
-              if (res.data != null) {
-                if (res.data.ImageSlider != undefined) {
-                  this.images = [];
-                  res.data.ImageSlider.forEach((x) => {
-                    this.images.push(
-                      `https://crypto-backend-production.up.railway.app/${x}`
-                    );
-                  });
-                }
+          axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+            if (res.data != null) {
+              if (res.data.ImageSlider != undefined) {
+                this.images = [];
+                res.data.ImageSlider.forEach((x) => {
+                  this.images.push(`${this.config.public.BaseUrl}/${x}`);
+                });
               }
-            });
+            }
+          });
         });
     },
     SelectImage() {
@@ -127,25 +118,18 @@ export default {
       var form = new FormData();
       form.append("file", e.target.files[0]);
       axios
-        .post(
-          "https://crypto-backend-production.up.railway.app/ImageSlider",
-          form
-        )
+        .post(`${this.config.public.BaseUrl}/ImageSlider`, form)
         .then((res) => {
-          axios
-            .get("https://crypto-backend-production.up.railway.app/Images")
-            .then((res) => {
-              if (res.data != null) {
-                if (res.data.ImageSlider != undefined) {
-                  this.images = [];
-                  res.data.ImageSlider.forEach((x) => {
-                    this.images.push(
-                      `https://crypto-backend-production.up.railway.app/${x}`
-                    );
-                  });
-                }
+          axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+            if (res.data != null) {
+              if (res.data.ImageSlider != undefined) {
+                this.images = [];
+                res.data.ImageSlider.forEach((x) => {
+                  this.images.push(`${this.config.public.BaseUrl}/${x}`);
+                });
               }
-            });
+            }
+          });
         });
     },
   },

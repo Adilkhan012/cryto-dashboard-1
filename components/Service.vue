@@ -23,20 +23,20 @@ export default {
   data() {
     return {
       images: [],
+      config: null,
     };
   },
 
   mounted() {
-    axios
-      .get("https://crypto-backend-production.up.railway.app/FeaturedPrograms")
-      .then((res) => {
-        if (res.data != null) {
-          if (res.data != undefined) {
-            this.images = [];
-            this.images = res.data;
-          }
+    this.config = useRuntimeConfig();
+    axios.get(`${this.config.public.BaseUrl}/FeaturedPrograms`).then((res) => {
+      if (res.data != null) {
+        if (res.data != undefined) {
+          this.images = [];
+          this.images = res.data;
         }
-      });
+      }
+    });
   },
 
   methods: {},

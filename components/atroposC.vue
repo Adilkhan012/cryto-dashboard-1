@@ -55,11 +55,13 @@ export default {
       x: 0,
       y: 0,
       banner: "",
+      config: null,
     };
   },
 
   mounted() {
-    this.banner = `https://crypto-backend-production.up.railway.app/${this.image.BannerImage}`;
+    this.config = useRuntimeConfig();
+    this.banner = `${this.config.public.BaseUrl}/${this.image.BannerImage}`;
     // const options = {
     //   root: null,
     //   rootMargin: "0px",

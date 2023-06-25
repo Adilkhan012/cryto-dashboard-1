@@ -113,9 +113,8 @@
 </template>
 
 <script setup>
-const { data: videos } = await useFetch(
-  `https://crypto-backend-production.up.railway.app/Videos`
-);
+const config = useRuntimeConfig();
+const { data: videos } = await useFetch(`${config.public.BaseUrl}/Videos`);
 </script>
 
 <script>

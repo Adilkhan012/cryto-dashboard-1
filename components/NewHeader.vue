@@ -114,23 +114,23 @@ export default {
       WhatsappLink: "",
       TelegramLink: "",
       Logo: "",
+      config: null,
     };
   },
   mounted() {
-    axios
-      .get("https://crypto-backend-production.up.railway.app/Images")
-      .then((res) => {
-        if (res.data != null) {
-          if (res.data.Logo != undefined) {
-            this.Logo = `https://crypto-backend-production.up.railway.app/${res.data.Logo}`;
-          }
-          this.FacebookLink = res.data.FacebookLink;
-          this.TwitterLink = res.data.TwitterLink;
-          this.InstagramLink = res.data.InstagramLink;
-          this.WhatsappLink = res.data.WhatsappLink;
-          this.TelegramLink = res.data.TelegramLink;
+    this.config = useRuntimeConfig();
+    axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+      if (res.data != null) {
+        if (res.data.Logo != undefined) {
+          this.Logo = `${this.config.public.BaseUrl}/${res.data.Logo}`;
         }
-      });
+        this.FacebookLink = res.data.FacebookLink;
+        this.TwitterLink = res.data.TwitterLink;
+        this.InstagramLink = res.data.InstagramLink;
+        this.WhatsappLink = res.data.WhatsappLink;
+        this.TelegramLink = res.data.TelegramLink;
+      }
+    });
   },
 };
 </script>

@@ -37,88 +37,6 @@
           />
         </div>
       </div>
-      <!-- <div class="row team-carousel-active">
-          <div class="col-lg-4">
-            <div class="single-team-area">
-              <div class="single-team-img text-center">
-                <img src="@/assets/images/team/1.png" alt="" />
-                <span class="team-icon-1"
-                  ><img src="@/assets/images/team/icon/1.png" alt=""
-                /></span>
-                <span class="team-icon-2"
-                  ><img src="@/assets/images/team/icon/2.png" alt=""
-                /></span>
-                <span class="team-icon-3"
-                  ><img src="@/assets/images/team/icon/3.png" alt=""
-                /></span>
-              </div>
-              <div class="single-team-content text-center">
-                <h4>Joseph M. Fondren</h4>
-                <p>Apps deigner</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="single-team-area">
-              <div class="single-team-img text-center">
-                <img src="@/assets/images/team/2.png" alt="" />
-                <span class="team-icon-1"
-                  ><img src="@/assets/images/team/icon/1.png" alt=""
-                /></span>
-                <span class="team-icon-2"
-                  ><img src="@/assets/images/team/icon/2.png" alt=""
-                /></span>
-                <span class="team-icon-3"
-                  ><img src="@/assets/images/team/icon/3.png" alt=""
-                /></span>
-              </div>
-              <div class="single-team-content text-center">
-                <h4>Pauline R. Stapleton</h4>
-                <p>Web developer</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="single-team-area">
-              <div class="single-team-img text-center">
-                <img src="@/assets/images/team/3.png" alt="" />
-                <span class="team-icon-1"
-                  ><img src="@/assets/images/team/icon/1.png" alt=""
-                /></span>
-                <span class="team-icon-2"
-                  ><img src="@/assets/images/team/icon/2.png" alt=""
-                /></span>
-                <span class="team-icon-3"
-                  ><img src="@/assets/images/team/icon/3.png" alt=""
-                /></span>
-              </div>
-              <div class="single-team-content text-center">
-                <h4>Robin A. Santiago</h4>
-                <p>apps designer</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="single-team-area">
-              <div class="single-team-img text-center">
-                <img src="@/assets/images/team/2.png" alt="" />
-                <span class="team-icon-1"
-                  ><img src="@/assets/images/team/icon/1.png" alt=""
-                /></span>
-                <span class="team-icon-2"
-                  ><img src="@/assets/images/team/icon/2.png" alt=""
-                /></span>
-                <span class="team-icon-3"
-                  ><img src="@/assets/images/team/icon/3.png" alt=""
-                /></span>
-              </div>
-              <div class="single-team-content text-center">
-                <h4>Pauline R. Stapleton</h4>
-                <p>Web developer</p>
-              </div>
-            </div>
-          </div>
-        </div> -->
     </div>
   </section>
   <!--======  TEAM PART END ======-->
@@ -134,24 +52,22 @@ export default {
   data() {
     return {
       images: [],
+      config: null,
     };
   },
 
   mounted() {
-    axios
-      .get("https://crypto-backend-production.up.railway.app/Images")
-      .then((res) => {
-        if (res.data != null) {
-          if (res.data.Cards != undefined) {
-            this.images = [];
-            res.data.Cards.forEach((x) => {
-              this.images.push(
-                `https://crypto-backend-production.up.railway.app/${x}`
-              );
-            });
-          }
+    this.config = useRuntimeConfig();
+    axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+      if (res.data != null) {
+        if (res.data.Cards != undefined) {
+          this.images = [];
+          res.data.Cards.forEach((x) => {
+            this.images.push(`${this.config.public.BaseUrl}/${x}`);
+          });
         }
-      });
+      }
+    });
   },
 
   methods: {

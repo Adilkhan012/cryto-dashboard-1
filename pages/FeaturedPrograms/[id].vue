@@ -11,12 +11,12 @@
         "
       >
         <img
-          :src="`https://crypto-backend-production.up.railway.app/${program.Image11}`"
+          :src="`${config.public.BaseUrl}/${program.Image11}`"
           alt=""
           style="width: 80%; border: 1px"
         />
         <img
-          :src="`https://crypto-backend-production.up.railway.app/${program.Image12}`"
+          :src="`${config.public.BaseUrl}/${program.Image12}`"
           alt=""
           style="width: 80%"
         />
@@ -32,12 +32,12 @@
         "
       >
         <img
-          :src="`https://crypto-backend-production.up.railway.app/${program.Image21}`"
+          :src="`${config.public.BaseUrl}/${program.Image21}`"
           alt=""
           style="width: 80%; border: 1px"
         />
         <img
-          :src="`https://crypto-backend-production.up.railway.app/${program.Image22}`"
+          :src="`${config.public.BaseUrl}/${program.Image22}`"
           alt=""
           style="width: 80%"
         />
@@ -53,12 +53,12 @@
         "
       >
         <img
-          :src="`https://crypto-backend-production.up.railway.app/${program.Image31}`"
+          :src="`${config.public.BaseUrl}/${program.Image31}`"
           alt=""
           style="width: 80%; border: 1px"
         />
         <img
-          :src="`https://crypto-backend-production.up.railway.app/${program.Image32}`"
+          :src="`${config.public.BaseUrl}/${program.Image32}`"
           alt=""
           style="width: 80%"
         />
@@ -69,9 +69,10 @@
 </template>
 
 <script setup>
+const config = useRuntimeConfig();
 const { id } = useRoute().params;
 const { data: program } = await useFetch(
-  `https://crypto-backend-production.up.railway.app/FeaturedProgram?type=${id}`
+  `${config.public.BaseUrl}/FeaturedProgram?type=${id}`
 );
 </script>
 

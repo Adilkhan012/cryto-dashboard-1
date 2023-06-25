@@ -32,20 +32,20 @@ export default {
   data() {
     return {
       images: [],
+      config: null,
     };
   },
 
   mounted() {
+    this.config = useRuntimeConfig();
     axios
-      .get("https://crypto-backend-production.up.railway.app/Images")
+      .get(`${this.config.public.BaseUrl}/Images`)
       .then((res) => {
         if (res.data != null) {
           if (res.data.ImageSlider != undefined) {
             this.images = [];
             res.data.ImageSlider.forEach((x) => {
-              this.images.push(
-                `https://crypto-backend-production.up.railway.app/${x}`
-              );
+              this.images.push(`${this.config.public.BaseUrl}/${x}`);
             });
           }
         }

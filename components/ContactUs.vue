@@ -81,21 +81,21 @@ export default {
       JoinEventLocation: "",
       JoinEventEmail: "",
       JoinEventPhone: "",
+      config: null,
     };
   },
   mounted() {
-    axios
-      .get("https://crypto-backend-production.up.railway.app/Images")
-      .then((res) => {
-        if (res.data != null) {
-          if (res.data.JoinEvent != undefined) {
-            this.image = `https://crypto-backend-production.up.railway.app/${res.data.JoinEvent}`;
-          }
-          this.JoinEventLocation = res.data.JoinEventLocation;
-          this.JoinEventEmail = res.data.JoinEventEmail;
-          this.JoinEventPhone = res.data.JoinEventPhone;
+    this.config = useRuntimeConfig();
+    axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+      if (res.data != null) {
+        if (res.data.JoinEvent != undefined) {
+          this.image = `${this.config.public.BaseUrl}/${res.data.JoinEvent}`;
         }
-      });
+        this.JoinEventLocation = res.data.JoinEventLocation;
+        this.JoinEventEmail = res.data.JoinEventEmail;
+        this.JoinEventPhone = res.data.JoinEventPhone;
+      }
+    });
   },
 };
 </script>

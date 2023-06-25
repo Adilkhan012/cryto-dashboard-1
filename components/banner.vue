@@ -40,17 +40,17 @@ export default {
   data() {
     return {
       image: "",
+      config: null,
     };
   },
 
   mounted() {
-    axios
-      .get("https://crypto-backend-production.up.railway.app/Images")
-      .then((res) => {
-        if (res.data != null) {
-          this.image = `https://crypto-backend-production.up.railway.app/${res.data.Banner}`;
-        }
-      });
+    this.config = useRuntimeConfig();
+    axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+      if (res.data != null) {
+        this.image = `${this.config.public.BaseUrl}/${res.data.Banner}`;
+      }
+    });
   },
 
   methods: {},

@@ -48,10 +48,12 @@ export default {
       FooterPhone: "",
       FooterLocation: "",
       FooterTiming: "",
+      config: null,
     };
   },
 
   mounted() {
+    this.config = useRuntimeConfig();
     if (localStorage.getItem("UserSession") == null) {
       navigateTo("/Admin/Login");
     }
@@ -62,16 +64,14 @@ export default {
       localStorage.removeItem("UserSession");
       navigateTo("/Admin/Login");
     } else {
-      axios
-        .get("https://crypto-backend-production.up.railway.app/Images")
-        .then((res) => {
-          if (res.data != null) {
-            console.log(res.data);
-            this.FooterPhone = res.data.FooterPhone;
-            this.FooterLocation = res.data.FooterLocation;
-            this.FooterTiming = res.data.FooterTiming;
-          }
-        });
+      axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+        if (res.data != null) {
+          console.log(res.data);
+          this.FooterPhone = res.data.FooterPhone;
+          this.FooterLocation = res.data.FooterLocation;
+          this.FooterTiming = res.data.FooterTiming;
+        }
+      });
     }
   },
   methods: {
@@ -82,19 +82,15 @@ export default {
         FooterTiming: this.FooterTiming,
       };
 
-      axios
-        .post("https://crypto-backend-production.up.railway.app/Footer", obj)
-        .then((res) => {
-          axios
-            .get("https://crypto-backend-production.up.railway.app/Images")
-            .then((res) => {
-              if (res.data != null) {
-                this.FooterPhone = res.data.FooterPhone;
-                this.FooterLocation = res.data.FooterLocation;
-                this.FooterTiming = res.data.FooterTiming;
-              }
-            });
+      axios.post(`${this.config.public.BaseUrl}/Footer`, obj).then((res) => {
+        axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+          if (res.data != null) {
+            this.FooterPhone = res.data.FooterPhone;
+            this.FooterLocation = res.data.FooterLocation;
+            this.FooterTiming = res.data.FooterTiming;
+          }
         });
+      });
     },
   },
 };

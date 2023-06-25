@@ -123,10 +123,12 @@ export default {
       imageFile: null,
       image2File: null,
       image3File: null,
+      config: null,
     };
   },
 
   mounted() {
+    this.config = useRuntimeConfig();
     if (localStorage.getItem("UserSession") == null) {
       navigateTo("/Admin/Login");
     }
@@ -137,23 +139,21 @@ export default {
       localStorage.removeItem("UserSession");
       navigateTo("/Admin/Login");
     } else {
-      axios
-        .get("https://crypto-backend-production.up.railway.app/Images")
-        .then((res) => {
-          if (res.data != null) {
-            if (res.data.AboutUs != undefined) {
-              this.image = `https://crypto-backend-production.up.railway.app/${res.data.AboutUs}`;
-            }
-            if (res.data.AboutUs2 != undefined) {
-              this.image2 = `https://crypto-backend-production.up.railway.app/${res.data.AboutUs2}`;
-            }
-            if (res.data.AboutUs3 != undefined) {
-              this.image3 = `https://crypto-backend-production.up.railway.app/${res.data.AboutUs3}`;
-            }
-            this.AboutUsTitle = res.data.AboutUsTitle;
-            this.AboutUsDescription = res.data.AboutUsDescription;
+      axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+        if (res.data != null) {
+          if (res.data.AboutUs != undefined) {
+            this.image = `${this.config.public.BaseUrl}/${res.data.AboutUs}`;
           }
-        });
+          if (res.data.AboutUs2 != undefined) {
+            this.image2 = `${this.config.public.BaseUrl}/${res.data.AboutUs2}`;
+          }
+          if (res.data.AboutUs3 != undefined) {
+            this.image3 = `${this.config.public.BaseUrl}/${res.data.AboutUs3}`;
+          }
+          this.AboutUsTitle = res.data.AboutUsTitle;
+          this.AboutUsDescription = res.data.AboutUsDescription;
+        }
+      });
     }
   },
   methods: {
@@ -200,19 +200,17 @@ export default {
       form.append("AboutUsTitle", this.AboutUsTitle);
       form.append("AboutUsDescription", this.AboutUsDescription);
       axios
-        .post("https://crypto-backend-production.up.railway.app/AboutUs", form)
+        .post(`${this.config.public.BaseUrl}/AboutUs`, form)
         .then(async (res) => {
-          axios
-            .get("https://crypto-backend-production.up.railway.app/Images")
-            .then((res) => {
-              if (res.data != null) {
-                if (res.data.AboutUs != undefined) {
-                  this.image = `https://crypto-backend-production.up.railway.app/${res.data.AboutUs}`;
-                  this.AboutUsTitle = res.data.AboutUsTitle;
-                  this.AboutUsDescription = res.data.AboutUsDescription;
-                }
+          axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+            if (res.data != null) {
+              if (res.data.AboutUs != undefined) {
+                this.image = `${this.config.public.BaseUrl}/${res.data.AboutUs}`;
+                this.AboutUsTitle = res.data.AboutUsTitle;
+                this.AboutUsDescription = res.data.AboutUsDescription;
               }
-            });
+            }
+          });
           const Toast = Swal.mixin({
             toast: true,
             position: "top-right",

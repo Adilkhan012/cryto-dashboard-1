@@ -41,9 +41,11 @@ export default {
   data() {
     return {
       image: "",
+      config: null,
     };
   },
   mounted() {
+    this.config = useRuntimeConfig();
     if (localStorage.getItem("UserSession") == null) {
       navigateTo("/Admin/Login");
       return;
@@ -59,11 +61,9 @@ export default {
       localStorage.removeItem("UserSession");
       navigateTo("/Admin/Login");
     } else {
-      axios
-        .get("https://crypto-backend-production.up.railway.app/Images")
-        .then((res) => {
-          this.image = `https://crypto-backend-production.up.railway.app/${res.data.Banner}`;
-        });
+      axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+        this.image = `${this.config.public.BaseUrl}/${res.data.Banner}`;
+      });
     }
   },
   methods: {
@@ -74,15 +74,11 @@ export default {
       console.log(e.target.files[0]);
       var form = new FormData();
       form.append("file", e.target.files[0]);
-      axios
-        .post("https://crypto-backend-production.up.railway.app/Banner", form)
-        .then((res) => {
-          axios
-            .get("https://crypto-backend-production.up.railway.app/Images")
-            .then((res) => {
-              this.image = `https://crypto-backend-production.up.railway.app/${res.data.Banner}`;
-            });
+      axios.post(`${this.config.public.BaseUrl}/Banner`, form).then((res) => {
+        axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+          this.image = `${this.config.public.BaseUrl}/${res.data.Banner}`;
         });
+      });
     },
   },
 };

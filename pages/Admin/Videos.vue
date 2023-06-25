@@ -96,31 +96,27 @@ export default {
       isEditing: false,
       itemsPerPage: 5,
       videos: [],
+      config: null,
     };
   },
 
   mounted() {
-    axios
-      .get(`https://crypto-backend-production.up.railway.app/Videos`)
-      .then((res) => {
-        this.videos = res.data.data;
-      });
+    this.config = useRuntimeConfig();
+    axios.get(`${this.config.public.BaseUrl}/Videos`).then((res) => {
+      this.videos = res.data.data;
+    });
   },
 
   methods: {
     RemoveItem(id) {
       console.log(id);
       axios
-        .delete(
-          `https://crypto-backend-production.up.railway.app/Videos?id=${id}`
-        )
+        .delete(`${this.config.public.BaseUrl}/Videos?id=${id}`)
         .then(async (res) => {
           if (res.data.status) {
-            axios
-              .get(`https://crypto-backend-production.up.railway.app/Videos`)
-              .then((res) => {
-                this.videos = res.data.data;
-              });
+            axios.get(`${this.config.public.BaseUrl}/Videos`).then((res) => {
+              this.videos = res.data.data;
+            });
             const Toast = Swal.mixin({
               toast: true,
               position: "top-right",
@@ -157,14 +153,12 @@ export default {
     },
     EditDialog(id) {
       this.id = id;
-      axios
-        .get(`https://crypto-backend-production.up.railway.app/Video?id=${id}`)
-        .then((res) => {
-          this.EmbedLink = res.data.data.EmbedLink;
-          this.Category = res.data.data.Category;
-          this.isEditing = true;
-          this.popup = true;
-        });
+      axios.get(`${this.config.public.BaseUrl}/Video?id=${id}`).then((res) => {
+        this.EmbedLink = res.data.data.EmbedLink;
+        this.Category = res.data.data.Category;
+        this.isEditing = true;
+        this.popup = true;
+      });
     },
     async SaveChanges() {
       if (this.EmbedLink === "") {
@@ -180,14 +174,12 @@ export default {
         Category: this.Category,
       };
       axios
-        .post(`https://crypto-backend-production.up.railway.app/Videos`, obj)
+        .post(`${this.config.public.BaseUrl}/Videos`, obj)
         .then(async (res) => {
           if (res.data.status) {
-            axios
-              .get(`https://crypto-backend-production.up.railway.app/Videos`)
-              .then((res) => {
-                this.videos = res.data.data;
-              });
+            axios.get(`${this.config.public.BaseUrl}/Videos`).then((res) => {
+              this.videos = res.data.data;
+            });
             this.popup = false;
             this.EmbedLink = "";
             this.Category = "English";
@@ -240,14 +232,12 @@ export default {
         Category: this.Category,
       };
       axios
-        .put(`https://crypto-backend-production.up.railway.app/Videos`, obj)
+        .put(`${this.config.public.BaseUrl}/Videos`, obj)
         .then(async (res) => {
           if (res.data.status) {
-            axios
-              .get(`https://crypto-backend-production.up.railway.app/Videos`)
-              .then((res) => {
-                this.videos = res.data.data;
-              });
+            axios.get(`${this.config.public.BaseUrl}/Videos`).then((res) => {
+              this.videos = res.data.data;
+            });
             this.popup = false;
             this.EmbedLink = "";
             this.Category = "English";

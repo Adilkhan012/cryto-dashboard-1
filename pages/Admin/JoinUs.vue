@@ -81,10 +81,12 @@ export default {
       JoinEventEmail: "",
       JoinEventPhone: "",
       imageFile: null,
+      config: null,
     };
   },
 
   mounted() {
+    this.config = useRuntimeConfig();
     if (localStorage.getItem("UserSession") == null) {
       navigateTo("/Admin/Login");
     }
@@ -95,18 +97,16 @@ export default {
       localStorage.removeItem("UserSession");
       navigateTo("/Admin/Login");
     } else {
-      axios
-        .get("https://crypto-backend-production.up.railway.app/Images")
-        .then((res) => {
-          if (res.data != null) {
-            if (res.data.JoinEvent != undefined) {
-              this.image = `https://crypto-backend-production.up.railway.app/${res.data.JoinEvent}`;
-            }
-            this.JoinEventLocation = res.data.JoinEventLocation;
-            this.JoinEventEmail = res.data.JoinEventEmail;
-            this.JoinEventPhone = res.data.JoinEventPhone;
+      axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+        if (res.data != null) {
+          if (res.data.JoinEvent != undefined) {
+            this.image = `${this.config.public.BaseUrl}/${res.data.JoinEvent}`;
           }
-        });
+          this.JoinEventLocation = res.data.JoinEventLocation;
+          this.JoinEventEmail = res.data.JoinEventEmail;
+          this.JoinEventPhone = res.data.JoinEventPhone;
+        }
+      });
     }
   },
   methods: {
@@ -129,23 +129,18 @@ export default {
       form.append("JoinEventEmail", this.JoinEventEmail);
       form.append("JoinEventPhone", this.JoinEventPhone);
       axios
-        .post(
-          "https://crypto-backend-production.up.railway.app/JoinEvent",
-          form
-        )
+        .post(`${this.config.public.BaseUrl}/JoinEvent`, form)
         .then(async (res) => {
-          axios
-            .get("https://crypto-backend-production.up.railway.app/Images")
-            .then((res) => {
-              if (res.data != null) {
-                if (res.data.JoinEvent != undefined) {
-                  this.image = `https://crypto-backend-production.up.railway.app/${res.data.JoinEvent}`;
-                }
-                this.JoinEventLocation = res.data.JoinEventLocation;
-                this.JoinEventEmail = res.data.JoinEventEmail;
-                this.JoinEventPhone = res.data.JoinEventPhone;
+          axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+            if (res.data != null) {
+              if (res.data.JoinEvent != undefined) {
+                this.image = `${this.config.public.BaseUrl}/${res.data.JoinEvent}`;
               }
-            });
+              this.JoinEventLocation = res.data.JoinEventLocation;
+              this.JoinEventEmail = res.data.JoinEventEmail;
+              this.JoinEventPhone = res.data.JoinEventPhone;
+            }
+          });
           const Toast = Swal.mixin({
             toast: true,
             position: "top-right",

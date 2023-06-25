@@ -68,15 +68,15 @@ export default {
       email: "",
       message: "",
       popup: false,
+      config: null,
     };
   },
 
   mounted() {
-    axios
-      .get(`https://crypto-backend-production.up.railway.app/Contacts`)
-      .then((res) => {
-        this.contacts = res.data.data;
-      });
+    this.config = useRuntimeConfig();
+    axios.get(`${this.config.public.BaseUrl}/Contacts`).then((res) => {
+      this.contacts = res.data.data;
+    });
   },
 
   methods: {

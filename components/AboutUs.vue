@@ -105,26 +105,26 @@ export default {
       image3: "",
       AboutUsDescription: "",
       AboutUsTitle: "",
+      config: null,
     };
   },
   mounted() {
-    axios
-      .get("https://crypto-backend-production.up.railway.app/Images")
-      .then((res) => {
-        if (res.data != null) {
-          if (res.data.AboutUs != undefined) {
-            this.image = `https://crypto-backend-production.up.railway.app/${res.data.AboutUs}`;
-          }
-          if (res.data.AboutUs2 != undefined) {
-            this.image2 = `https://crypto-backend-production.up.railway.app/${res.data.AboutUs2}`;
-          }
-          if (res.data.AboutUs3 != undefined) {
-            this.image3 = `https://crypto-backend-production.up.railway.app/${res.data.AboutUs3}`;
-          }
-          this.AboutUsTitle = res.data.AboutUsTitle;
-          this.AboutUsDescription = res.data.AboutUsDescription;
+    this.config = useRuntimeConfig();
+    axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+      if (res.data != null) {
+        if (res.data.AboutUs != undefined) {
+          this.image = `${this.config.public.BaseUrl}/${res.data.AboutUs}`;
         }
-      });
+        if (res.data.AboutUs2 != undefined) {
+          this.image2 = `${this.config.public.BaseUrl}/${res.data.AboutUs2}`;
+        }
+        if (res.data.AboutUs3 != undefined) {
+          this.image3 = `${this.config.public.BaseUrl}/${res.data.AboutUs3}`;
+        }
+        this.AboutUsTitle = res.data.AboutUsTitle;
+        this.AboutUsDescription = res.data.AboutUsDescription;
+      }
+    });
   },
 };
 </script>
