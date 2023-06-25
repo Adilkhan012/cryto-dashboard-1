@@ -5,40 +5,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-9">
-            <div class="row">
-              <!-- <div class="col-lg-3">
-                <div class="top-header-content">
-                  <span
-                    ><i class="fas fa-phone"></i
-                    >{{
-                      HeaderPhone != "" ? HeaderPhone : "+012 (345) 67899"
-                    }}</span
-                  >
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="top-header-content">
-                  <span
-                    ><i class="fas fa-map-marker-alt"></i>>{{
-                      HeaderLocation != ""
-                        ? HeaderLocation
-                        : "63 Plabon Road, USA"
-                    }}</span
-                  >
-                </div>
-              </div>
-              <div class="col-lg-5">
-                <div class="top-header-content">
-                  <span
-                    ><i class="far fa-clock"></i>>{{
-                      HeaderTiming != ""
-                        ? HeaderTiming
-                        : "Sun - Friday : 10 am - 08pm"
-                    }}</span
-                  >
-                </div>
-              </div> -->
-            </div>
+            <div class="row"></div>
           </div>
           <div class="col-lg-3 text-right">
             <div class="top-header-social-links" style="border: none">
@@ -69,10 +36,10 @@
         <div class="row">
           <div class="col-lg-2">
             <div class="logo">
-              <a href="index.html">
+              <NuxtLink to="/">
                 <img v-if="Logo == ''" src="@/assets/logo.png" alt="" />
                 <img v-else :src="Logo" alt="" />
-              </a>
+              </NuxtLink>
             </div>
           </div>
           <div class="col-lg-10 text-right">
