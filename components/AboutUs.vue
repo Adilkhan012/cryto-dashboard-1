@@ -99,70 +99,6 @@
         </div>
       </div>
     </section>
-    <section class="project-counter-area">
-      <div class="container" style="max-width: 1300px">
-        <div
-          style="
-            display: flex;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-            gap: 2rem;
-            flex-basis: 1;
-            flex-wrap: wrap;
-            width: 100%;
-          "
-        >
-          <div class="col-lg-3 col-md-6">
-            <div class="counter-icon">
-              <i class="fas fa-globe"></i>
-            </div>
-            <div class="counter-text">
-              <h1 class="count data1" ref="data1">100000</h1>
-              +
-              <p>Influenced</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="counter-icon">
-              <i class="fas fa-life-ring"></i>
-            </div>
-            <div class="counter-text">
-              <h1 class="count data2" ref="data2">12</h1>
-              +
-              <p>Years Experience</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="counter-icon">
-              <i class="fas fa-trophy"></i>
-            </div>
-            <div class="counter-text">
-              <h1 class="count data3" ref="data3">100</h1>
-              +
-              <p>Events</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="counter-icon">
-              <i class="fas fa-language"></i>
-            </div>
-            <div class="counter-text">
-              <h1 class="count data4" ref="data4">3</h1>
-              <p>Languages</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="counter-icon">
-              <i class="fas fa-universal-access"></i>
-            </div>
-            <div class="counter-text">
-              <h1 class="count data5" ref="data5">40</h1>
-              +
-              <p>Countries</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <section
       style="
         display: flex;
@@ -301,6 +237,100 @@
             ></span>
           </div>
           <span style="font-weight: 500">Highly Committed</span>
+        </div>
+      </div>
+    </section>
+    <section class="project-counter-area">
+      <div class="container" style="max-width: 1300px">
+        <div
+          style="
+            display: flex;
+            gap: 3rem;
+            flex-basis: 1;
+            flex-wrap: wrap;
+            width: 100%;
+            align-items: center;
+          "
+        >
+          <div class="col-lg-2 col-md-4">
+            <div class="counter-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div class="counter-text">
+              <h1
+                class="count data1"
+                ref="data1"
+                style="font-size: clamp(2rem, 2vw, 3rem)"
+              >
+                100000
+              </h1>
+              +
+              <p>Influenced</p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4">
+            <div class="counter-icon">
+              <i class="fas fa-life-ring"></i>
+            </div>
+            <div class="counter-text">
+              <h1
+                class="count data2"
+                ref="data2"
+                style="font-size: clamp(2rem, 2vw, 3rem)"
+              >
+                12
+              </h1>
+              +
+              <p>Years Experience</p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4">
+            <div class="counter-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <div class="counter-text">
+              <h1
+                class="count data3"
+                ref="data3"
+                style="font-size: clamp(2rem, 2vw, 3rem)"
+              >
+                100
+              </h1>
+              +
+              <p>Events</p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4">
+            <div class="counter-icon">
+              <i class="fas fa-language"></i>
+            </div>
+            <div class="counter-text">
+              <h1
+                class="count data4"
+                ref="data4"
+                style="font-size: clamp(2rem, 2vw, 3rem)"
+              >
+                3
+              </h1>
+              <p>Languages</p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4">
+            <div class="counter-icon">
+              <i class="fas fa-universal-access"></i>
+            </div>
+            <div class="counter-text">
+              <h1
+                class="count data5"
+                ref="data5"
+                style="font-size: clamp(2rem, 2vw, 3rem)"
+              >
+                40
+              </h1>
+              +
+              <p>Countries</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
