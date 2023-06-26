@@ -3,7 +3,6 @@ export default defineNuxtConfig({
   modules: ["@pinia/nuxt"],
   css: [
     "vuetify/lib/styles/main.sass",
-    "swiper/css/pagination",
     "@/assets/css/all.css",
     "@/assets/plugins/summernote/summernote-bs4.min.css",
     "@/assets/plugins/daterangepicker/daterangepicker.css",
