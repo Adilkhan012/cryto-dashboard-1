@@ -2448,13 +2448,6 @@
     "domhandler" "^5.0.2"
     "entities" "^4.2.0"
 
-"dom7@^4.0.4":
-  "integrity" "sha512-emjdpPLhpNubapLFdjNL9tP06Sr+GZkrIHEXLWvOGsytACUrkbeIdjO5g77m00BrHTznnlcNqgmn7pCN192TBA=="
-  "resolved" "https://registry.npmjs.org/dom7/-/dom7-4.0.6.tgz"
-  "version" "4.0.6"
-  dependencies:
-    "ssr-window" "^4.0.0"
-
 "domain-browser@^1.1.1":
   "integrity" "sha512-jnjyiM6eRyZl2H+W8Q/zLMA481hzi0eszAaBUzIVnmYVDBbnLxVNnfu1HgEBvCbL+71FrxMl3E6lpKH7Ge3OXA=="
   "resolved" "https://registry.npmjs.org/domain-browser/-/domain-browser-1.2.0.tgz"
@@ -5982,7 +5975,7 @@
   dependencies:
     "extend-shallow" "^3.0.0"
 
-"ssr-window@^4.0.0", "ssr-window@^4.0.2":
+"ssr-window@^4.0.2":
   "integrity" "sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ=="
   "resolved" "https://registry.npmjs.org/ssr-window/-/ssr-window-4.0.2.tgz"
   "version" "4.0.2"
@@ -6182,12 +6175,11 @@
   "resolved" "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.7.12.tgz"
   "version" "11.7.12"
 
-"swiper@^7.0.0  || ^8.0.0":
-  "integrity" "sha512-VwO/KU3i9IV2Sf+W2NqyzwWob4yX9Qdedq6vBtS0rFqJ6Fa5iLUJwxQkuD4I38w0WDJwmFl8ojkdcRFPHWD+2g=="
-  "resolved" "https://registry.npmjs.org/swiper/-/swiper-8.4.7.tgz"
-  "version" "8.4.7"
+"swiper@^7.0.0  || ^8.0.0", "swiper@^9.4.1":
+  "integrity" "sha512-1nT2T8EzUpZ0FagEqaN/YAhRj33F2x/lN6cyB0/xoYJDMf8KwTFT3hMOeoB8Tg4o3+P/CKqskP+WX0Df046fqA=="
+  "resolved" "https://registry.npmjs.org/swiper/-/swiper-9.4.1.tgz"
+  "version" "9.4.1"
   dependencies:
-    "dom7" "^4.0.4"
     "ssr-window" "^4.0.2"
 
 "tapable@^1.0.0", "tapable@^1.1.3":

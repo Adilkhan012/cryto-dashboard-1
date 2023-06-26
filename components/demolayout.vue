@@ -313,9 +313,9 @@
           </div>
         </swiper-slide>
 
-        <!-- <div class="swiper-pagination" :pagination></div> -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination" slot="pagination"></div>
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
       </swiper>
     </div>
     <!-- <section class="testimonial-area" id="testimonial">
@@ -382,8 +382,8 @@
 // import SwiperClass, { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 
-import "swiper/css";
-import "swiper/css/pagination";
+import "swiper/swiper.min.css";
+import "swiper/swiper-bundle.min.css";
 import { gsap } from "gsap";
 export default {
   // setup() {
