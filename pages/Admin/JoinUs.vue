@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="loader" v-if="loader">
+      <img src="@/assets/loader2.webp" alt="" />
+    </div>
     <div style="display: flex; justify-content: center; align-items: center">
       <img
         v-if="image != ''"
@@ -82,6 +85,7 @@ export default {
       JoinEventPhone: "",
       imageFile: null,
       config: null,
+      loader: false,
     };
   },
 
@@ -97,7 +101,9 @@ export default {
       localStorage.removeItem("UserSession");
       navigateTo("/Admin/Login");
     } else {
+      this.loader = true;
       axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+        this.loader = false;
         if (res.data != null) {
           if (res.data.JoinEvent != undefined) {
             this.image = `${this.config.public.BaseUrl}/${res.data.JoinEvent}`;
@@ -114,6 +120,7 @@ export default {
       this.$refs.image.click();
     },
     UploadImage(e) {
+      this.loader = true;
       this.imageFile = e.target.files[0];
       const reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
@@ -132,6 +139,7 @@ export default {
         .post(`${this.config.public.BaseUrl}/JoinEvent`, form)
         .then(async (res) => {
           axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+            this.loader = false;
             if (res.data != null) {
               if (res.data.JoinEvent != undefined) {
                 this.image = `${this.config.public.BaseUrl}/${res.data.JoinEvent}`;
@@ -161,4 +169,19 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.loader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 7%;
+  z-index: 100;
+  background: white;
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 100ms ease-in-out;
+}
+</style>

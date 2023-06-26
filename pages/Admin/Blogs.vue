@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="loader" v-if="loader">
+      <img src="@/assets/loader2.webp" alt="" />
+    </div>
     <div class="overlay" @click="close" v-if="popup"></div>
     <div>
       <button class="Add-Video" @click="open">Add Video</button>
@@ -131,14 +134,29 @@ export default {
       itemsPerPage: 5,
       videos: [],
       config: null,
+      loader: false,
     };
   },
 
   mounted() {
     this.config = useRuntimeConfig();
-    axios.get(`${this.config.public.BaseUrl}/Blogs`).then((res) => {
-      this.videos = res.data.data;
-    });
+    if (localStorage.getItem("UserSession") == null) {
+      navigateTo("/Admin/Login");
+    }
+    var session = JSON.parse(localStorage.getItem("UserSession"));
+    console.log("asdf");
+    if (new Date(session.exp).getTime() <= new Date().getTime()) {
+      console.log("Session Expired");
+      localStorage.removeItem("UserSession");
+      navigateTo("/Admin/Login");
+    } else {
+      this.loader = true;
+
+      axios.get(`${this.config.public.BaseUrl}/Blogs`).then((res) => {
+        this.loader = false;
+        this.videos = res.data.data;
+      });
+    }
   },
 
   methods: {
@@ -155,10 +173,11 @@ export default {
       });
     },
     RemoveItem(id) {
-      console.log(id);
+      this.loader = true;
       axios
         .delete(`${this.config.public.BaseUrl}/Blogs?id=${id}`)
         .then(async (res) => {
+          this.loader = false;
           if (res.data.status) {
             axios.get(`${this.config.public.BaseUrl}/Blogs`).then((res) => {
               this.videos = res.data.data;
@@ -199,7 +218,9 @@ export default {
     },
     EditDialog(id) {
       this.id = id;
+      this.loader = true;
       axios.get(`${this.config.public.BaseUrl}/Blog?id=${id}`).then((res) => {
+        this.loader = false;
         this.Title = res.data.data.Title;
         this.Description = res.data.data.Description;
         this.Banner = `${this.config.public.BaseUrl}/${res.data.data.Banner}`;
@@ -208,6 +229,7 @@ export default {
       });
     },
     async SaveChanges() {
+      this.loader = true;
       if (this.Title === "") {
         Swal.fire({
           title: "Error!",
@@ -242,6 +264,7 @@ export default {
       axios
         .post(`${this.config.public.BaseUrl}/Blogs`, form)
         .then(async (res) => {
+          this.loader = false;
           if (res.data.status) {
             axios.get(`${this.config.public.BaseUrl}/Blogs`).then((res) => {
               this.videos = res.data.data;
@@ -286,6 +309,7 @@ export default {
         });
     },
     async EditChanges() {
+      this.loader = true;
       if (this.Title === "") {
         Swal.fire({
           title: "Error!",
@@ -315,6 +339,7 @@ export default {
         .then(async (res) => {
           if (res.data.status) {
             axios.get(`${this.config.public.BaseUrl}/Blogs`).then((res) => {
+              this.loader = false;
               this.videos = res.data.data;
             });
             this.popup = false;
@@ -417,5 +442,19 @@ th {
 
 tr:nth-child(even) {
   background-color: #fff;
+}
+.loader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 7%;
+  z-index: 100;
+  background: white;
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 100ms ease-in-out;
 }
 </style>

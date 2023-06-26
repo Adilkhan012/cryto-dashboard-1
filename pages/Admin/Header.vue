@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="loader" v-if="loader">
+      <img src="@/assets/loader2.webp" alt="" />
+    </div>
     <div class="px-5">
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label"
@@ -104,6 +107,7 @@ export default {
       TelegramLink: "",
       imageFile: null,
       config: null,
+      loader: false,
     };
   },
 
@@ -119,7 +123,9 @@ export default {
       localStorage.removeItem("UserSession");
       navigateTo("/Admin/Login");
     } else {
+      this.loader = true;
       axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+        this.loader = false;
         if (res.data != null) {
           console.log(res.data);
           if (res.data.Logo != undefined) {
@@ -153,6 +159,7 @@ export default {
       });
     },
     SaveChanges() {
+      this.loader = true;
       var form = new FormData();
       form.append("file", this.imageFile);
       form.append("FacebookLink", this.FacebookLink);
@@ -164,6 +171,7 @@ export default {
         .post(`${this.config.public.BaseUrl}/Header`, form)
         .then(async (res) => {
           axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+            this.loader = false;
             if (res.data != null) {
               console.log(res.data);
               if (res.data.Logo != undefined) {
@@ -203,4 +211,19 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.loader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 7%;
+  z-index: 100;
+  background: white;
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 100ms ease-in-out;
+}
+</style>

@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="loader" v-if="loader">
+      <img src="@/assets/loader2.webp" alt="" />
+    </div>
     <div class="overlay" @click="close" v-if="popup"></div>
     <div>
       <button class="Add-Video" @click="open">Add Video</button>
@@ -97,14 +100,28 @@ export default {
       itemsPerPage: 5,
       videos: [],
       config: null,
+      loader: false,
     };
   },
 
   mounted() {
     this.config = useRuntimeConfig();
-    axios.get(`${this.config.public.BaseUrl}/Videos`).then((res) => {
-      this.videos = res.data.data;
-    });
+    if (localStorage.getItem("UserSession") == null) {
+      navigateTo("/Admin/Login");
+    }
+    var session = JSON.parse(localStorage.getItem("UserSession"));
+    console.log("asdf");
+    if (new Date(session.exp).getTime() <= new Date().getTime()) {
+      console.log("Session Expired");
+      localStorage.removeItem("UserSession");
+      navigateTo("/Admin/Login");
+    } else {
+      this.loader = true;
+      axios.get(`${this.config.public.BaseUrl}/Videos`).then((res) => {
+        this.loader = false;
+        this.videos = res.data.data;
+      });
+    }
   },
 
   methods: {
@@ -333,5 +350,19 @@ th {
 
 tr:nth-child(even) {
   background-color: #fff;
+}
+.loader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 7%;
+  z-index: 100;
+  background: white;
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 100ms ease-in-out;
 }
 </style>

@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="loader" v-if="loader">
+      <img src="@/assets/loader2.webp" alt="" />
+    </div>
     <div style="display: flex; justify-content: center; align-items: center">
       <div v-if="form.BannerImage != ''">
         <img
@@ -247,6 +250,7 @@ export default {
       },
       fileType: "",
       config: null,
+      loader: false,
     };
   },
 
@@ -263,9 +267,11 @@ export default {
       localStorage.removeItem("UserSession");
       navigateTo("/Admin/Login");
     } else {
+      this.loader = true;
       axios
         .get(`${this.config.public.BaseUrl}/FeaturedProgram?type=${this.Type}`)
         .then((res) => {
+          this.loader = false;
           if (res.data != null) {
             console.log(res.data);
             if (res.data.BannerImage != undefined) {
@@ -367,6 +373,7 @@ export default {
       }
     },
     SaveChanges() {
+      this.loader = true;
       var form = new FormData();
       form.append("BannerImage", this.form.BannerImageFile);
       form.append("image11", this.form.ImageFile11);
@@ -391,6 +398,7 @@ export default {
               `${this.config.public.BaseUrl}/FeaturedProgram?type=${this.Type}`
             )
             .then((res) => {
+              this.loader = false;
               if (res.data != null) {
                 console.log(res.data);
                 if (res.data.BannerImage != undefined) {
@@ -444,4 +452,19 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.loader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 7%;
+  z-index: 100;
+  background: white;
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 100ms ease-in-out;
+}
+</style>

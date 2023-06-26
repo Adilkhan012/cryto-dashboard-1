@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="loader" v-if="loader">
+      <img src="@/assets/loader2.webp" alt="" />
+    </div>
     <div class="px-5">
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Phone</label>
@@ -49,6 +52,7 @@ export default {
       FooterLocation: "",
       FooterTiming: "",
       config: null,
+      loader: false,
     };
   },
 
@@ -64,7 +68,9 @@ export default {
       localStorage.removeItem("UserSession");
       navigateTo("/Admin/Login");
     } else {
+      this.loader = true;
       axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+        this.loader = false;
         if (res.data != null) {
           console.log(res.data);
           this.FooterPhone = res.data.FooterPhone;
@@ -76,6 +82,7 @@ export default {
   },
   methods: {
     SaveChanges() {
+      this.loader = true;
       var obj = {
         FooterPhone: this.FooterPhone,
         FooterLocation: this.FooterLocation,
@@ -84,6 +91,7 @@ export default {
 
       axios.post(`${this.config.public.BaseUrl}/Footer`, obj).then((res) => {
         axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+          this.loader = false;
           if (res.data != null) {
             this.FooterPhone = res.data.FooterPhone;
             this.FooterLocation = res.data.FooterLocation;
@@ -95,4 +103,19 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.loader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 7%;
+  z-index: 100;
+  background: white;
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 100ms ease-in-out;
+}
+</style>
