@@ -91,6 +91,7 @@
         style="display: none"
         type="file"
         ref="image"
+        multiple
         @change="UploadImage"
       />
       <!-- <img v-if="image == ''" src="@/assets/ImagePlaceholder.jpg" alt="" /> -->
@@ -224,7 +225,10 @@ export default {
       this.loader = true;
       console.log(e.target.files[0]);
       var form = new FormData();
-      form.append("file", e.target.files[0]);
+      for (var i = 0; i < e.target.files.length; i++) {
+        console.log(e.target.files[i]);
+        form.append("file", e.target.files[i]);
+      }
       axios
         .post(`${this.config.public.BaseUrl}/ImageSlider`, form)
         .then((res) => {
