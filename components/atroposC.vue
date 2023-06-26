@@ -1,5 +1,15 @@
 <template>
-  <div class="col-md-4">
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6rem;
+      display: block;
+      flex-wrap: wrap;
+      flex-basis: 1;
+    "
+  >
     <NuxtLink :to="`/FeaturedPrograms/${image.Type}`">
       <atropos
         :shadow-offset="50"
@@ -10,13 +20,14 @@
         :shadow-scale="3"
         :highlight="true"
         class="atropos my-atropos cards"
+        style="width: 100%"
       >
         <div class="atropos-scale">
           <div class="atropos-rotate">
             <div class="atropos-inner">
               <div class="img-box" ref="card">
                 <!-- <div class="Blob" ref="blob"></div> -->
-                <img :src="banner" alt="" width="300" height="250" />
+                <img :src="banner" alt="" height="250" width="300" />
               </div>
               <div class="title-box">
                 <h4 v-if="image.Type === 'Academic'">Academic Sessions</h4>

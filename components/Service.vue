@@ -9,7 +9,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="services-items">
         <atroposC v-for="i in images" :key="i" :image="i" />
       </div>
     </div>
@@ -44,6 +44,18 @@ export default {
 </script>
 
 <style scoped>
+.services-items {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+}
+@media (max-width: 750px) {
+  .services-items {
+    justify-content: center;
+  }
+}
 .title h1 {
   color: #fff;
   font-size: 45px;

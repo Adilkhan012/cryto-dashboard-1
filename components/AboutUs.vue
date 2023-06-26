@@ -242,20 +242,22 @@
     </section>
     <section
       class="project-counter-area"
-      style="width: 66%; margin: 0rem auto 10rem"
+      style="width: 66%; margin: 0rem auto 10rem; padding: 0"
     >
-      <div class="container" style="max-width: 1300px">
+      <div class="container" style="max-width: 80vw; margin: auto">
         <div
           style="
             display: flex;
-            gap: 2rem;
+            justify-content: space-between;
             flex-basis: 1;
+            gap: 6rem;
             flex-wrap: wrap;
             width: 100%;
+            margin: auto;
             align-items: center;
           "
         >
-          <div class="col-lg-2 col-md-5">
+          <div class="">
             <div class="counter-icon">
               <i class="fas fa-globe"></i>
             </div>
@@ -271,7 +273,7 @@
               <p>Influenced</p>
             </div>
           </div>
-          <div class="col-lg-2 col-md-5">
+          <div class="">
             <div class="counter-icon">
               <i class="fas fa-life-ring"></i>
             </div>
@@ -287,7 +289,7 @@
               <p>Years Experience</p>
             </div>
           </div>
-          <div class="col-lg-2 col-md-5">
+          <div class="">
             <div class="counter-icon">
               <i class="fas fa-trophy"></i>
             </div>
@@ -303,7 +305,7 @@
               <p>Events</p>
             </div>
           </div>
-          <div class="col-lg-2 col-md-5">
+          <div class="">
             <div class="counter-icon">
               <i class="fas fa-language"></i>
             </div>
@@ -318,7 +320,7 @@
               <p>Languages</p>
             </div>
           </div>
-          <div class="col-lg-2 col-md-5">
+          <div class="">
             <div class="counter-icon">
               <i class="fas fa-universal-access"></i>
             </div>
