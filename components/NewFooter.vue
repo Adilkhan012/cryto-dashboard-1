@@ -58,9 +58,7 @@
       <div class="footer-bottom-area">
         <div class="container">
           <div class="row">
-            <div class="col-lg-6">
-              <p>&copy; 2020 Livvic. All Rights Reserved</p>
-            </div>
+            <div class="col-lg-6"></div>
             <div class="col-lg-6">
               <ul class="footer-links">
                 <li v-if="FacebookLink != '' && FacebookLink != undefined">
