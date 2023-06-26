@@ -382,8 +382,6 @@
 import SwiperClass, { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 
-import "swiper/css";
-import "swiper/css/pagination";
 import { gsap } from "gsap";
 export default {
   setup() {
