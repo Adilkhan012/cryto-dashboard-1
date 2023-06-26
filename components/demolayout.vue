@@ -128,12 +128,13 @@
       style="
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 2rem;
+        width: 66%;
+        margin: auto;
+        gap: 5rem;
       "
     >
-      <h3 style="font-weight: 500">WHY VINEESH VIJAYAN?</h3>
-      <div style="display: flex; gap: 3rem">
+      <h3 style="font-weight: 700; font-size: 2.45rem">WHY VINEESH VIJAYAN?</h3>
+      <div style="display: flex; justify-content: center; gap: 6rem">
         <div
           style="
             display: flex;
@@ -145,17 +146,19 @@
         >
           <div
             class="boxes-icon circle"
-            style="border-color: #2e8ece; width: 90px; height: 90px"
+            style="border-color: #f26c4f; width: 140px; height: 140px"
           >
             <span class="inner-icon"
               ><span class="icon"
                 ><i
                   class="fa fa-globe"
                   style="
-                    color: #2e8ece;
+                    color: #f26c4f;
                     font-size: 30px;
                     line-height: 30px;
                     vertical-align: middle;
+
+                    font-size: 3rem;
                   "
                 ></i></span
             ></span>
@@ -173,17 +176,18 @@
         >
           <div
             class="boxes-icon circle"
-            style="border-color: #2e8ece; width: 90px; height: 90px"
+            style="border-color: #f26c4f; width: 140px; height: 140px"
           >
             <span class="inner-icon"
               ><span class="icon"
                 ><i
                   class="fa fa-users"
                   style="
-                    color: #2e8ece;
+                    color: #f26c4f;
                     font-size: 30px;
                     line-height: 30px;
                     vertical-align: middle;
+                    font-size: 3rem;
                   "
                 ></i></span
             ></span>
@@ -201,17 +205,18 @@
         >
           <div
             class="boxes-icon circle"
-            style="border-color: #2e8ece; width: 90px; height: 90px"
+            style="border-color: #f26c4f; width: 140px; height: 140px"
           >
             <span class="inner-icon"
               ><span class="icon"
                 ><i
                   class="fa fa-lightbulb"
                   style="
-                    color: #2e8ece;
+                    color: #f26c4f;
                     font-size: 30px;
                     line-height: 30px;
                     vertical-align: middle;
+                    font-size: 3rem;
                   "
                 ></i></span
             ></span>
@@ -229,17 +234,18 @@
         >
           <div
             class="boxes-icon circle"
-            style="border-color: #2e8ece; width: 90px; height: 90px"
+            style="border-color: #f26c4f; width: 140px; height: 140px"
           >
             <span class="inner-icon"
               ><span class="icon"
                 ><i
                   class="fa fa-handshake"
                   style="
-                    color: #2e8ece;
+                    color: #f26c4f;
                     font-size: 30px;
                     line-height: 30px;
                     vertical-align: middle;
+                    font-size: 3rem;
                   "
                 ></i></span
             ></span>
@@ -251,7 +257,68 @@
     <!--======  PROJECTS PART END ======-->
     <Portfolio />
     <!--======  TESTIMONIAL PART START ======-->
-    <section class="testimonial-area" id="testimonial">
+    <div style="width: 80%; margin: auto">
+      <swiper
+        class="swiper"
+        :modules="modules"
+        :pagination="{ clickable: true }"
+        :autoplay="{ delay: 0 }"
+        :loop="true"
+        :options="swiperOption"
+      >
+        <swiper-slide>
+          <div class="single-testimonial-content">
+            <span class="testimonial-quote"
+              ><i class="fa fa-quote-right"></i
+            ></span>
+            <p>
+              Avoids pleasur itself because pleas because those who do not know
+              how to pursue plesure rationally encou eque that are extrem
+              painful again is there anyone who loves pursues or desires to
+              obtain pain of itself.
+            </p>
+            <div class="autohor-details">
+              <img
+                src="@/assets/images/testimonial/1.jpg"
+                alt=""
+                class="author-img"
+              />
+              <h5 class="author-name">
+                Michele L. Racinea <span>Web Designer</span>
+              </h5>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="single-testimonial-content">
+            <span class="testimonial-quote"
+              ><i class="fa fa-quote-right"></i
+            ></span>
+            <p>
+              Avoids pleasur itself because pleas because those who do not know
+              how to pursue plesure rationally encou eque that are extrem
+              painful again is there anyone who loves pursues or desires to
+              obtain pain of itself.
+            </p>
+            <div class="autohor-details">
+              <img
+                src="@/assets/images/testimonial/1.jpg"
+                alt=""
+                class="author-img"
+              />
+              <h5 class="author-name">
+                Michele L. Racinea <span>Web Designer</span>
+              </h5>
+            </div>
+          </div>
+        </swiper-slide>
+
+        <!-- <div class="swiper-pagination" :pagination></div> -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </swiper>
+    </div>
+    <!-- <section class="testimonial-area" id="testimonial">
       <div class="container">
         <div class="row">
           <div class="col-lg-7 textimonial-carousel-active">
@@ -300,7 +367,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!--======  TESTIMONIAL PART END ======-->
 
     <!--======  SCROLL-TO-TOP PART START ======-->
@@ -312,12 +379,39 @@
 </template>
 
 <script>
+import SwiperClass, { Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "vue-awesome-swiper";
+
+import "swiper/css";
+import "swiper/css/pagination";
 import { gsap } from "gsap";
 export default {
+  setup() {
+    return {
+      modules: [Pagination],
+    };
+  },
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
   data() {
     return {
       scTimer: 0,
       scY: 0,
+      swiperOption: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      },
     };
   },
   mounted() {
@@ -416,5 +510,9 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  --swiper-theme-color: #ff0000;
 }
 </style>

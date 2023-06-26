@@ -13,6 +13,7 @@
 
               <img src="https://placeimg.com/200/200/any?4" />
             </carousel>
+
             <div class="owl-carousel owl-theme testimonial">
               <div class="item">
                 <div class="row justify-content-center text-center">
@@ -135,15 +136,42 @@
           ></path>
         </svg>
       </div>
+      <swiper class="swiper" :options="swiperOption">
+        <swiper-slide>
+          <img
+            src="https://res.cloudinary.com/dpkreativ/image/upload/v1646483551/wallpapers/car.jpg"
+            alt="car"
+          />
+        </swiper-slide>
+        <swiper-slide>
+          <img
+            src="https://res.cloudinary.com/dpkreativ/image/upload/v1646695756/wallpapers/laptop.jpg"
+            alt="laptop"
+          />
+        </swiper-slide>
+        <swiper-slide>
+          <img
+            src="https://res.cloudinary.com/dpkreativ/image/upload/v1646749176/wallpapers/photo-1646727002357-073c182015e0_qv2xlg.jpg"
+            alt="mist"
+          />
+        </swiper-slide>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </swiper>
     </section>
   </div>
 </template>
 
 <script>
-
+import "swiper/css/swiper.css";
+import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 export default {
   name: "DemoNewTestimonials",
-  components: { carousel },
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
   data() {
     return {};
   },

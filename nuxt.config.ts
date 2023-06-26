@@ -25,6 +25,13 @@ export default defineNuxtConfig({
   build: {
     transpile: ["vuetify"],
   },
+  plugins: [
+    {
+      src: "@/plugins/owlCarasol.js",
+      mode: "client",
+    },
+  ],
+
   app: {
     head: {
       meta: [
