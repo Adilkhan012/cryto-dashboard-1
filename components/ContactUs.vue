@@ -105,7 +105,11 @@ export default {
   position: relative;
   z-index: 2;
 }
-
+@media (min-width: 0px) and (max-width: 900px) {
+  .event {
+    margin: 0;
+  }
+}
 .event .title-bar {
   margin-right: 35px;
   font-size: 45px;

@@ -7,6 +7,9 @@
 
 /* Normal desktop :992px. */
 @media (min-width: 992px) and (max-width: 1200px) {
+    .event{
+        margin: 0;
+    }
     .top-header-content span {
         font-size: 12px;
     }

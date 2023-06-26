@@ -120,7 +120,6 @@ export default {
       this.$refs.image.click();
     },
     UploadImage(e) {
-      this.loader = true;
       this.imageFile = e.target.files[0];
       const reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
