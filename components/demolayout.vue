@@ -11,9 +11,9 @@
                 We denounce with righteous indignation and dislike men who are
                 so beguiled and demoralized by the charms of pleasure
               </p>
-              <a href="#" class="btn cta-btn"
-                >meet with us <i class="fa fa-arrow-right"></i
-              ></a>
+              <NuxtLink to="#Contact" class="btn cta-btn"
+                >Contact us <i class="fa fa-arrow-right"></i
+              ></NuxtLink>
             </div>
           </div>
         </div>
