@@ -88,6 +88,12 @@
                 <p>Contact us</p>
               </NuxtLink>
             </li>
+            <li class="nav-item">
+              <NuxtLink to="/Admin/Testimonials" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>Testimonials</p>
+              </NuxtLink>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

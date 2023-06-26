@@ -1,102 +1,316 @@
 <template>
   <!--======  ABOUT-US PART START ======-->
-  <section class="about_us" id="About">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 m-md-auto">
-          <div class="about-img">
-            <div class="img-1">
-              <img
-                v-if="image2 == ''"
-                src="@/assets/images/about_img.png"
-                alt=""
-                class="about"
-                width="500"
-                height="360"
-              />
-              <img
-                v-else
-                :src="image2"
-                alt=""
-                class="about"
-                width="500"
-                height="360"
-              />
-            </div>
-            <div class="img-2">
-              <img
-                v-if="image == ''"
-                src="@/assets/images/about_img_1.png"
-                class="about"
-                width="300"
-                height="430"
-              />
-              <img v-else :src="image" class="about" width="300" height="430" />
-            </div>
-            <div class="img-3">
-              <img
-                v-if="image3 == ''"
-                src="@/assets/images/about_img_2.png"
-                alt=""
-                class="about"
-                width="280"
-                height="100"
-              />
-              <img
-                v-else
-                :src="image3"
-                alt=""
-                class="about"
-                width="280"
-                height="100"
-              />
-            </div>
-            <div class="shape movingX">
-              <img src="@/assets/images/shape/about-shape.png" alt="" />
+  <div>
+    <section class="about_us" id="About">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 m-md-auto">
+            <div class="about-img">
+              <div class="img-1">
+                <img
+                  v-if="image2 == ''"
+                  src="@/assets/images/about_img.png"
+                  alt=""
+                  class="about"
+                  width="500"
+                  height="360"
+                />
+                <img
+                  v-else
+                  :src="image2"
+                  alt=""
+                  class="about"
+                  width="500"
+                  height="360"
+                />
+              </div>
+              <div class="img-2">
+                <img
+                  v-if="image == ''"
+                  src="@/assets/images/about_img_1.png"
+                  class="about"
+                  width="300"
+                  height="430"
+                />
+                <img
+                  v-else
+                  :src="image"
+                  class="about"
+                  width="300"
+                  height="430"
+                />
+              </div>
+              <div class="img-3">
+                <img
+                  v-if="image3 == ''"
+                  src="@/assets/images/about_img_2.png"
+                  alt=""
+                  class="about"
+                  width="280"
+                  height="100"
+                />
+                <img
+                  v-else
+                  :src="image3"
+                  alt=""
+                  class="about"
+                  width="280"
+                  height="100"
+                />
+              </div>
+              <div class="shape movingX">
+                <img src="@/assets/images/shape/about-shape.png" alt="" />
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="about-content">
-            <h5 class="sub-title">About Us</h5>
-            <h1>
-              {{ AboutUsTitle != "" ? AboutUsTitle : "Dr.Vinessh Vijayan" }}
-            </h1>
-            <div v-if="AboutUsDescription == ''">
-              <p>
-                Vineesh Vijayan is an ambitious & optimistic person whose vast
-                and extensive experience in Training & Consultancy of Web3.0
-                specifically in Blockchain Technology, Cryptocurrency and
-                Affiliate Marketing Industry, have influenced and changed lives
-                of many people across the globe. His skills added with
-                forbearance marks him out in any field he lands his feet into.
-              </p>
-              <p>
-                He is an Entrepreneur, Internationally acclaimed Business
-                Consultant, Speaker, Coach and a Co-Author who has been
-                appreciated Globally for his Contribution in Spreading the
-                Knowledge of Blockchain to Masses.
-              </p>
-              <p>
-                He Inspires and Encourages people around the world to Discover
-                their True Potential & Help to to Work for their Dreams rather
-                than just compromising with the Necessities of life. His thought
-                provoking speech has an overwhelming response throughout the
-                globe .
-              </p>
+          <div class="col-md-6">
+            <div class="about-content">
+              <h5 class="sub-title">About Us</h5>
+              <h1>
+                {{ AboutUsTitle != "" ? AboutUsTitle : "Dr.Vinessh Vijayan" }}
+              </h1>
+              <div v-if="AboutUsDescription == ''">
+                <p>
+                  Vineesh Vijayan is an ambitious & optimistic person whose vast
+                  and extensive experience in Training & Consultancy of Web3.0
+                  specifically in Blockchain Technology, Cryptocurrency and
+                  Affiliate Marketing Industry, have influenced and changed
+                  lives of many people across the globe. His skills added with
+                  forbearance marks him out in any field he lands his feet into.
+                </p>
+                <p>
+                  He is an Entrepreneur, Internationally acclaimed Business
+                  Consultant, Speaker, Coach and a Co-Author who has been
+                  appreciated Globally for his Contribution in Spreading the
+                  Knowledge of Blockchain to Masses.
+                </p>
+                <p>
+                  He Inspires and Encourages people around the world to Discover
+                  their True Potential & Help to to Work for their Dreams rather
+                  than just compromising with the Necessities of life. His
+                  thought provoking speech has an overwhelming response
+                  throughout the globe .
+                </p>
+              </div>
+              <p v-else>{{ AboutUsDescription }}</p>
             </div>
-            <p v-else>{{ AboutUsDescription }}</p>
+            <a href="" class="read-more">Read More</a>
           </div>
-          <a href="" class="read-more">Read More</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <section class="project-counter-area">
+      <div class="container" style="max-width: 1300px">
+        <div
+          style="
+            display: flex;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            gap: 2rem;
+            flex-basis: 1;
+            flex-wrap: wrap;
+            width: 100%;
+          "
+        >
+          <div class="col-lg-3 col-md-6">
+            <div class="counter-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div class="counter-text">
+              <h1 class="count data1" ref="data1">100000</h1>
+              +
+              <p>Influenced</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="counter-icon">
+              <i class="fas fa-life-ring"></i>
+            </div>
+            <div class="counter-text">
+              <h1 class="count data2" ref="data2">12</h1>
+              +
+              <p>Years Experience</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="counter-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <div class="counter-text">
+              <h1 class="count data3" ref="data3">100</h1>
+              +
+              <p>Events</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="counter-icon">
+              <i class="fas fa-language"></i>
+            </div>
+            <div class="counter-text">
+              <h1 class="count data4" ref="data4">3</h1>
+              <p>Languages</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="counter-icon">
+              <i class="fas fa-universal-access"></i>
+            </div>
+            <div class="counter-text">
+              <h1 class="count data5" ref="data5">40</h1>
+              +
+              <p>Countries</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      style="
+        display: flex;
+        flex-direction: column;
+        width: 66%;
+        margin: 0rem auto 10rem;
+        gap: 5rem;
+      "
+    >
+      <h3 style="font-weight: 700; font-size: clamp(1.8rem, 3vw, 2.45rem)">
+        WHY VINEESH VIJAYAN?
+      </h3>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          gap: 6rem;
+          flex-basis: 1;
+          flex-wrap: wrap;
+          width: 100%;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+          "
+        >
+          <div
+            class="boxes-icon circle"
+            style="border-color: #f26c4f; width: 140px; height: 140px"
+          >
+            <span class="inner-icon"
+              ><span class="icon"
+                ><i
+                  class="fa fa-globe"
+                  style="
+                    color: #f26c4f;
+                    font-size: 30px;
+                    line-height: 30px;
+                    vertical-align: middle;
+
+                    font-size: 3rem;
+                  "
+                ></i></span
+            ></span>
+          </div>
+          <span style="font-weight: 500">Global Influencer</span>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+          "
+        >
+          <div
+            class="boxes-icon circle"
+            style="border-color: #f26c4f; width: 140px; height: 140px"
+          >
+            <span class="inner-icon"
+              ><span class="icon"
+                ><i
+                  class="fa fa-users"
+                  style="
+                    color: #f26c4f;
+                    font-size: 30px;
+                    line-height: 30px;
+                    vertical-align: middle;
+                    font-size: 3rem;
+                  "
+                ></i></span
+            ></span>
+          </div>
+          <span style="font-weight: 500">Solid Team worker</span>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+          "
+        >
+          <div
+            class="boxes-icon circle"
+            style="border-color: #f26c4f; width: 140px; height: 140px"
+          >
+            <span class="inner-icon"
+              ><span class="icon"
+                ><i
+                  class="fa fa-lightbulb"
+                  style="
+                    color: #f26c4f;
+                    font-size: 30px;
+                    line-height: 30px;
+                    vertical-align: middle;
+                    font-size: 3rem;
+                  "
+                ></i></span
+            ></span>
+          </div>
+          <span style="font-weight: 500">Strategic Thinker</span>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+          "
+        >
+          <div
+            class="boxes-icon circle"
+            style="border-color: #f26c4f; width: 140px; height: 140px"
+          >
+            <span class="inner-icon"
+              ><span class="icon"
+                ><i
+                  class="fa fa-handshake"
+                  style="
+                    color: #f26c4f;
+                    font-size: 30px;
+                    line-height: 30px;
+                    vertical-align: middle;
+                    font-size: 3rem;
+                  "
+                ></i></span
+            ></span>
+          </div>
+          <span style="font-weight: 500">Highly Committed</span>
+        </div>
+      </div>
+    </section>
+  </div>
   <!--======  ABOUT-US PART END ======-->
 </template>
 
 <script>
 import axios from "axios";
+import { gsap } from "gsap";
 export default {
   data() {
     return {
@@ -124,6 +338,82 @@ export default {
         this.AboutUsTitle = res.data.AboutUsTitle;
         this.AboutUsDescription = res.data.AboutUsDescription;
       }
+    });
+    // const item1 = document.querySelector(".data1");
+    // const item2 = document.querySelector(".data2");
+    // const item3 = document.querySelector(".data3");
+    // const item4 = document.querySelector(".data4");
+    // const item5 = document.querySelector(".data5");
+
+    gsap.from(this.$refs.data1, {
+      textContent: 0,
+      duration: 4,
+      ease: "power1.in",
+      snap: { textContent: 1 },
+      stagger: {
+        each: 1.0,
+        onUpdate: function () {
+          this.$refs.data1.innerHTML = numberWithCommas(
+            Math.ceil(this.$refs.data1.textContent)
+          );
+        },
+      },
+    });
+    gsap.from(this.$refs.data2, {
+      textContent: 0,
+      duration: 4,
+      ease: "power1.in",
+      snap: { textContent: 1 },
+      stagger: {
+        each: 1.0,
+        onUpdate: function () {
+          this.$refs.data2.innerHTML = numberWithCommas(
+            Math.ceil(this.$refs.data2.textContent)
+          );
+        },
+      },
+    });
+    gsap.from(this.$refs.data3, {
+      textContent: 0,
+      duration: 4,
+      ease: "power1.in",
+      snap: { textContent: 1 },
+      stagger: {
+        each: 1.0,
+        onUpdate: function () {
+          this.$refs.data3.innerHTML = numberWithCommas(
+            Math.ceil(this.$refs.data3.textContent)
+          );
+        },
+      },
+    });
+    gsap.from(this.$refs.data4, {
+      textContent: 0,
+      duration: 4,
+      ease: "power1.in",
+      snap: { textContent: 1 },
+      stagger: {
+        each: 1.0,
+        onUpdate: function () {
+          this.$refs.data4.innerHTML = numberWithCommas(
+            Math.ceil(this.$refs.data4.textContent)
+          );
+        },
+      },
+    });
+    gsap.from(this.$refs.data5, {
+      textContent: 0,
+      duration: 4,
+      ease: "power1.in",
+      snap: { textContent: 1 },
+      stagger: {
+        each: 1.0,
+        onUpdate: function () {
+          this.$refs.data5.innerHTML = numberWithCommas(
+            Math.ceil(this.$refs.data5.textContent)
+          );
+        },
+      },
     });
   },
 };
@@ -310,5 +600,15 @@ export default {
 
 small.text-muted.font-w-5.font-italic {
   color: #f2f2f2 !important;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
 }
 </style>

@@ -231,9 +231,9 @@
     }
     .video-content {
         position: relative;
-        width: 100%;
-        right: 0;
-        bottom: 0;
+        width: 60vw !important;
+        left: 20vw !important;
+        bottom: -40vh !important;
     }
     .video-icon-area {
         padding: 100px 0;
@@ -434,6 +434,9 @@
     }
     .team-carousel-active .slick-dots {
         left: 35%;
+    }
+    ..video-content{
+        right: 50%;
     }
     .video-content h1 {
         font-size: 40px;

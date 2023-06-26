@@ -51,213 +51,14 @@
 
     <!--======  PROJECTS PART START ======-->
     <section class="project-counter-area">
-      <div class="container" style="max-width: 1300px">
-        <div class="row pb-80">
-          <div class="col-lg-6">
-            <div class="section-title project-title">
-              <p class="section-para"><span></span>company fact</p>
-              <h1>We Are Digital And Creative Agency</h1>
-            </div>
-          </div>
-          <div class="col-lg-6 text-right">
-            <a href="#" class="btn counter-btn"
-              >get started <i class="fa fa-arrow-right"></i
-            ></a>
-          </div>
-        </div>
-        <div
-          style="
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-            gap: 2rem;
-          "
-        >
-          <div class="col-lg-3 col-md-6">
-            <div class="counter-icon">
-              <i class="fas fa-globe"></i>
-            </div>
-            <div class="counter-text">
-              <h1 class="count data1">100000</h1>
-              +
-              <p>Influenced</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="counter-icon">
-              <i class="fas fa-life-ring"></i>
-            </div>
-            <div class="counter-text">
-              <h1 class="count data2">12</h1>
-              +
-              <p>Years Experience</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="counter-icon">
-              <i class="fas fa-trophy"></i>
-            </div>
-            <div class="counter-text">
-              <h1 class="count data3">100</h1>
-              +
-              <p>Events</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="counter-icon">
-              <i class="fas fa-language"></i>
-            </div>
-            <div class="counter-text">
-              <h1 class="count data4">3</h1>
-              <p>Languages</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="counter-icon">
-              <i class="fas fa-universal-access"></i>
-            </div>
-            <div class="counter-text">
-              <h1 class="count data5">40</h1>
-              +
-              <p>Countries</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="container" style="max-width: 1300px"></div>
     </section>
-    <section
-      style="
-        display: flex;
-        flex-direction: column;
-        width: 66%;
-        margin: auto;
-        gap: 5rem;
-      "
-    >
-      <h3 style="font-weight: 700; font-size: 2.45rem">WHY VINEESH VIJAYAN?</h3>
-      <div style="display: flex; justify-content: center; gap: 6rem">
-        <div
-          style="
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 1rem;
-          "
-        >
-          <div
-            class="boxes-icon circle"
-            style="border-color: #f26c4f; width: 140px; height: 140px"
-          >
-            <span class="inner-icon"
-              ><span class="icon"
-                ><i
-                  class="fa fa-globe"
-                  style="
-                    color: #f26c4f;
-                    font-size: 30px;
-                    line-height: 30px;
-                    vertical-align: middle;
 
-                    font-size: 3rem;
-                  "
-                ></i></span
-            ></span>
-          </div>
-          <span style="font-weight: 500">Global Influencer</span>
-        </div>
-        <div
-          style="
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 1rem;
-          "
-        >
-          <div
-            class="boxes-icon circle"
-            style="border-color: #f26c4f; width: 140px; height: 140px"
-          >
-            <span class="inner-icon"
-              ><span class="icon"
-                ><i
-                  class="fa fa-users"
-                  style="
-                    color: #f26c4f;
-                    font-size: 30px;
-                    line-height: 30px;
-                    vertical-align: middle;
-                    font-size: 3rem;
-                  "
-                ></i></span
-            ></span>
-          </div>
-          <span style="font-weight: 500">Solid Team worker</span>
-        </div>
-        <div
-          style="
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 1rem;
-          "
-        >
-          <div
-            class="boxes-icon circle"
-            style="border-color: #f26c4f; width: 140px; height: 140px"
-          >
-            <span class="inner-icon"
-              ><span class="icon"
-                ><i
-                  class="fa fa-lightbulb"
-                  style="
-                    color: #f26c4f;
-                    font-size: 30px;
-                    line-height: 30px;
-                    vertical-align: middle;
-                    font-size: 3rem;
-                  "
-                ></i></span
-            ></span>
-          </div>
-          <span style="font-weight: 500">Strategic Thinker</span>
-        </div>
-        <div
-          style="
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 1rem;
-          "
-        >
-          <div
-            class="boxes-icon circle"
-            style="border-color: #f26c4f; width: 140px; height: 140px"
-          >
-            <span class="inner-icon"
-              ><span class="icon"
-                ><i
-                  class="fa fa-handshake"
-                  style="
-                    color: #f26c4f;
-                    font-size: 30px;
-                    line-height: 30px;
-                    vertical-align: middle;
-                    font-size: 3rem;
-                  "
-                ></i></span
-            ></span>
-          </div>
-          <span style="font-weight: 500">Highly Committed</span>
-        </div>
-      </div>
-    </section>
     <!--======  PROJECTS PART END ======-->
     <Portfolio />
     <!--======  TESTIMONIAL PART START ======-->
     <div style="width: 80%; margin: auto">
+      <h1 style="font-weight: 700">Testimonials</h1>
       <swiper
         class="swiper"
         :modules="modules"
@@ -266,48 +67,28 @@
         :loop="true"
         :options="swiperOption"
       >
-        <swiper-slide>
+        <swiper-slide
+          v-for="testimonial in testimonials"
+          :key="testimonial._id"
+        >
           <div class="single-testimonial-content">
             <span class="testimonial-quote"
               ><i class="fa fa-quote-right"></i
             ></span>
             <p>
-              Avoids pleasur itself because pleas because those who do not know
-              how to pursue plesure rationally encou eque that are extrem
-              painful again is there anyone who loves pursues or desires to
-              obtain pain of itself.
+              {{ testimonial.Remarks }}
             </p>
             <div class="autohor-details">
               <img
-                src="@/assets/images/testimonial/1.jpg"
+                :src="`${config.public.BaseUrl}/${testimonial.Image}`"
                 alt=""
                 class="author-img"
+                width="100"
+                height="100"
               />
-              <h5 class="author-name">
-                Michele L. Racinea <span>Web Designer</span>
-              </h5>
-            </div>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="single-testimonial-content">
-            <span class="testimonial-quote"
-              ><i class="fa fa-quote-right"></i
-            ></span>
-            <p>
-              Avoids pleasur itself because pleas because those who do not know
-              how to pursue plesure rationally encou eque that are extrem
-              painful again is there anyone who loves pursues or desires to
-              obtain pain of itself.
-            </p>
-            <div class="autohor-details">
-              <img
-                src="@/assets/images/testimonial/1.jpg"
-                alt=""
-                class="author-img"
-              />
-              <h5 class="author-name">
-                Michele L. Racinea <span>Web Designer</span>
+              <h5 class="author-name" style="margin-left: 2rem">
+                {{ testimonial.Name }}
+                <span>{{ testimonial.Designation }}</span>
               </h5>
             </div>
           </div>
@@ -382,7 +163,7 @@ import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import { gsap } from "gsap";
+import axios from "axios";
 export default {
   setup() {
     return {
@@ -397,6 +178,8 @@ export default {
     return {
       scTimer: 0,
       scY: 0,
+      config: null,
+      testimonials: [],
       swiperOption: {
         slidesPerView: 1,
         spaceBetween: 20,
@@ -413,72 +196,10 @@ export default {
     };
   },
   mounted() {
+    this.config = useRuntimeConfig();
     window.addEventListener("scroll", this.handleScroll);
-    const item1 = document.querySelector(".data1");
-    const item2 = document.querySelector(".data2");
-    const item3 = document.querySelector(".data3");
-    const item4 = document.querySelector(".data4");
-    const item5 = document.querySelector(".data5");
-
-    gsap.from(item1, {
-      textContent: 0,
-      duration: 4,
-      ease: "power1.in",
-      snap: { textContent: 1 },
-      stagger: {
-        each: 1.0,
-        onUpdate: function () {
-          item1.innerHTML = numberWithCommas(Math.ceil(item1.textContent));
-        },
-      },
-    });
-    gsap.from(item2, {
-      textContent: 0,
-      duration: 4,
-      ease: "power1.in",
-      snap: { textContent: 1 },
-      stagger: {
-        each: 1.0,
-        onUpdate: function () {
-          item2.innerHTML = numberWithCommas(Math.ceil(item2.textContent));
-        },
-      },
-    });
-    gsap.from(item3, {
-      textContent: 0,
-      duration: 4,
-      ease: "power1.in",
-      snap: { textContent: 1 },
-      stagger: {
-        each: 1.0,
-        onUpdate: function () {
-          item3.innerHTML = numberWithCommas(Math.ceil(item3.textContent));
-        },
-      },
-    });
-    gsap.from(item4, {
-      textContent: 0,
-      duration: 4,
-      ease: "power1.in",
-      snap: { textContent: 1 },
-      stagger: {
-        each: 1.0,
-        onUpdate: function () {
-          item4.innerHTML = numberWithCommas(Math.ceil(item4.textContent));
-        },
-      },
-    });
-    gsap.from(item5, {
-      textContent: 0,
-      duration: 4,
-      ease: "power1.in",
-      snap: { textContent: 1 },
-      stagger: {
-        each: 1.0,
-        onUpdate: function () {
-          item5.innerHTML = numberWithCommas(Math.ceil(item5.textContent));
-        },
-      },
+    axios.get(`${this.config.public.BaseUrl}/Testimonials`).then((res) => {
+      this.testimonials = res.data.data;
     });
   },
   methods: {

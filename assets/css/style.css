@@ -1296,8 +1296,8 @@ header {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21249c', endColorstr='#487bef',GradientType=1 );
   z-index: 2;
   padding: 100px 50px;
-  right: 130px;
-  bottom: -130px;
+  left: 62vw;
+  bottom: -13vh;
 }
 .video-content span {
   position: absolute;
@@ -1306,7 +1306,7 @@ header {
   top: 83px;
 }
 .video-content h1 {
-  font-size: 65px;
+  font-size: clamp(20px,3vw ,65px);
   font-weight: 700;
   color: #fff;
   margin-bottom: 30px;

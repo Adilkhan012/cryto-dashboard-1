@@ -3,7 +3,6 @@
     <div class="container">
       <div class="row">
         <div class="col-md-5">
-          <h1 class="title-bar">You Should Join The Event</h1>
           <div class="event-content">
             <ul>
               <li>
