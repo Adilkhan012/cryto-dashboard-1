@@ -91,7 +91,7 @@
           <tr v-for="video in videos" :key="video._id">
             <td style="width: 30%">
               <img
-                :src="`${this.config.public.BaseUrl}/${video.Banner}`"
+                :src="`${config.public.BaseUrl}/${video.Banner}`"
                 alt=""
                 width="100"
               />
