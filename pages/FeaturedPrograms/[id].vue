@@ -61,6 +61,7 @@
           :src="`${config.public.BaseUrl}/${program.Image42}`"
           alt=""
           style="width: 100%"
+          onerror="this.style.display='none'"
         />
       </div>
       <p>{{ program.Description4 }}</p>
