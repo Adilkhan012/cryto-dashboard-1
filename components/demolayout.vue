@@ -50,9 +50,6 @@
     <!--======  VIDEO PART END ======-->
 
     <!--======  PROJECTS PART START ======-->
-    <section class="project-counter-area">
-      <div class="container" style="max-width: 1300px"></div>
-    </section>
 
     <!--======  PROJECTS PART END ======-->
     <Portfolio />
@@ -71,7 +68,10 @@
           v-for="testimonial in testimonials"
           :key="testimonial._id"
         >
-          <div class="single-testimonial-content">
+          <div
+            class="single-testimonial-content"
+            style="padding: 2rem; width: 100%"
+          >
             <span class="testimonial-quote"
               ><i class="fa fa-quote-right"></i
             ></span>

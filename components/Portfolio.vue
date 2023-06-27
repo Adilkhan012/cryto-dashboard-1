@@ -1,6 +1,6 @@
 <template>
   <!--======  PORTFOLIO PART START ======-->
-  <section class="blog-section" id="Portfolio">
+  <section class="blog-section" id="Portfolio" style="padding: 10rem">
     <div class="container">
       <div class="row" v-if="blogs.length > 0">
         <div class="col-md-6" v-if="blogs[0] != undefined">

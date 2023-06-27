@@ -25,7 +25,7 @@
             >
               <div class="img-box" ref="card">
                 <!-- <div class="Blob" ref="blob"></div> -->
-                <img :src="banner" alt="" style="width: 300px" />
+                <img :src="banner" alt="" style="width: 300px; height: 280px" />
               </div>
               <div class="title-box">
                 <h4 v-if="image.Type === 'Academic'">Academic Sessions</h4>

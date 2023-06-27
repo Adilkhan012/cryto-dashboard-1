@@ -4,7 +4,7 @@
       <img src="@/assets/loader2.webp" alt="" />
     </div>
     <div style="display: flex; justify-content: center; align-items: center">
-      <div v-if="form.BannerImage != ''">
+      <div v-if="form.BannerImage != '' && form.BannerImage != undefined">
         <img
           :src="form.BannerImage"
           alt=""
@@ -46,7 +46,7 @@
       </div>
       <div style="display: flex; justify-content: space-around">
         <div>
-          <div v-if="form.Image11 != ''">
+          <div v-if="form.Image11 != '' && form.Image11 != undefined">
             <img
               :src="form.Image11"
               alt=""
@@ -67,7 +67,7 @@
           />
         </div>
         <div>
-          <div v-if="form.Image12 != ''">
+          <div v-if="form.Image12 != '' && form.Image12">
             <img
               :src="form.Image12"
               alt=""
@@ -101,7 +101,7 @@
       </div>
       <div style="display: flex; justify-content: space-around">
         <div>
-          <div v-if="form.Image21 != ''">
+          <div v-if="form.Image21 != '' && form.Image21 != undefined">
             <img
               :src="form.Image21"
               alt=""
@@ -122,7 +122,7 @@
           />
         </div>
         <div>
-          <div v-if="form.Image22 != ''">
+          <div v-if="form.Image22 != '' && form.Image22 != undefined">
             <img
               :src="form.Image22"
               alt=""
@@ -156,7 +156,7 @@
       </div>
       <div style="display: flex; justify-content: space-around">
         <div>
-          <div v-if="form.Image31 != ''">
+          <div v-if="form.Image31 != '' && form.Image31 != undefined">
             <img
               :src="form.Image31"
               alt=""
@@ -177,7 +177,7 @@
           />
         </div>
         <div>
-          <div v-if="form.Image32 != ''">
+          <div v-if="form.Image32 != '' && form.Image32 != undefined">
             <img
               :src="form.Image32"
               alt=""
@@ -195,6 +195,116 @@
             width="400"
             height="500"
             @click="SelectImage('image32')"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Title 4</label>
+        <input type="text" class="form-control" v-model="form.Title4" />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Description 4</label
+        >
+        <input type="text" class="form-control" v-model="form.Description4" />
+      </div>
+      <div style="display: flex; justify-content: space-around">
+        <div>
+          <div v-if="form.Image41 != '' && form.Image41 != undefined">
+            <img
+              :src="form.Image41"
+              alt=""
+              width="400"
+              height="500"
+              loading="lazy"
+              @click="SelectImage('image41')"
+            />
+          </div>
+
+          <img
+            v-else
+            src="@/assets/ImagePlaceholder.jpg"
+            alt=""
+            width="400"
+            height="500"
+            @click="SelectImage('image41')"
+          />
+        </div>
+        <div>
+          <div v-if="form.Image42 != '' && form.Image42 != undefined">
+            <img
+              :src="form.Image42"
+              alt=""
+              width="400"
+              height="500"
+              loading="lazy"
+              @click="SelectImage('image42')"
+            />
+          </div>
+
+          <img
+            v-else
+            src="@/assets/ImagePlaceholder.jpg"
+            alt=""
+            width="400"
+            height="500"
+            @click="SelectImage('image42')"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Title 5</label>
+        <input type="text" class="form-control" v-model="form.Title5" />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Description 5</label
+        >
+        <input type="text" class="form-control" v-model="form.Description5" />
+      </div>
+      <div style="display: flex; justify-content: space-around">
+        <div>
+          <div v-if="form.Image51 != '' && form.Image51 != undefined">
+            <img
+              :src="form.Image51"
+              alt=""
+              width="400"
+              height="500"
+              loading="lazy"
+              @click="SelectImage('image51')"
+            />
+          </div>
+
+          <img
+            v-else
+            src="@/assets/ImagePlaceholder.jpg"
+            alt=""
+            width="400"
+            height="500"
+            @click="SelectImage('image51')"
+          />
+        </div>
+        <div>
+          <div v-if="form.Image52 != '' && form.Image52 != undefined">
+            <img
+              :src="form.Image52"
+              alt=""
+              width="400"
+              height="500"
+              loading="lazy"
+              @click="SelectImage('image52')"
+            />
+          </div>
+
+          <img
+            v-else
+            src="@/assets/ImagePlaceholder.jpg"
+            alt=""
+            width="400"
+            height="500"
+            @click="SelectImage('image52')"
           />
         </div>
       </div>
@@ -246,6 +356,18 @@ export default {
         ImageFile31: null,
         Image32: "",
         ImageFile32: null,
+        Title4: "",
+        Description4: "",
+        Image41: "",
+        ImageFile41: null,
+        Image42: "",
+        ImageFile42: null,
+        Title5: "",
+        Description5: "",
+        Image51: "",
+        ImageFile51: null,
+        Image52: "",
+        ImageFile52: null,
         Type: "",
       },
       fileType: "",
@@ -295,12 +417,28 @@ export default {
             if (res.data.Image32 != undefined) {
               this.form.Image32 = `${this.config.public.BaseUrl}/${res.data.Image32}`;
             }
+            if (res.data.Image41 != undefined) {
+              this.form.Image41 = `${this.config.public.BaseUrl}/${res.data.Image41}`;
+            }
+            if (res.data.Image42 != undefined) {
+              this.form.Image42 = `${this.config.public.BaseUrl}/${res.data.Image42}`;
+            }
+            if (res.data.Image51 != undefined) {
+              this.form.Image51 = `${this.config.public.BaseUrl}/${res.data.Image51}`;
+            }
+            if (res.data.Image52 != undefined) {
+              this.form.Image52 = `${this.config.public.BaseUrl}/${res.data.Image52}`;
+            }
             this.form.Title1 = res.data.Title1;
             this.form.Description1 = res.data.Description2;
             this.form.Title2 = res.data.Title2;
             this.form.Description2 = res.data.Description2;
             this.form.Title3 = res.data.Title3;
             this.form.Description3 = res.data.Description3;
+            this.form.Title4 = res.data.Title4;
+            this.form.Description4 = res.data.Description4;
+            this.form.Title5 = res.data.Title5;
+            this.form.Description5 = res.data.Description5;
           }
         });
     }
@@ -370,6 +508,38 @@ export default {
         reader.addEventListener("load", (e) => {
           _this.form.Image32 = e.target.result;
         });
+      } else if (this.fileType === "image41") {
+        this.form.ImageFile41 = this.$refs.image.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(this.$refs.image.files[0]);
+        var _this = this;
+        reader.addEventListener("load", (e) => {
+          _this.form.Image41 = e.target.result;
+        });
+      } else if (this.fileType === "image42") {
+        this.form.ImageFile42 = this.$refs.image.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(this.$refs.image.files[0]);
+        var _this = this;
+        reader.addEventListener("load", (e) => {
+          _this.form.Image42 = e.target.result;
+        });
+      } else if (this.fileType === "image51") {
+        this.form.ImageFile51 = this.$refs.image.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(this.$refs.image.files[0]);
+        var _this = this;
+        reader.addEventListener("load", (e) => {
+          _this.form.Image51 = e.target.result;
+        });
+      } else if (this.fileType === "image52") {
+        this.form.ImageFile52 = this.$refs.image.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(this.$refs.image.files[0]);
+        var _this = this;
+        reader.addEventListener("load", (e) => {
+          _this.form.Image52 = e.target.result;
+        });
       }
     },
     SaveChanges() {
@@ -382,8 +552,16 @@ export default {
       form.append("image22", this.form.ImageFile22);
       form.append("image31", this.form.ImageFile31);
       form.append("image32", this.form.ImageFile32);
+      form.append("image41", this.form.ImageFile41);
+      form.append("image42", this.form.ImageFile42);
+      form.append("image51", this.form.ImageFile51);
+      form.append("image52", this.form.ImageFile52);
 
       form.append("Type", this.form.Type);
+      form.append("Description5", this.form.Description5);
+      form.append("Title5", this.form.Title5);
+      form.append("Description4", this.form.Description4);
+      form.append("Title4", this.form.Title4);
       form.append("Description3", this.form.Description3);
       form.append("Title3", this.form.Title3);
       form.append("Description2", this.form.Description2);
@@ -422,12 +600,28 @@ export default {
                 if (res.data.Image32 != undefined) {
                   this.form.Image32 = `${this.config.public.BaseUrl}/${res.data.Image32}`;
                 }
+                if (res.data.Image41 != undefined) {
+                  this.form.Image41 = `${this.config.public.BaseUrl}/${res.data.Image41}`;
+                }
+                if (res.data.Image42 != undefined) {
+                  this.form.Image42 = `${this.config.public.BaseUrl}/${res.data.Image42}`;
+                }
+                if (res.data.Image51 != undefined) {
+                  this.form.Image51 = `${this.config.public.BaseUrl}/${res.data.Image51}`;
+                }
+                if (res.data.Image52 != undefined) {
+                  this.form.Image52 = `${this.config.public.BaseUrl}/${res.data.Image52}`;
+                }
                 this.form.Title1 = res.data.Title1;
                 this.form.Description1 = res.data.Description2;
                 this.form.Title2 = res.data.Title2;
                 this.form.Description2 = res.data.Description2;
                 this.form.Title3 = res.data.Title3;
                 this.form.Description3 = res.data.Description3;
+                this.form.Title4 = res.data.Title4;
+                this.form.Description4 = res.data.Description4;
+                this.form.Title5 = res.data.Title5;
+                this.form.Description5 = res.data.Description5;
               }
             });
 
