@@ -234,9 +234,9 @@
     }
     .video-content {
         position: relative;
-        width: 60vw !important;
-        left: 20vw !important;
-        bottom: -40vh !important;
+        width: 90vw !important;
+        left: 4vw !important;
+        bottom: -10vh !important;
     }
     .video-icon-area {
         padding: 100px 0;

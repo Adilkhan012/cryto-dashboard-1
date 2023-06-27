@@ -22,7 +22,7 @@
     <!--======  CTA PART END ======-->
 
     <!--======  VIDEO PART START ======-->
-    <section class="video-area vdeo-bg">
+    <section class="video-area vdeo-bg" style="padding: 10rem 0">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
