@@ -46,7 +46,10 @@
       </div>
       <div style="display: flex; justify-content: space-around">
         <div>
-          <div v-if="form.Image11 != '' && form.Image11 != undefined">
+          <div
+            v-if="form.Image11 != '' && form.Image11 != undefined"
+            style="position: relative"
+          >
             <img
               :src="form.Image11"
               alt=""
@@ -55,6 +58,18 @@
               loading="lazy"
               @click="SelectImage('image11')"
             />
+            <span
+              style="
+                position: absolute;
+                right: 3%;
+                top: 0%;
+                font-size: 2rem;
+                font-weight: bold;
+                cursor: pointer;
+              "
+              @click="RemoveImage('image11')"
+              >x</span
+            >
           </div>
 
           <img
@@ -67,7 +82,10 @@
           />
         </div>
         <div>
-          <div v-if="form.Image12 != '' && form.Image12">
+          <div
+            v-if="form.Image12 != '' && form.Image12"
+            style="position: relative"
+          >
             <img
               :src="form.Image12"
               alt=""
@@ -76,6 +94,18 @@
               loading="lazy"
               @click="SelectImage('image12')"
             />
+            <span
+              style="
+                position: absolute;
+                right: 3%;
+                top: 0%;
+                font-size: 2rem;
+                font-weight: bold;
+                cursor: pointer;
+              "
+              @click="RemoveImage('image12')"
+              >x</span
+            >
           </div>
 
           <img
@@ -101,7 +131,10 @@
       </div>
       <div style="display: flex; justify-content: space-around">
         <div>
-          <div v-if="form.Image21 != '' && form.Image21 != undefined">
+          <div
+            v-if="form.Image21 != '' && form.Image21 != undefined"
+            style="position: relative"
+          >
             <img
               :src="form.Image21"
               alt=""
@@ -110,6 +143,18 @@
               loading="lazy"
               @click="SelectImage('image21')"
             />
+            <span
+              style="
+                position: absolute;
+                right: 3%;
+                top: 0%;
+                font-size: 2rem;
+                font-weight: bold;
+                cursor: pointer;
+              "
+              @click="RemoveImage('image21')"
+              >x</span
+            >
           </div>
 
           <img
@@ -122,7 +167,10 @@
           />
         </div>
         <div>
-          <div v-if="form.Image22 != '' && form.Image22 != undefined">
+          <div
+            v-if="form.Image22 != '' && form.Image22 != undefined"
+            style="position: relative"
+          >
             <img
               :src="form.Image22"
               alt=""
@@ -131,6 +179,18 @@
               loading="lazy"
               @click="SelectImage('image22')"
             />
+            <span
+              style="
+                position: absolute;
+                right: 3%;
+                top: 0%;
+                font-size: 2rem;
+                font-weight: bold;
+                cursor: pointer;
+              "
+              @click="RemoveImage('image22')"
+              >x</span
+            >
           </div>
 
           <img
@@ -156,7 +216,10 @@
       </div>
       <div style="display: flex; justify-content: space-around">
         <div>
-          <div v-if="form.Image31 != '' && form.Image31 != undefined">
+          <div
+            v-if="form.Image31 != '' && form.Image31 != undefined"
+            style="position: relative"
+          >
             <img
               :src="form.Image31"
               alt=""
@@ -165,6 +228,18 @@
               loading="lazy"
               @click="SelectImage('image31')"
             />
+            <span
+              style="
+                position: absolute;
+                right: 3%;
+                top: 0%;
+                font-size: 2rem;
+                font-weight: bold;
+                cursor: pointer;
+              "
+              @click="RemoveImage('image31')"
+              >x</span
+            >
           </div>
 
           <img
@@ -177,7 +252,10 @@
           />
         </div>
         <div>
-          <div v-if="form.Image32 != '' && form.Image32 != undefined">
+          <div
+            v-if="form.Image32 != '' && form.Image32 != undefined"
+            style="position: relative"
+          >
             <img
               :src="form.Image32"
               alt=""
@@ -186,6 +264,18 @@
               loading="lazy"
               @click="SelectImage('image32')"
             />
+            <span
+              style="
+                position: absolute;
+                right: 3%;
+                top: 0%;
+                font-size: 2rem;
+                font-weight: bold;
+                cursor: pointer;
+              "
+              @click="RemoveImage('image32')"
+              >x</span
+            >
           </div>
 
           <img
@@ -211,7 +301,10 @@
       </div>
       <div style="display: flex; justify-content: space-around">
         <div>
-          <div v-if="form.Image41 != '' && form.Image41 != undefined">
+          <div
+            v-if="form.Image41 != '' && form.Image41 != undefined"
+            style="position: relative"
+          >
             <img
               :src="form.Image41"
               alt=""
@@ -220,6 +313,18 @@
               loading="lazy"
               @click="SelectImage('image41')"
             />
+            <span
+              style="
+                position: absolute;
+                right: 3%;
+                top: 0%;
+                font-size: 2rem;
+                font-weight: bold;
+                cursor: pointer;
+              "
+              @click="RemoveImage('image41')"
+              >x</span
+            >
           </div>
 
           <img
@@ -232,7 +337,10 @@
           />
         </div>
         <div>
-          <div v-if="form.Image42 != '' && form.Image42 != undefined">
+          <div
+            v-if="form.Image42 != '' && form.Image42 != undefined"
+            style="position: relative"
+          >
             <img
               :src="form.Image42"
               alt=""
@@ -241,6 +349,18 @@
               loading="lazy"
               @click="SelectImage('image42')"
             />
+            <span
+              style="
+                position: absolute;
+                right: 3%;
+                top: 0%;
+                font-size: 2rem;
+                font-weight: bold;
+                cursor: pointer;
+              "
+              @click="RemoveImage('image42')"
+              >x</span
+            >
           </div>
 
           <img
@@ -266,7 +386,10 @@
       </div>
       <div style="display: flex; justify-content: space-around">
         <div>
-          <div v-if="form.Image51 != '' && form.Image51 != undefined">
+          <div
+            v-if="form.Image51 != '' && form.Image51 != undefined"
+            style="position: relative"
+          >
             <img
               :src="form.Image51"
               alt=""
@@ -275,6 +398,18 @@
               loading="lazy"
               @click="SelectImage('image51')"
             />
+            <span
+              style="
+                position: absolute;
+                right: 3%;
+                top: 0%;
+                font-size: 2rem;
+                font-weight: bold;
+                cursor: pointer;
+              "
+              @click="RemoveImage('image51')"
+              >x</span
+            >
           </div>
 
           <img
@@ -287,7 +422,10 @@
           />
         </div>
         <div>
-          <div v-if="form.Image52 != '' && form.Image52 != undefined">
+          <div
+            v-if="form.Image52 != '' && form.Image52 != undefined"
+            style="position: relative"
+          >
             <img
               :src="form.Image52"
               alt=""
@@ -296,6 +434,18 @@
               loading="lazy"
               @click="SelectImage('image52')"
             />
+            <span
+              style="
+                position: absolute;
+                right: 3%;
+                top: 0%;
+                font-size: 2rem;
+                font-weight: bold;
+                cursor: pointer;
+              "
+              @click="RemoveImage('image52')"
+              >x</span
+            >
           </div>
 
           <img
@@ -390,6 +540,13 @@ export default {
       navigateTo("/Admin/Login");
     } else {
       this.loader = true;
+      this.fetchData();
+    }
+    this.form.Type = this.Type;
+  },
+
+  methods: {
+    fetchData() {
       axios
         .get(`${this.config.public.BaseUrl}/FeaturedProgram?type=${this.Type}`)
         .then((res) => {
@@ -399,35 +556,55 @@ export default {
             if (res.data.BannerImage != undefined) {
               this.form.BannerImage = `${this.config.public.BaseUrl}/${res.data.BannerImage}`;
             }
-            if (res.data.Image11 != undefined) {
+            if (res.data.Image11 != "" && res.data.Image11 != undefined) {
               this.form.Image11 = `${this.config.public.BaseUrl}/${res.data.Image11}`;
+            } else {
+              this.form.Image11 = "";
             }
-            if (res.data.Image12 != undefined) {
+            if (res.data.Image12 != "" && res.data.Image12 != undefined) {
               this.form.Image12 = `${this.config.public.BaseUrl}/${res.data.Image12}`;
+            } else {
+              this.form.Image12 = "";
             }
-            if (res.data.Image21 != undefined) {
+            if (res.data.Image21 != "" && res.data.Image21 != undefined) {
               this.form.Image21 = `${this.config.public.BaseUrl}/${res.data.Image21}`;
+            } else {
+              this.form.Image21 = "";
             }
-            if (res.data.Image22 != undefined) {
+            if (res.data.Image22 != "" && res.data.Image22 != undefined) {
               this.form.Image22 = `${this.config.public.BaseUrl}/${res.data.Image22}`;
+            } else {
+              this.form.Image22 = "";
             }
-            if (res.data.Image31 != undefined) {
+            if (res.data.Image31 != "" && res.data.Image31 != undefined) {
               this.form.Image31 = `${this.config.public.BaseUrl}/${res.data.Image31}`;
+            } else {
+              this.form.Image31 = "";
             }
-            if (res.data.Image32 != undefined) {
+            if (res.data.Image32 != "" && res.data.Image32 != undefined) {
               this.form.Image32 = `${this.config.public.BaseUrl}/${res.data.Image32}`;
+            } else {
+              this.form.Image32 = "";
             }
-            if (res.data.Image41 != undefined) {
+            if (res.data.Image41 != "" && res.data.Image41 != undefined) {
               this.form.Image41 = `${this.config.public.BaseUrl}/${res.data.Image41}`;
+            } else {
+              this.form.Image41 = "";
             }
-            if (res.data.Image42 != undefined) {
+            if (res.data.Image42 != "" && res.data.Image42 != undefined) {
               this.form.Image42 = `${this.config.public.BaseUrl}/${res.data.Image42}`;
+            } else {
+              this.form.Image42 = "";
             }
-            if (res.data.Image51 != undefined) {
+            if (res.data.Image51 != "" && res.data.Image51 != undefined) {
               this.form.Image51 = `${this.config.public.BaseUrl}/${res.data.Image51}`;
+            } else {
+              this.form.Image51 = "";
             }
-            if (res.data.Image52 != undefined) {
+            if (res.data.Image52 != "" && res.data.Image52 != undefined) {
               this.form.Image52 = `${this.config.public.BaseUrl}/${res.data.Image52}`;
+            } else {
+              this.form.Image52 = "";
             }
             this.form.Title1 = res.data.Title1;
             this.form.Description1 = res.data.Description2;
@@ -441,11 +618,20 @@ export default {
             this.form.Description5 = res.data.Description5;
           }
         });
-    }
-    this.form.Type = this.Type;
-  },
-
-  methods: {
+    },
+    RemoveImage(i) {
+      this.loader = true;
+      var obj = {
+        Image: i,
+        Type: this.Type,
+      };
+      axios
+        .post(`${this.config.public.BaseUrl}/RemoveFeaturedImages`, obj)
+        .then((res) => {})
+        .finally(() => {
+          this.fetchData();
+        });
+    },
     SelectImage(type) {
       this.fileType = type;
       this.$refs.image.value = null;
@@ -571,60 +757,7 @@ export default {
       axios
         .post(`${this.config.public.BaseUrl}/FeaturedPrograms`, form)
         .then(async (res) => {
-          axios
-            .get(
-              `${this.config.public.BaseUrl}/FeaturedProgram?type=${this.Type}`
-            )
-            .then((res) => {
-              this.loader = false;
-              if (res.data != null) {
-                console.log(res.data);
-                if (res.data.BannerImage != undefined) {
-                  this.form.BannerImage = `${this.config.public.BaseUrl}/${res.data.BannerImage}`;
-                }
-                if (res.data.Image11 != undefined) {
-                  this.form.Image11 = `${this.config.public.BaseUrl}/${res.data.Image11}`;
-                }
-                if (res.data.Image12 != undefined) {
-                  this.form.Image12 = `${this.config.public.BaseUrl}/${res.data.Image12}`;
-                }
-                if (res.data.Image21 != undefined) {
-                  this.form.Image21 = `${this.config.public.BaseUrl}/${res.data.Image21}`;
-                }
-                if (res.data.Image22 != undefined) {
-                  this.form.Image22 = `${this.config.public.BaseUrl}/${res.data.Image22}`;
-                }
-                if (res.data.Image31 != undefined) {
-                  this.form.Image31 = `${this.config.public.BaseUrl}/${res.data.Image31}`;
-                }
-                if (res.data.Image32 != undefined) {
-                  this.form.Image32 = `${this.config.public.BaseUrl}/${res.data.Image32}`;
-                }
-                if (res.data.Image41 != undefined) {
-                  this.form.Image41 = `${this.config.public.BaseUrl}/${res.data.Image41}`;
-                }
-                if (res.data.Image42 != undefined) {
-                  this.form.Image42 = `${this.config.public.BaseUrl}/${res.data.Image42}`;
-                }
-                if (res.data.Image51 != undefined) {
-                  this.form.Image51 = `${this.config.public.BaseUrl}/${res.data.Image51}`;
-                }
-                if (res.data.Image52 != undefined) {
-                  this.form.Image52 = `${this.config.public.BaseUrl}/${res.data.Image52}`;
-                }
-                this.form.Title1 = res.data.Title1;
-                this.form.Description1 = res.data.Description2;
-                this.form.Title2 = res.data.Title2;
-                this.form.Description2 = res.data.Description2;
-                this.form.Title3 = res.data.Title3;
-                this.form.Description3 = res.data.Description3;
-                this.form.Title4 = res.data.Title4;
-                this.form.Description4 = res.data.Description4;
-                this.form.Title5 = res.data.Title5;
-                this.form.Description5 = res.data.Description5;
-              }
-            });
-
+          this.fetchData();
           const Toast = Swal.mixin({
             toast: true,
             position: "top-right",
