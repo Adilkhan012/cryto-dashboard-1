@@ -7,11 +7,13 @@
           :src="`${config.public.BaseUrl}/${program.Image11}`"
           alt=""
           style="width: 100%; border: 1px"
+          onerror="this.style.display='none'"
         />
         <img
           :src="`${config.public.BaseUrl}/${program.Image12}`"
           alt=""
           style="width: 100%"
+          onerror="this.style.display='none'"
         />
       </div>
       <p>{{ program.Description1 }}</p>
@@ -21,11 +23,13 @@
           :src="`${config.public.BaseUrl}/${program.Image21}`"
           alt=""
           style="width: 100%; border: 1px"
+          onerror="this.style.display='none'"
         />
         <img
           :src="`${config.public.BaseUrl}/${program.Image22}`"
           alt=""
           style="width: 100%"
+          onerror="this.style.display='none'"
         />
       </div>
       <p>{{ program.Description2 }}</p>
@@ -35,11 +39,13 @@
           :src="`${config.public.BaseUrl}/${program.Image31}`"
           alt=""
           style="width: 100%; border: 1px"
+          onerror="this.style.display='none'"
         />
         <img
           :src="`${config.public.BaseUrl}/${program.Image32}`"
           alt=""
           style="width: 100%"
+          onerror="this.style.display='none'"
         />
       </div>
       <p>{{ program.Description3 }}</p>
@@ -49,6 +55,7 @@
           :src="`${config.public.BaseUrl}/${program.Image41}`"
           alt=""
           style="width: 100%; border: 1px"
+          onerror="this.style.display='none'"
         />
         <img
           :src="`${config.public.BaseUrl}/${program.Image42}`"
@@ -63,11 +70,13 @@
           :src="`${config.public.BaseUrl}/${program.Image51}`"
           alt=""
           style="width: 100%; border: 1px"
+          onerror="this.style.display='none'"
         />
         <img
           :src="`${config.public.BaseUrl}/${program.Image52}`"
           alt=""
           style="width: 100%"
+          onerror="this.style.display='none'"
         />
       </div>
       <p>{{ program.Description5 }}</p>
