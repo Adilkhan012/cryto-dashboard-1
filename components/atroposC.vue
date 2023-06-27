@@ -1,15 +1,5 @@
 <template>
-  <div
-    style="
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6rem;
-      display: block;
-      flex-wrap: wrap;
-      flex-basis: 1;
-    "
-  >
+  <div>
     <NuxtLink :to="`/FeaturedPrograms/${image.Type}`">
       <atropos
         :shadow-offset="50"
@@ -24,10 +14,18 @@
       >
         <div class="atropos-scale">
           <div class="atropos-rotate">
-            <div class="atropos-inner">
+            <div
+              class="atropos-inner"
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                min-height: 40vh;
+              "
+            >
               <div class="img-box" ref="card">
                 <!-- <div class="Blob" ref="blob"></div> -->
-                <img :src="banner" alt="" height="250" width="300" />
+                <img :src="banner" alt="" style="width: 300px" />
               </div>
               <div class="title-box">
                 <h4 v-if="image.Type === 'Academic'">Academic Sessions</h4>
@@ -37,7 +35,8 @@
                   Development Services
                 </h4>
                 <h4 v-if="image.Type === 'Community'">
-                  Community Building & Mark Making
+                  Community Building & <br />
+                  Mark Making
                 </h4>
                 <h4 v-if="image.Type === 'Training'">Training Programs</h4>
               </div>
