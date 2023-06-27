@@ -16,11 +16,11 @@
     </div>
     <div v-if="tab === 'tab-1'" style="width: 80%; margin: 2rem auto">
       <h3>English</h3>
-      <div style="margin: 2rem 0">
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 2rem 0">
         <div
           v-for="video in videos.data.filter((x) => x.Category === 'English')"
           :key="video._id"
-          style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem"
+          class="video-container"
         >
           <iframe
             :src="video.EmbedLink"
@@ -31,11 +31,11 @@
         </div>
       </div>
       <h3>Hindi</h3>
-      <div style="margin: 2rem 0">
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 2rem 0">
         <div
           v-for="video in videos.data.filter((x) => x.Category === 'Hindi')"
           :key="video._id"
-          style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem"
+          class="video-container"
         >
           <iframe
             :src="video.EmbedLink"
@@ -46,11 +46,11 @@
         </div>
       </div>
       <h3>Malayalam</h3>
-      <div style="margin: 2rem 0">
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 2rem 0">
         <div
           v-for="video in videos.data.filter((x) => x.Category === 'Malayalam')"
           :key="video._id"
-          style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem"
+          class="video-container"
         >
           <iframe
             :src="video.EmbedLink"
@@ -62,11 +62,11 @@
       </div>
     </div>
     <div v-if="tab === 'tab-2'" style="width: 80%; margin: 2rem auto">
-      <div style="margin: 2rem 0">
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 2rem 0">
         <div
           v-for="video in videos.data.filter((x) => x.Category === 'English')"
           :key="video._id"
-          style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem"
+          class="video-container"
         >
           <iframe
             :src="video.EmbedLink"
@@ -78,11 +78,11 @@
       </div>
     </div>
     <div v-if="tab === 'tab-3'" style="width: 80%; margin: 2rem auto">
-      <div style="margin: 2rem 0">
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 2rem 0">
         <div
           v-for="video in videos.data.filter((x) => x.Category === 'Hindi')"
           :key="video._id"
-          style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem"
+          class="video-container"
         >
           <iframe
             :src="video.EmbedLink"
@@ -94,11 +94,11 @@
       </div>
     </div>
     <div v-if="tab === 'tab-4'" style="width: 80%; margin: 2rem auto">
-      <div style="margin: 2rem 0">
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 2rem 0">
         <div
           v-for="video in videos.data.filter((x) => x.Category === 'Malayalam')"
           :key="video._id"
-          style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem"
+          class="video-container"
         >
           <iframe
             :src="video.EmbedLink"
@@ -144,6 +144,7 @@ export default {
 }
 .tabs {
   display: flex;
+  flex-wrap: wrap;
   margin: 1rem auto;
   width: 50%;
   gap: 2rem;
@@ -162,5 +163,23 @@ export default {
 }
 .active-tab {
   border-bottom: 2px solid black;
+}
+.video-container {
+  width: 30%;
+}
+@media (max-width: 591px) {
+  .video-container {
+    width: 100%;
+  }
+}
+@media (min-width: 592px) and (max-width: 991px) {
+  .video-container {
+    width: 45%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1370px) {
+  .video-container {
+    width: 30%;
+  }
 }
 </style>
