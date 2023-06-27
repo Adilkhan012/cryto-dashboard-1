@@ -22,7 +22,7 @@
     <!--======  CTA PART END ======-->
 
     <!--======  VIDEO PART START ======-->
-    <section class="video-area vdeo-bg" style="padding: 10rem 0">
+    <section class="video-area vdeo-bg" style="padding: 10rem 0" id="Videos">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -54,7 +54,7 @@
     <!--======  PROJECTS PART END ======-->
     <Portfolio />
     <!--======  TESTIMONIAL PART START ======-->
-    <div style="width: 80%; margin: auto">
+    <div style="width: 80%; margin: auto" id="Testimonials">
       <h1 style="font-weight: 700">Testimonials</h1>
       <swiper
         class="swiper"

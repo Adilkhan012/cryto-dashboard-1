@@ -1,6 +1,6 @@
 <template>
   <!--======  BLOG PART START ======-->
-  <section class="blog-area pb-140" id="Blog">
+  <section class="blog-area pb-140">
     <!-- <div class="container">
       <div class="row">
         <div class="col-lg-4 pb-80">
