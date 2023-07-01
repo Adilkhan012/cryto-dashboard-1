@@ -5,7 +5,7 @@
       <div class="row" style="justify-content: end">
         <div class="col-lg-6 offset-lg-3 text-center pb-80">
           <div class="section-title team-title">
-            <h1>Gallery</h1>
+            <h1>My Gallery</h1>
           </div>
         </div>
       </div>

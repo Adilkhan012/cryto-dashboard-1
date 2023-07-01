@@ -65,7 +65,6 @@
           </div>
           <div class="col-md-6">
             <div class="about-content">
-              <h5 class="sub-title">About Us</h5>
               <h1>
                 {{ AboutUsTitle != "" ? AboutUsTitle : "Dr.Vinessh Vijayan" }}
               </h1>

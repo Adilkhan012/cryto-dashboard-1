@@ -55,7 +55,7 @@
                   </li>
                   <li><NuxtLink :to="`/#About`">About</NuxtLink></li>
                   <li><NuxtLink :to="`/#Services`">Services</NuxtLink></li>
-                  <li><NuxtLink :to="`/#Team`">Team</NuxtLink></li>
+                  <li><NuxtLink :to="`/#Team`">Gallery</NuxtLink></li>
                   <li><NuxtLink :to="`/#Videos`">Videos</NuxtLink></li>
                   <li>
                     <NuxtLink :to="`/#Blog`">Blog</NuxtLink>

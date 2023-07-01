@@ -5,7 +5,7 @@
     </div>
     <div class="overlay" @click="close" v-if="popup"></div>
     <div>
-      <button class="Add-Video" @click="open">Add Video</button>
+      <button class="Add-Video" @click="open">Add Blogs</button>
       <div class="px-5 popups" v-if="popup">
         <div style="display: flex; justify-content: space-around">
           <div>

@@ -6,11 +6,7 @@
           <div class="col-lg-6">
             <div class="cta-title">
               <span><img src="@/assets/images/cta-text.png" alt="" /></span>
-              <h1>Have Any Creative Project</h1>
-              <p>
-                We denounce with righteous indignation and dislike men who are
-                so beguiled and demoralized by the charms of pleasure
-              </p>
+              <h1>Have Any Project</h1>
               <NuxtLink to="#Contact" class="btn cta-btn"
                 >Contact us <i class="fa fa-arrow-right"></i
               ></NuxtLink>
@@ -37,14 +33,7 @@
       <div class="video-content">
         <span><img src="@/assets/images/video-text.png" alt="" /></span>
         <h1>Watch Our Latest Videos</h1>
-        <p>
-          Latin professor at Hampden-Sydney College in Virginia, looked up one
-          of the more obscure Latin words, consectetur, from a Lorem Ipsum
-          passage, and going through the cites of the
-        </p>
-        <a href="#" class="video-read-more"
-          >Learn More <i class="fa fa-arrow-right"></i
-        ></a>
+
       </div>
     </section>
     <!--======  VIDEO PART END ======-->
