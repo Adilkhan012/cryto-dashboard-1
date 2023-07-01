@@ -49,6 +49,7 @@ export default {
   gap: 2rem;
   width: 100%;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
 }
 @media (max-width: 750px) {

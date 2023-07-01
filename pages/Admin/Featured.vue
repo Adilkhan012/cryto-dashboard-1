@@ -5,7 +5,7 @@
         <label for="">Academic Sessions</label>
       </div>
       <div :class="tab == 'tab-2' && 'active-tab'" @click="ChangeTab('tab-2')">
-        <label for="">Event,Media, PR services</label>
+        <label for="">Event, Media, PR services</label>
       </div>
       <div :class="tab == 'tab-3' && 'active-tab'" @click="ChangeTab('tab-3')">
         <label for="">Consulting Services</label>
@@ -14,7 +14,7 @@
         <label for="">Development Services</label>
       </div>
       <div :class="tab == 'tab-5' && 'active-tab'" @click="ChangeTab('tab-5')">
-        <label for="">Community Building & Mark Making</label>
+        <label for="">Community Building & Marketing</label>
       </div>
       <div :class="tab == 'tab-6' && 'active-tab'" @click="ChangeTab('tab-6')">
         <label for="">Training Programs</label>

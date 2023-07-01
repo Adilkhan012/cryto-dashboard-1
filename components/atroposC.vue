@@ -34,14 +34,14 @@
               </div>
               <div class="title-box">
                 <h4 v-if="image.Type === 'Academic'">Academic Sessions</h4>
-                <h4 v-if="image.Type === 'Event'">Event,Media, PR services</h4>
+                <h4 v-if="image.Type === 'Event'">Event, Media, PR services</h4>
                 <h4 v-if="image.Type === 'Consulting'">Consulting Services</h4>
                 <h4 v-if="image.Type === 'Development'">
                   Development Services
                 </h4>
                 <h4 v-if="image.Type === 'Community'">
                   Community Building & <br />
-                  Mark Making
+                  Marketing
                 </h4>
                 <h4 v-if="image.Type === 'Training'">Training Programs</h4>
               </div>
