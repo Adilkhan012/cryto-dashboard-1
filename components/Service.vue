@@ -4,7 +4,6 @@
     <div class="container">
       <div class="row text-center">
         <div class="title">
-          <h5>Our Programs</h5>
           <h1>Featured Services</h1>
         </div>
       </div>
