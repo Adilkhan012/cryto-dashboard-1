@@ -1,25 +1,12 @@
 <template>
-  <div class="home-content" ref="homecontent">
-    <img class="content__img" v-for="i in images" :key="i" :src="i" />
-    <!-- <img class="content__img" src="@/assets/images/slider/2.jpg" />
-    <img class="content__img" src="@/assets/images/slider/3.jpg" />
-    <img class="content__img" src="@/assets/images/slider/4.jpg" />
-    <img class="content__img" src="@/assets/images/slider/5.jpg" />
-    <img class="content__img" src="@/assets/images/slider/6.jpg" />
-    <img class="content__img" src="@/assets/images/slider/7.jpg" />
-    <img class="content__img" src="@/assets/images/slider/8.jpg" />
-    <img class="content__img" src="@/assets/images/slider/9.jpg" />
-    <img class="content__img" src="@/assets/images/slider/10.jpg" />
-    <img class="content__img" src="@/assets/images/slider/11.jpg" />
-    <img class="content__img" src="@/assets/images/slider/12.jpg" />
-    <img class="content__img" src="@/assets/images/slider/13.jpg" />
-    <img class="content__img" src="@/assets/images/slider/14.jpg" />
-    <img class="content__img" src="@/assets/images/slider/15.jpg" />
-    <img class="content__img" src="@/assets/images/slider/16.jpg" />
-    <img class="content__img" src="@/assets/images/slider/17.jpg" />
-    <img class="content__img" src="@/assets/images/slider/18.jpg" />
-    <img class="content__img" src="@/assets/images/slider/19.jpg" /> -->
-    <!-- <h3 class="content__title">Cursor </h3> -->
+  <div class="home-content" ref="homecontent" @mousemove="MoveCards">
+    <img
+      class="content__img"
+      v-for="i in images"
+      :key="i"
+      :src="i"
+      ref="images"
+    />
   </div>
 </template>
 
@@ -126,7 +113,7 @@ export default {
                 this.imagesTotal = this.images.length;
                 this.imgPosition = 0;
                 this.zIndexVal = 1;
-                this.threshold = 100;
+                this.threshold = 50;
                 requestAnimationFrame(() => this.render());
               }
               render() {
@@ -232,7 +219,19 @@ export default {
       });
   },
 
-  methods: {},
+  methods: {
+    MoveCards(e) {
+      const box = this.$refs.homecontent.getBoundingClientRect();
+      const offsetX = e.clientX - box.left;
+      const offsetY = e.clientY - box.top;
+      this.$refs.images.forEach((x) => {
+        gsap.to(x, {
+          x: offsetX,
+          y: offsetY,
+        });
+      });
+    },
+  },
 };
 </script>
 
