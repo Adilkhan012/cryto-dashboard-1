@@ -50,7 +50,7 @@
             <div class="main-menu">
               <nav>
                 <ul id="mobile-menu">
-                  <li class="current">
+                  <li>
                     <NuxtLink :to="`/#Home`">Home</NuxtLink>
                   </li>
                   <li><NuxtLink :to="`/#About`">About</NuxtLink></li>
