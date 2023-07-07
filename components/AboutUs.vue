@@ -249,7 +249,7 @@
             display: flex;
             justify-content: space-between;
             flex-basis: 1;
-            gap: 6rem;
+            gap: 3rem;
             flex-wrap: wrap;
             width: 100%;
             margin: auto;
@@ -316,6 +316,7 @@
               >
                 3
               </h1>
+              +
               <p>Languages</p>
             </div>
           </div>
