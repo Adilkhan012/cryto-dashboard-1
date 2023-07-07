@@ -1,5 +1,5 @@
 <template>
-  <div class="home-content" ref="homecontent" @mousemove="MoveCards">
+  <div class="home-content" ref="homecontent">
     <img
       class="content__img"
       v-for="i in images"
@@ -113,7 +113,7 @@ export default {
                 this.imagesTotal = this.images.length;
                 this.imgPosition = 0;
                 this.zIndexVal = 1;
-                this.threshold = 50;
+                this.threshold = 170;
                 requestAnimationFrame(() => this.render());
               }
               render() {
@@ -159,7 +159,7 @@ export default {
                 gsap.killTweensOf(img.DOM.el);
 
                 let tl = gsap.timeline();
-                tl.to(
+                tl.set(
                   img.DOM.el,
                   {
                     startAt: { opacity: 0, scale: 1 },
@@ -173,28 +173,30 @@ export default {
                 )
                   .to(
                     img.DOM.el,
-                    0.9,
                     {
                       x: mousePos.x - img.rect.width / 2,
                       y: mousePos.y - img.rect.height / 2,
+                      duration: 0.9,
                     },
                     0
                   )
                   .to(
                     img.DOM.el,
-                    1,
+
                     {
                       ease: "Power1.easeOut",
                       opacity: 0,
+                      duration: 1,
                     },
                     0.4
                   )
                   .to(
                     img.DOM.el,
-                    1,
+
                     {
                       ease: "Quint.easeOut",
                       scale: 0.2,
+                      duration: 1,
                     },
                     0.4
                   );
@@ -219,19 +221,7 @@ export default {
       });
   },
 
-  methods: {
-    MoveCards(e) {
-      const box = this.$refs.homecontent.getBoundingClientRect();
-      const offsetX = e.clientX - box.left;
-      const offsetY = e.clientY - box.top;
-      this.$refs.images.forEach((x) => {
-        gsap.to(x, {
-          x: offsetX,
-          y: offsetY,
-        });
-      });
-    },
-  },
+  methods: {},
 };
 </script>
 
