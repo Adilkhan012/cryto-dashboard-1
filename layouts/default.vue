@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="    overflow-x: hidden;">
     <div class="loader" v-if="loader">
       <img src="@/assets/loader.gif" alt="" />
     </div>

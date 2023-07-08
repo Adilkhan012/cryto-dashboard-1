@@ -105,3 +105,17 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.logo {
+  @media screen and (max-width: 991px){
+      width: 13vw;
+  }
+   @media screen and (max-width: 821px){
+      width: 18vw;
+  }
+  @media screen and (max-width: 557px){
+      width: 26vw;
+  }
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="    overflow-x: hidden;">
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->

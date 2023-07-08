@@ -239,11 +239,8 @@
         </div>
       </div>
     </section>
-    <section
-      class="project-counter-area"
-      style="width: 66%; margin: 0rem auto 10rem; padding: 0"
-    >
-      <div class="container" style="max-width: 80vw; margin: auto">
+    <section class="project-counter-area">
+      <div class="container" style="">
         <div
           style="
             display: flex;
@@ -645,5 +642,20 @@ small.text-muted.font-w-5.font-italic {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+}
+</style>
+
+<style lang="scss" scoped>
+.project-counter-area {
+  width: 66%;
+  margin: 0rem auto 10rem;
+  padding: 0;
+  @media screen and (max-width: 1710px) {
+    width: 100%;
+  }
+  .container {
+    max-width: 80vw;
+    margin: auto;
+  }
 }
 </style>
