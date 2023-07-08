@@ -241,18 +241,7 @@
     </section>
     <section class="project-counter-area">
       <div class="container" style="">
-        <div
-          style="
-            display: flex;
-            justify-content: space-between;
-            flex-basis: 1;
-            gap: 3rem;
-            flex-wrap: wrap;
-            width: 100%;
-            margin: auto;
-            align-items: center;
-          "
-        >
+        <div class="box" style="">
           <div class="">
             <div class="counter-icon">
               <i class="fas fa-globe"></i>
@@ -656,6 +645,22 @@ small.text-muted.font-w-5.font-italic {
   .container {
     max-width: 80vw;
     margin: auto;
+    @media screen and (max-width: 928px) {
+      max-width: 90vw;
+    }
+    .box {
+      display: flex;
+      justify-content: space-between;
+      flex-basis: 1;
+      gap: 2rem;
+      flex-wrap: wrap;
+      width: 100%;
+      margin: auto;
+      align-items: center;
+      @media screen and (max-width: 380px){
+        gap: 5rem;
+      }
+    }
   }
 }
 </style>
