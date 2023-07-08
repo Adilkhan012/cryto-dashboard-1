@@ -657,6 +657,9 @@ small.text-muted.font-w-5.font-italic {
       width: 100%;
       margin: auto;
       align-items: center;
+      @media screen and (max-width: 570px){
+            flex-direction: column;
+      }
       @media screen and (max-width: 380px){
         gap: 5rem;
       }
