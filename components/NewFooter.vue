@@ -16,38 +16,56 @@
           <div class="col-lg-12">
             <div class="contact-form-area">
               <div>
-                <div class="single-contact-field">
-                  <input type="text" placeholder="Your Name" v-model="name" />
-                  <span class="far fa-user"></span>
+                <div class="row">
+                  <div class="col-md-4 col-sm-12">
+                    <div class="single-contact-field" style="width: 109%">
+                      <input
+                        type="text"
+                        placeholder="Your Name"
+                        v-model="name"
+                      />
+                      <span class="far fa-user"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12">
+                    <div class="single-contact-field" style="width: 109%">
+                      <input
+                        type="email"
+                        placeholder="Your email"
+                        v-model="email"
+                      />
+                      <span class="fas fa-envelope-open-text"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12">
+                    <div class="single-contact-field" style="width: 109%">
+                      <input
+                        type="text"
+                        placeholder="Your phone"
+                        v-model="phone"
+                      />
+                      <span class="fas fa-phone"></span>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="single-contact-field">
-                  <input
-                    type="email"
-                    placeholder="Your email"
-                    v-model="email"
-                  />
-                  <span class="fas fa-envelope-open-text"></span>
-                </div>
-
-                <div class="single-contact-field">
-                  <input type="text" placeholder="Your phone" v-model="phone" />
-                  <span class="fas fa-phone"></span>
-                </div>
-
-                <div class="single-contact-field textarea">
-                  <textarea
-                    name="#"
-                    id="#"
-                    cols="30"
-                    rows="10"
-                    placeholder="Your Message"
-                    v-model="message"
-                  ></textarea>
-                  <span class="fas fa-pencil-alt"></span>
-                  <button @click="sendMessage" class="btn contact-btn">
-                    send message <i class="fa fa-arrow-right"></i>
-                  </button>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="single-contact-field textarea">
+                      <textarea
+                        name="#"
+                        id="#"
+                        cols="30"
+                        rows="10"
+                        placeholder="Your Message"
+                        v-model="message"
+                      ></textarea>
+                      <span class="fas fa-pencil-alt"></span>
+                      <button @click="sendMessage" class="btn contact-btn">
+                        send message <i class="fa fa-arrow-right"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -245,3 +263,12 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.single-contact-field {
+  width: 103%;
+  @media screen and (max-width: 767px) {
+    width: 109%;
+  }
+}
+</style>

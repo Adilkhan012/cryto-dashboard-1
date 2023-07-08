@@ -239,24 +239,10 @@
         </div>
       </div>
     </section>
-    <section
-      class="project-counter-area"
-      style="width: 66%; margin: 0rem auto 10rem; padding: 0"
-    >
-      <div class="container" style="max-width: 80vw; margin: auto">
-        <div
-          style="
-            display: flex;
-            justify-content: space-between;
-            flex-basis: 1;
-            gap: 6rem;
-            flex-wrap: wrap;
-            width: 100%;
-            margin: auto;
-            align-items: center;
-          "
-        >
-          <div class="">
+    <section class="project-counter-area">
+      <div class="container" style="">
+        <div class="box" style="">
+          <div class="SubBox1">
             <div class="counter-icon">
               <i class="fas fa-globe"></i>
             </div>
@@ -272,7 +258,7 @@
               <p>Influenced</p>
             </div>
           </div>
-          <div class="">
+          <div class="SubBox2">
             <div class="counter-icon">
               <i class="fas fa-life-ring"></i>
             </div>
@@ -288,7 +274,7 @@
               <p>Years Experience</p>
             </div>
           </div>
-          <div class="">
+          <div class="SubBox3">
             <div class="counter-icon">
               <i class="fas fa-trophy"></i>
             </div>
@@ -304,7 +290,7 @@
               <p>Events</p>
             </div>
           </div>
-          <div class="">
+          <div class="SubBox4">
             <div class="counter-icon">
               <i class="fas fa-language"></i>
             </div>
@@ -316,10 +302,11 @@
               >
                 3
               </h1>
+              +
               <p>Languages</p>
             </div>
           </div>
-          <div class="">
+          <div class="SubBox5">
             <div class="counter-icon">
               <i class="fas fa-universal-access"></i>
             </div>
@@ -644,5 +631,60 @@ small.text-muted.font-w-5.font-italic {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+}
+</style>
+
+<style lang="scss" scoped>
+.project-counter-area {
+  width: 66%;
+  margin: 0rem auto 10rem;
+  padding: 0;
+  @media screen and (max-width: 1710px) {
+    width: 100%;
+  }
+  .container {
+    max-width: 80vw;
+    margin: auto;
+    @media screen and (max-width: 928px) {
+      max-width: 90vw;
+    }
+    .box {
+      display: flex;
+      justify-content: space-between;
+      flex-basis: 1;
+      gap: 2rem;
+      flex-wrap: wrap;
+      width: 100%;
+      margin: auto;
+      align-items: center;
+      @media screen and (max-width: 570px) {
+        flex-direction: column;
+      }
+      @media screen and (max-width: 380px) {
+        gap: 5rem;
+      }
+    }
+    .SubBox1 {
+      @media screen and (max-width: 570px) {
+        margin-left: -1.3rem;
+      }
+    }
+
+    .SubBox3 {
+      @media screen and (max-width: 570px) {
+        margin-left: -4.7rem;
+      }
+    }
+    .SubBox4 {
+      @media screen and (max-width: 570px) {
+        margin-left: -2.4rem;
+      }
+    }
+    .SubBox5 {
+      @media screen and (max-width: 570px) {
+        margin-left: -2.8rem;
+      }
+    }
+  }
 }
 </style>
