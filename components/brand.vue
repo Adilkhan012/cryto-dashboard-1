@@ -95,7 +95,7 @@ export default {
   height: 200px;
   margin: 0 40px;
   transform-style: preserve-3d;
-  animation: flip 2s infinite;
+  animation: flip 4s infinite;
 }
 
 @keyframes flip {
