@@ -1,19 +1,21 @@
 <template>
-    <div style="width: 80%; margin: auto" id="StrategicPartners">
-      <h1 style="font-weight: 700">Strategic Partners</h1>
-    </div>
-  <div class="logos" style="margin: 10rem 0">
-    <div class="logos-slide">
-      <img
-        v-for="image in images"
-        :key="image"
-        width="300"
-        height="400"
-        :src="image"
-        alt="asdfasd"
-      />
-    </div>
+    <div style="width: 80%; margin: auto; padding-top: 2rem" id="StrategicPartners">
+  <h1 style="font-weight: 700">Strategic Partners</h1>
+</div>
+
+<div class="logos" style="margin: 10rem 0">
+  <div class="logos-slide">
+    <img
+      v-for="image in images"
+      :key="image"
+      width="300"
+      height="400"
+      :src="image"
+      alt="asdfasd"
+    />
   </div>
+</div>
+
 </template>
 
 <script>
