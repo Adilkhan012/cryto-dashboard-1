@@ -64,7 +64,7 @@
                     <NuxtLink :to="`/#Testimonials`">Testimonials</NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink :to ="`/#Strategic Partners`">Strategic Partners</NuxtLink>
+                    <NuxtLink :to ="`/#StrategicPartners`">Partners</NuxtLink>
                   </li>
                   <li><NuxtLink :to="`/#Contact`">Contact</NuxtLink></li>
                 </ul>

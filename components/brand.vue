@@ -1,5 +1,5 @@
 <template>
-    <div style="width: 80%; margin: auto" id="Testimonials">
+    <div style="width: 80%; margin: auto" id="StrategicPartners">
       <h1 style="font-weight: 700">Strategic Partners</h1>
     </div>
   <div class="logos" style="margin: 10rem 0">
