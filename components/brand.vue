@@ -1,6 +1,6 @@
 <template>
     <div style="width: 80%; margin: auto" id="Testimonials">
-      <h1 style="font-weight: 700">Testimonials</h1>
+      <h1 style="font-weight: 700">Strategic Partners</h1>
     </div>
   <div class="logos" style="margin: 10rem 0">
     <div class="logos-slide">
