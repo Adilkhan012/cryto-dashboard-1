@@ -63,7 +63,7 @@
             multiple
             @change="Select"
           />
-          <img :src="i" alt="" width="400" height="500" loading="lazy" />
+          <img :src="i" alt="" width="600" height="700" loading="lazy" />
           <span
             style="
               position: absolute;
@@ -83,8 +83,8 @@
         v-else
         src="@/assets/ImagePlaceholder.jpg"
         alt=""
-        width="400"
-        height="500"
+        width="600"
+        height="700"
         @click="SelectImage"
       />
       <input
