@@ -68,14 +68,7 @@ export default {
     transform: translateX(-100%);
   }
 }
-.logos:before {
-  left: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
-}
-.logos:after {
-  right: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
-}
+
 .logos:hover .logos-slide {
   animation-play-state: paused;
 }
