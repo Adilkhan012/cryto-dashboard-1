@@ -33,7 +33,6 @@
       <div class="video-content">
         <span><img src="@/assets/images/video-text.png" alt="" /></span>
         <h1>Watch Our Latest Videos</h1>
-
       </div>
     </section>
     <!--======  VIDEO PART END ======-->
@@ -86,56 +85,8 @@
         <!-- <div class="swiper-pagination" :pagination></div> -->
       </swiper>
     </div>
-    <!-- <section class="testimonial-area" id="testimonial">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 textimonial-carousel-active">
-            <div class="single-testimonial-content">
-              <span class="testimonial-quote"
-                ><i class="fa fa-quote-right"></i
-              ></span>
-              <p>
-                Avoids pleasur itself because pleas because those who do not
-                know how to pursue plesure rationally encou eque that are extrem
-                painful again is there anyone who loves pursues or desires to
-                obtain pain of itself.
-              </p>
-              <div class="autohor-details">
-                <img
-                  src="@/assets/images/testimonial/1.jpg"
-                  alt=""
-                  class="author-img"
-                />
-                <h5 class="author-name">
-                  Michele L. Racinea <span>Web Designer</span>
-                </h5>
-              </div>
-            </div>
-            <div class="single-testimonial-content">
-              <span class="testimonial-quote"
-                ><i class="fa fa-quote-right"></i
-              ></span>
-              <p>
-                Avoids pleasur itself because pleas because those who do not
-                know how to pursue plesure rationally encou eque that are extrem
-                painful again is there anyone who loves pursues or desires to
-                obtain pain of itself.
-              </p>
-              <div class="autohor-details">
-                <img
-                  src="@/assets/images/testimonial/1.jpg"
-                  alt=""
-                  class="author-img"
-                />
-                <h5 class="author-name">
-                  Michele L. Racinea <span>Web Designer</span>
-                </h5>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
+    <brand></brand>
+
     <!--======  TESTIMONIAL PART END ======-->
 
     <!--======  SCROLL-TO-TOP PART START ======-->

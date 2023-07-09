@@ -1,5 +1,5 @@
 <template>
-  <div style="    overflow-x: hidden;">
+  <div style="overflow-x: hidden">
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
@@ -44,6 +44,12 @@
               <NuxtLink to="/Admin/ImageSlider" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>Image Slider</p>
+              </NuxtLink>
+            </li>
+            <li class="nav-item">
+              <NuxtLink to="/Admin/Brands" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>Brands</p>
               </NuxtLink>
             </li>
             <li class="nav-item">

@@ -43,7 +43,7 @@
           src="@/assets/ImagePlaceholder.jpg"
           alt=""
           width="400"
-          height="500"
+          height="200"
           @click="SelectImage"
           v-if="images.length < 20"
         />
@@ -63,7 +63,7 @@
             multiple
             @change="Select"
           />
-          <img :src="i" alt="" width="400" height="500" loading="lazy" />
+          <img :src="i" alt="" width="400" height="200" loading="lazy" />
           <span
             style="
               position: absolute;
@@ -84,7 +84,7 @@
         src="@/assets/ImagePlaceholder.jpg"
         alt=""
         width="400"
-        height="500"
+        height="200"
         @click="SelectImage"
       />
       <input
@@ -133,9 +133,9 @@ export default {
       axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
         this.loader = false;
         if (res.data != null) {
-          if (res.data.ImageSlider != undefined) {
+          if (res.data.Brands != undefined) {
             this.images = [];
-            res.data.ImageSlider.forEach((x) => {
+            res.data.Brands.forEach((x) => {
               this.images.push(`${this.config.public.BaseUrl}/${x}`);
             });
           }
@@ -176,7 +176,7 @@ export default {
       console.log(this.deleteimages);
       var obj = {
         Cards: this.deleteimages,
-        Type: "sliders",
+        Type: "brands",
       };
       axios
         .post(`${this.config.public.BaseUrl}/BulkRemoveImages`, obj)
@@ -185,9 +185,9 @@ export default {
           this.selectAll = false;
           axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
             if (res.data != null) {
-              if (res.data.ImageSlider != undefined) {
+              if (res.data.Brands != undefined) {
                 this.images = [];
-                res.data.ImageSlider.forEach((x) => {
+                res.data.Brands.forEach((x) => {
                   this.images.push(`${this.config.public.BaseUrl}/${x}`);
                 });
               }
@@ -198,7 +198,7 @@ export default {
     RemoveImage(i) {
       this.loader = true;
       var obj = {
-        type: "slider",
+        type: "brands",
         filename: i.split("/").at(-1),
       };
       console.log(obj);
@@ -208,9 +208,9 @@ export default {
           axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
             this.loader = false;
             if (res.data != null) {
-              if (res.data.ImageSlider != undefined) {
+              if (res.data.Brands != undefined) {
                 this.images = [];
-                res.data.ImageSlider.forEach((x) => {
+                res.data.Brands.forEach((x) => {
                   this.images.push(`${this.config.public.BaseUrl}/${x}`);
                 });
               }
@@ -229,21 +229,19 @@ export default {
         console.log(e.target.files[i]);
         form.append("file", e.target.files[i]);
       }
-      axios
-        .post(`${this.config.public.BaseUrl}/ImageSlider`, form)
-        .then((res) => {
-          axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
-            this.loader = false;
-            if (res.data != null) {
-              if (res.data.ImageSlider != undefined) {
-                this.images = [];
-                res.data.ImageSlider.forEach((x) => {
-                  this.images.push(`${this.config.public.BaseUrl}/${x}`);
-                });
-              }
+      axios.post(`${this.config.public.BaseUrl}/Brands`, form).then((res) => {
+        axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+          this.loader = false;
+          if (res.data != null) {
+            if (res.data.Brands != undefined) {
+              this.images = [];
+              res.data.Brands.forEach((x) => {
+                this.images.push(`${this.config.public.BaseUrl}/${x}`);
+              });
             }
-          });
+          }
         });
+      });
     },
   },
 };
