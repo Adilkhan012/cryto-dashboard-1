@@ -235,7 +235,7 @@ export default {
 }
 
 .content__img {
-  max-width: 500px;
+  max-width: 280px;
   position: absolute;
   top: 0;
   left: 0;
