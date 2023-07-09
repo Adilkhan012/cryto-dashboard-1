@@ -1,4 +1,9 @@
 <template>
+    <div class="row text-center">
+        <div class="title">
+          <h1>Partners</h1>
+        </div>
+      </div>
   <div class="logos" style="margin: 10rem 0">
     <div class="logos-slide">
       <img
