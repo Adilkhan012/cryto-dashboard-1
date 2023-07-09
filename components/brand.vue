@@ -1,9 +1,7 @@
 <template>
-    <div class="row text-center">
-        <div class="title">
-          <h1>Partners</h1>
-        </div>
-      </div>
+    <div style="width: 80%; margin: auto" id="Testimonials">
+      <h1 style="font-weight: 700">Testimonials</h1>
+    </div>
   <div class="logos" style="margin: 10rem 0">
     <div class="logos-slide">
       <img
@@ -81,7 +79,7 @@ export default {
 }
 .logos-slide {
   display: inline-block;
-  animation: 30s slide infinite linear;
+  animation: 20s slide infinite linear;
 }
 .logos-slide img {
   height: 200px;

@@ -95,6 +95,12 @@
               </NuxtLink>
             </li>
             <li class="nav-item">
+              <NuxtLink to="/Admin/brand" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>Strategic Partners</p>
+              </NuxtLink>
+            </li>
+            <li class="nav-item">
               <NuxtLink to="/Admin/Testimonials" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>Testimonials</p>
