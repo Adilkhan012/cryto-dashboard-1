@@ -1,9 +1,9 @@
 <template>
-    <div style="width: 80%; margin: auto; padding-top: 2rem" id="StrategicPartners">
+    <div style="width: 80%; margin: auto; padding-top: 4rem" id="StrategicPartners">
   <h1 style="font-weight: 700">Strategic Partners</h1>
 </div>
 
-<div class="logos" style="margin: 10rem 0">
+<div class="logos" style="margin: 4rem 0">
   <div class="logos-slide">
     <img
       v-for="image in images"
