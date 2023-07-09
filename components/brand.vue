@@ -65,7 +65,7 @@ export default {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-100%);
+    transform: translateX(-120%);
   }
 }
 
