@@ -12,7 +12,6 @@
 
 <script>
 // import "~/assets/js/script";
-
 import gsap from "gsap";
 import axios from "axios";
 export default {
@@ -214,7 +213,6 @@ export default {
         }
       });
   },
-
   methods: {},
 };
 </script>
@@ -222,13 +220,11 @@ export default {
 <style scoped>
 .home-content {
   height: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
   color: #000;
   background: url(../images/slider-bg.jpg) no-repeat;
-
   position: relative;
   width: 100%;
   height: 100vh;
