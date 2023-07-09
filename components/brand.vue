@@ -47,7 +47,7 @@ export default {
 .logos {
   overflow: hidden;
   padding: 60px 0px;
-  background: #5d6aed;
+  background: #3e45d4;
   white-space: nowrap;
   position: relative;
 }
