@@ -59,6 +59,7 @@ export default {
 .title h1 {
   color: #fff;
   font-size: 45px;
+  font-weight: 600;
 }
 
 .title {
