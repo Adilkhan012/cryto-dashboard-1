@@ -782,7 +782,6 @@ export default {
 <style lang="scss" scoped>
 .loader {
   width: 100vw;
-  height: 60vh;
   position: fixed;
   top: 0;
   left: 7%;
