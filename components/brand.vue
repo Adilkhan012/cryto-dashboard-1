@@ -5,16 +5,15 @@
 
   <div class="logos" style="margin: 4rem 0">
     <div class="logos-slide">
-      <div v-for="(image, index) in images" :key="index" class="logo-card">
-        <div class="logo-inner">
-          <div class="logo-front">
-            <img :src="image" alt="asdfasd" class="logo-image" />
-          </div>
-          <div class="logo-back">
-            <h3>Partner Name</h3>
-          </div>
-        </div>
-      </div>
+      <img
+        v-for="image in images"
+        :key="image"
+        width="300"
+        height="400"
+        :src="image"
+        alt="asdfasd"
+        class="logo-image"
+      />
     </div>
   </div>
 </template>
@@ -92,50 +91,22 @@ export default {
   animation: 20s slide infinite linear;
 }
 
-.logo-card {
-  perspective: 1000px;
-  display: inline-block;
+.logos-slide .logo-image {
+  height: 200px;
   margin: 0 40px;
-}
-
-.logo-inner {
-  width: 300px;
-  height: 400px;
-  position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.8s;
+  animation: flip 4s infinite;
 }
 
-.logo-card:hover .logo-inner {
-  transform: rotateY(180deg);
-}
-
-.logo-front,
-.logo-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-.logo-front {
-  transform: rotateY(0deg);
-}
-
-.logo-back {
-  transform: rotateY(180deg);
-  background-color: #f5f5f5;
-  color: #333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-weight: bold;
-}
-
-.logo-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+@keyframes flip {
+  0% {
+    transform: perspective(800px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(800px) rotateY(180deg);
+  }
+  100% {
+    transform: perspective(800px) rotateY(360deg);
+  }
 }
 </style>
