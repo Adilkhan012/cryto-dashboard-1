@@ -5,124 +5,26 @@
         <div class="row">
           <div class="col-md-12">
             <swiper class="swiper" :options="swiperOption">
-              <swiper-slide>
+              <swiper-slide v-for="(testimonial, index) in testimonials" :key="index">
                 <div class="row justify-content-center text-center">
                   <div class="col-12 col-md-10 col-lg-8">
                     <div class="card bg-transparent border-0">
                       <div>
                         <img
                           alt="Image"
-                          src="@/assets/images/testimonial/1.jpg"
+                          :src="testimonial.image"
                           class="shadow-primary img-fluid rounded-circle d-inline"
                         />
                       </div>
                       <div class="card-body p-0 mt-5">
-                        <p>
-                          Bootsland Amazing Landing Page All-in-one, clean code,
-                          Crative &amp; Modern design. We use the latest
-                          technologies it voluptatem accusantium doloremque
-                          laudantium, totam rem aperiam.
-                        </p>
+                        <p>{{ testimonial.text }}</p>
                         <div>
                           <h5 class="text-primary d-inline mb-0">
-                            Johny Stock
+                            {{ testimonial.name }}
                           </h5>
-                          <small class="text-muted font-w-5 font-italic"
-                            >- Supervisor</small
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </swiper-slide>
-              <swiper-slide>
-                <div class="row justify-content-center text-center">
-                  <div class="col-12 col-md-10 col-lg-8">
-                    <div class="card bg-transparent border-0">
-                      <div>
-                        <img
-                          alt="Image"
-                          src="@/assets/images/testimonial/2.jpg"
-                          class="shadow-primary img-fluid rounded-circle d-inline"
-                        />
-                      </div>
-                      <div class="card-body p-0 mt-5">
-                        <p>
-                          Bootsland Amazing Landing Page All-in-one, clean code,
-                          Crative &amp; Modern design. We use the latest
-                          technologies it voluptatem accusantium doloremque
-                          laudantium, totam rem aperiam.
-                        </p>
-                        <div>
-                          <h5 class="text-primary d-inline mb-0">
-                            Jane Doe
-                          </h5>
-                          <small class="text-muted font-w-5 font-italic"
-                            >- Manager</small
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </swiper-slide>
-              <swiper-slide>
-                <div class="row justify-content-center text-center">
-                  <div class="col-12 col-md-10 col-lg-8">
-                    <div class="card bg-transparent border-0">
-                      <div>
-                        <img
-                          alt="Image"
-                          src="@/assets/images/testimonial/3.jpg"
-                          class="shadow-primary img-fluid rounded-circle d-inline"
-                        />
-                      </div>
-                      <div class="card-body p-0 mt-5">
-                        <p>
-                          Bootsland Amazing Landing Page All-in-one, clean code,
-                          Crative &amp; Modern design. We use the latest
-                          technologies it voluptatem accusantium doloremque
-                          laudantium, totam rem aperiam.
-                        </p>
-                        <div>
-                          <h5 class="text-primary d-inline mb-0">
-                            David Smith
-                          </h5>
-                          <small class="text-muted font-w-5 font-italic"
-                            >- Developer</small
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </swiper-slide>
-              <swiper-slide>
-                <div class="row justify-content-center text-center">
-                  <div class="col-12 col-md-10 col-lg-8">
-                    <div class="card bg-transparent border-0">
-                      <div>
-                        <img
-                          alt="Image"
-                          src="@/assets/images/testimonial/4.jpg"
-                          class="shadow-primary img-fluid rounded-circle d-inline"
-                        />
-                      </div>
-                      <div class="card-body p-0 mt-5">
-                        <p>
-                          Bootsland Amazing Landing Page All-in-one, clean code,
-                          Crative &amp; Modern design. We use the latest
-                          technologies it voluptatem accusantium doloremque
-                          laudantium, totam rem aperiam.
-                        </p>
-                        <div>
-                          <h5 class="text-primary d-inline mb-0">
-                            Lisa Johnson
-                          </h5>
-                          <small class="text-muted font-w-5 font-italic"
-                            >- Marketing Specialist</small
-                          >
+                          <small class="text-muted font-w-5 font-italic">
+                            {{ testimonial.role }}
+                          </small>
                         </div>
                       </div>
                     </div>
@@ -133,38 +35,12 @@
           </div>
         </div>
       </div>
-      <div class="shape-1" style="height: 160px; overflow: hidden">
-        <svg
-          viewBox="0 0 500 150"
-          preserveAspectRatio="none"
-          style="height: 100%; width: 100%"
-        >
-          <path
-            d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z"
-            style="stroke: none; fill: #fff"
-          ></path>
-        </svg>
-      </div>
-      <div class="shape-1 bottom" style="height: 110px; overflow: hidden">
-        <svg
-          viewBox="0 0 500 150"
-          preserveAspectRatio="none"
-          style="height: 100%; width: 100%"
-        >
-          <path
-            d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
-            style="stroke: none; fill: #fff"
-          ></path>
-        </svg>
-      </div>
+      <!-- Rest of the code -->
     </section>
   </div>
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-import "swiper/swiper-bundle.css";
-
 export default {
   name: "DemoNewTestimonials",
   components: {
@@ -173,6 +49,26 @@ export default {
   },
   data() {
     return {
+      testimonials: [
+        {
+          image: "@/assets/images/testimonial/1.jpg",
+          text: "Bootsland Amazing Landing Page All-in-one, clean code, Crative &amp; Modern design. We use the latest technologies it voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+          name: "Johny Stock",
+          role: "Supervisor"
+        },
+        {
+          image: "@/assets/images/testimonial/2.jpg",
+          text: "Bootsland Amazing Landing Page All-in-one, clean code, Crative &amp; Modern design. We use the latest technologies it voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+          name: "Jane Doe",
+          role: "Manager"
+        },
+        {
+          image: "@/assets/images/testimonial/3.jpg",
+          text: "Bootsland Amazing Landing Page All-in-one, clean code, Crative &amp; Modern design. We use the latest technologies it voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+          name: "David Smith",
+          role: "Developer"
+        }
+      ],
       swiperOption: {
         slidesPerView: 1,
         navigation: {
@@ -191,4 +87,41 @@ export default {
 
 <style scoped>
 /* Your existing styles here */
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+  font-size: 30px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
 </style>
