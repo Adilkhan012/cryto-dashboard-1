@@ -4,7 +4,7 @@
       <img src="@/assets/loader2.webp" alt="" />
     </div>
     <div style="display: flex; justify-content: center; align-items: center">
-      <div v-if="form.BannerImage != '' && form.BannerImage != undefined">
+      <div style="height: 60vh; " v-if="form.BannerImage != '' && form.BannerImage != undefined">
         <img
           :src="form.BannerImage"
           alt=""
@@ -782,7 +782,7 @@ export default {
 <style lang="scss" scoped>
 .loader {
   width: 100vw;
-  height: 60vh;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 7%;
