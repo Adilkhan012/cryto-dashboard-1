@@ -15,7 +15,7 @@
                   height != undefined && `height: 60vh`,
                 ]"
               >
-                <imageAni></imageAni>
+                <imageAni :height="height"></imageAni>
               </div>
             </div>
           </div>

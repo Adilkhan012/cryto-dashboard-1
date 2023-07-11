@@ -1,5 +1,9 @@
 <template>
-  <div class="home-content" ref="homecontent">
+  <div
+    class="home-content"
+    ref="homecontent"
+    :style="height != undefined ? 'height:60vh' : 'height:100vh'"
+  >
     <img
       class="content__img"
       v-for="i in images"
@@ -22,7 +26,7 @@ export default {
       trail: null,
     };
   },
-
+  props: ["height"],
   mounted() {
     this.config = useRuntimeConfig();
     axios
@@ -219,7 +223,6 @@ export default {
 
 <style scoped>
 .home-content {
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,7 +230,6 @@ export default {
   background: url(../images/slider-bg.jpg) no-repeat;
   position: relative;
   width: 100%;
-  height: 100vh;
 }
 
 .content__img {
