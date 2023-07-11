@@ -91,6 +91,9 @@ const { id } = useRoute().params;
 const { data: program } = await useFetch(
   `${config.public.BaseUrl}/FeaturedProgram?type=${id}`
 );
+definePageMeta({
+  layout: "pagesl",
+});
 </script>
 
 <style lang="scss" scoped>

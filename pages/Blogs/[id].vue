@@ -24,6 +24,9 @@
 const config = useRuntimeConfig();
 const { id } = useRoute().params;
 const { data: blog } = await useFetch(`${config.public.BaseUrl}/Blog?id=${id}`);
+definePageMeta({
+  layout: "pagesl",
+});
 </script>
 
 <style lang="scss" scoped></style>

@@ -115,6 +115,9 @@
 <script setup>
 const config = useRuntimeConfig();
 const { data: videos } = await useFetch(`${config.public.BaseUrl}/Videos`);
+definePageMeta({
+  layout: "pagesl",
+});
 </script>
 
 <script>

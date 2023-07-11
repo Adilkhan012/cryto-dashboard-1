@@ -7,12 +7,13 @@
           <div class="row">
             <div class="col-lg-12">
               <div
-                :style="
+                :style="[
                   image != '' &&
-                  `background: url(${image});background-size: cover;
+                    `background: url(${image});background-size: cover;
     background-position: center center;
-    background-repeat: no-repeat;`
-                "
+    background-repeat: no-repeat;`,
+                  height != undefined && `height: 60vh`,
+                ]"
               >
                 <imageAni></imageAni>
               </div>
@@ -37,6 +38,7 @@ import axios from "axios";
 export default {
   name: "AnimationProjectIndex",
   components: { imageAni },
+  props: ["height"],
   data() {
     return {
       image: "",

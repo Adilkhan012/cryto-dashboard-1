@@ -31,6 +31,9 @@
 <script setup>
 const config = useRuntimeConfig();
 const { data: blogs } = await useFetch(`${config.public.BaseUrl}/Blogs`);
+definePageMeta({
+  layout: "pagesl",
+});
 </script>
 
 <style lang="scss" scoped>
