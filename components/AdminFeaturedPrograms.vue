@@ -26,6 +26,30 @@
 
       <!-- <img v-if="image == ''" src="@/assets/ImagePlaceholder.jpg" alt="" /> -->
     </div>
+    <div style="display: flex; justify-content: center; align-items: center">
+      <div
+        v-if="form.MainImage != '' && form.MainImage != undefined"
+        style="width: 80%; height: 700px; margin: 2rem 0"
+      >
+        <img
+          :src="form.MainImage"
+          alt=""
+          style="width: 100%; height: 100%"
+          loading="lazy"
+          @click="SelectImage('main')"
+        />
+      </div>
+
+      <img
+        v-else
+        src="@/assets/ImagePlaceholder.jpg"
+        alt=""
+        style="width: 80%; height: 700px; margin: 1rem 0"
+        @click="SelectImage('main')"
+      />
+
+      <!-- <img v-if="image == ''" src="@/assets/ImagePlaceholder.jpg" alt="" /> -->
+    </div>
     <input
       style="display: none"
       type="file"
@@ -488,6 +512,8 @@ export default {
       form: {
         BannerImage: "",
         BannerImageFile: null,
+        MainImage: "",
+        MainImageFile: null,
         Title1: "",
         Description1: "",
         Image11: "",
@@ -555,6 +581,9 @@ export default {
             console.log(res.data);
             if (res.data.BannerImage != undefined) {
               this.form.BannerImage = `${this.config.public.BaseUrl}/${res.data.BannerImage}`;
+            }
+            if (res.data.MainImage != undefined) {
+              this.form.MainImage = `${this.config.public.BaseUrl}/${res.data.MainImage}`;
             }
             if (res.data.Image11 != "" && res.data.Image11 != undefined) {
               this.form.Image11 = `${this.config.public.BaseUrl}/${res.data.Image11}`;
@@ -646,6 +675,14 @@ export default {
         reader.addEventListener("load", (e) => {
           _this.form.BannerImage = e.target.result;
         });
+      } else if (this.fileType == "main") {
+        this.form.MainImageFile = this.$refs.image.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(this.$refs.image.files[0]);
+        var _this = this;
+        reader.addEventListener("load", (e) => {
+          _this.form.MainImage = e.target.result;
+        });
       } else if (this.fileType === "image11") {
         this.form.ImageFile11 = this.$refs.image.files[0];
         const reader = new FileReader();
@@ -732,6 +769,7 @@ export default {
       this.loader = true;
       var form = new FormData();
       form.append("BannerImage", this.form.BannerImageFile);
+      form.append("MainImage", this.form.MainImageFile);
       form.append("image11", this.form.ImageFile11);
       form.append("image12", this.form.ImageFile12);
       form.append("image21", this.form.ImageFile21);

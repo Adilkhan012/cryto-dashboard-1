@@ -15,7 +15,10 @@
                   height != undefined && `height: 60vh`,
                 ]"
               >
-                <imageAni :height="height"></imageAni>
+                <imageAni
+                  :height="height"
+                  v-if="noSlider == undefined"
+                ></imageAni>
               </div>
             </div>
           </div>
@@ -38,7 +41,7 @@ import axios from "axios";
 export default {
   name: "AnimationProjectIndex",
   components: { imageAni },
-  props: ["height"],
+  props: ["height", "noSlider"],
   data() {
     return {
       image: "",
@@ -48,11 +51,25 @@ export default {
 
   mounted() {
     this.config = useRuntimeConfig();
-    axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
-      if (res.data != null) {
-        this.image = `${this.config.public.BaseUrl}/${res.data.Banner}`;
-      }
-    });
+    if (this.$route.fullPath.includes("FeaturedPrograms")) {
+      axios
+        .get(
+          `${
+            this.config.public.BaseUrl
+          }/FeaturedProgram?type=${this.$route.fullPath.split("/").at(-1)}`
+        )
+        .then((res) => {
+          if (res.data.MainImage != null && res.data.MainImage != undefined) {
+            this.image = `${this.config.public.BaseUrl}/${res.data.MainImage}`;
+          }
+        });
+    } else {
+      axios.get(`${this.config.public.BaseUrl}/Images`).then((res) => {
+        if (res.data != null) {
+          this.image = `${this.config.public.BaseUrl}/${res.data.Banner}`;
+        }
+      });
+    }
   },
 
   methods: {},

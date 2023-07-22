@@ -4,7 +4,7 @@
       <img src="@/assets/loader.gif" alt="" />
     </div>
     <NewHeader />
-    <Banner :height="60" />
+    <Banner :height="60" :noSlider="true" />
     <slot> </slot>
     <NewFooter />
   </div>
@@ -18,6 +18,7 @@ export default {
     };
   },
   mounted() {
+    console.log(this.$route.fullPath.includes("FeaturedPrograms"));
     setTimeout(() => {
       this.loader = false;
     }, 2500);
