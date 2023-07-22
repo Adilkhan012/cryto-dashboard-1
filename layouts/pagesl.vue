@@ -18,7 +18,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$route.fullPath.includes("FeaturedPrograms"));
     setTimeout(() => {
       this.loader = false;
     }, 2500);

@@ -1,5 +1,5 @@
 <template>
-  <section class="event">
+  <section class="event" ref="event">
     <div class="container">
       <div class="row">
         <div class="col-md-5">
@@ -95,6 +95,24 @@ export default {
         this.JoinEventPhone = res.data.JoinEventPhone;
       }
     });
+    try {
+      const options = {
+        root: null,
+        rootMargin: "600px",
+        threshold: 0,
+      };
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          document.querySelector(".scroll-to-top").style.display = "initial";
+        } else {
+          document.querySelector(".scroll-to-top").style.display = "none";
+        }
+      }, options);
+
+      observer.observe(this.$refs.event);
+    } catch (ex) {
+      console.log("Asdfasdf", ex);
+    }
   },
 };
 </script>

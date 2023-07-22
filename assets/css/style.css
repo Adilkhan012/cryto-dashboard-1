@@ -362,6 +362,7 @@ p {
 ----------------------------------------*/
 
 .scroll-to-top {
+  display: none;
   position: fixed;
   z-index: 99;
   left: 50%;

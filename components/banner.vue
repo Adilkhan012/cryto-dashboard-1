@@ -23,9 +23,9 @@
             </div>
           </div>
         </div>
-        <div class="hero-scrolli">
+        <!-- <div class="hero-scrolli">
           <span><i class="fa fa-arrow-down"></i></span>
-        </div>
+        </div> -->
       </div>
     </section>
     <!--======  HERO PART END ======-->
